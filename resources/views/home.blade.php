@@ -5,15 +5,16 @@
             <div class="row ">
                 <div class="col-md-5 position-relative">
                     <h1 class="home-text text-white fw-semibold ">Welcome To AJ <span style="color: gold"
-                            class="fw-bold store">STORE</span></h1>
+                            class="fw-bold store">STORE,</span></h1>
                     <p class="fs-5 text-white-50">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat
                         exercitationem esse fugit, facilis ex voluptatum?</p>
-                    <div class="btn-groups">
 
-                        <a href="#order" class="link-light"><button class="btn btn1 fw-semibold"> Click To Move
-                            </button></a>
 
-                    </div>
+                    <a href="#order" class="link-light"><button class="btn-order">
+                            Order Now
+                        </button></a>
+
+
                 </div>
 
                 <div class="col-md-6">

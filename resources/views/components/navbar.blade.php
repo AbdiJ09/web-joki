@@ -4,9 +4,9 @@
      <ul class="nav">
          <li>
              @if (Request::is('/'))
-                 <a href="#home" class="nav-link">Home</a>
+                 <a href="#home" class="nav-link">Beranda</a>
              @else
-                 <a href="/#home" class="nav-link">Home</a>
+                 <a href="/#home" class="nav-link">Beranda</a>
              @endif
          </li>
          <li>
@@ -16,7 +16,7 @@
      @else
          <a href="/#order" class="nav-link">Service</a></li>
          @endif
-         <li><a href="#" class="nav-link">Preview</a></li>
+         <li><a href="#preview" class="nav-link">Preview</a></li>
          <li>
              <a href="#" class="nav-link">Contact Us</a>
          </li>
