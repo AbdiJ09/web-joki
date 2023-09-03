@@ -1,45 +1,45 @@
-<<<<<<< HEAD
-const first = document.querySelector("#first");
-// const text = document.querySelector("#text");
-const sniper = document.querySelector("#text-front");
-const mahkota = document.querySelector("#mahkota");
-const textBack = document.querySelector("#text-back");
-const nibiru = document.querySelector("#nibiru");
-function updateParallax() {
-    let value = window.scrollY;
-    // first.style.transform = `translateY(${value * 0.7}px)`;
-    // sniper.style.marginLeft = value * -2.5 + "px";
-    // nibiru.style.marginRight = value * -2.5 + "px";
-
-    // text.style.marginTop = value * 2.5 + "px";
-    // mahkota.style.marginTop = value * -2.5 + "px";
-    // textBack.style.marginRight = value * -2.5 + "px";
-
-    // ... tambahkan perubahan lainnya
-}
-
-window.addEventListener("scroll", function () {
-    requestAnimationFrame(updateParallax);
-});
-=======
-// const betrik = document.querySelector("#first");
-// const first = document.querySelector(".paralax");
-// const textFront = document.querySelector("#text-front");
+// <<<<<<< HEAD
+// const first = document.querySelector("#first");
+// // const text = document.querySelector("#text");
+// const sniper = document.querySelector("#text-front");
 // const mahkota = document.querySelector("#mahkota");
 // const textBack = document.querySelector("#text-back");
+// const nibiru = document.querySelector("#nibiru");
 // function updateParallax() {
 //     let value = window.scrollY;
-//     betrik.style.marginTop = value * -2.5 + "px";
-//     // first.style.marginTop = value * -1.5 + "px";
-//     textFront.style.marginLeft = value * -2.5 + "px";
-//     textBack.style.marginRight = value * -2.5 + "px";
+//     // first.style.transform = `translateY(${value * 0.7}px)`;
+//     // sniper.style.marginLeft = value * -2.5 + "px";
+//     // nibiru.style.marginRight = value * -2.5 + "px";
+
+//     // text.style.marginTop = value * 2.5 + "px";
+//     // mahkota.style.marginTop = value * -2.5 + "px";
+//     // textBack.style.marginRight = value * -2.5 + "px";
+
 //     // ... tambahkan perubahan lainnya
 // }
 
 // window.addEventListener("scroll", function () {
 //     requestAnimationFrame(updateParallax);
 // });
->>>>>>> 5298ccd99e3891bbac9f0672cdede482ebf4d8c0
+// =======
+// // const betrik = document.querySelector("#first");
+// // const first = document.querySelector(".paralax");
+// // const textFront = document.querySelector("#text-front");
+// // const mahkota = document.querySelector("#mahkota");
+// // const textBack = document.querySelector("#text-back");
+// // function updateParallax() {
+// //     let value = window.scrollY;
+// //     betrik.style.marginTop = value * -2.5 + "px";
+// //     // first.style.marginTop = value * -1.5 + "px";
+// //     textFront.style.marginLeft = value * -2.5 + "px";
+// //     textBack.style.marginRight = value * -2.5 + "px";
+// //     // ... tambahkan perubahan lainnya
+// // }
+
+// // window.addEventListener("scroll", function () {
+// //     requestAnimationFrame(updateParallax);
+// // });
+// >>>>>>> 5298ccd99e3891bbac9f0672cdede482ebf4d8c0
 
 const header = document.querySelector("header");
 
@@ -113,36 +113,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-const passwordInput = document.getElementById('password');
-const passwordIcon = document.getElementById('iconPw');
+const passwordInput = document.getElementById("password");
+const passwordIcon = document.getElementById("iconPw");
 
-passwordInput.addEventListener('input', function () {
-    if (passwordInput.value.trim() !== '') {
+passwordInput.addEventListener("input", function () {
+    if (passwordInput.value.trim() !== "") {
         // Jika input password tidak kosong, tampilkan ikon
-        passwordIcon.style.display = 'block';
+        passwordIcon.style.display = "block";
     } else {
         // Jika input password kosong, sembunyikan ikon
-        passwordIcon.style.display = 'none';
+        passwordIcon.style.display = "none";
     }
 });
 
-passwordIcon.addEventListener('click', function() {
-    if (passwordInput.getAttribute('type') === 'password') {
+passwordIcon.addEventListener("click", function () {
+    if (passwordInput.getAttribute("type") === "password") {
         // Jika tipe input adalah 'password', ubah menjadi 'text'
-        passwordInput.setAttribute('type', 'text');
-        passwordIcon.classList.remove('bi-eye');
-        passwordIcon.classList.add('bi-eye-slash');
+        passwordInput.setAttribute("type", "text");
+        passwordIcon.classList.remove("bi-eye");
+        passwordIcon.classList.add("bi-eye-slash");
     } else {
         // Jika tipe input adalah 'text', ubah menjadi 'password'
-        passwordInput.setAttribute('type', 'password');
-        passwordIcon.classList.remove('bi-eye-slash');
-        passwordIcon.classList.add('bi-eye');
+        passwordInput.setAttribute("type", "password");
+        passwordIcon.classList.remove("bi-eye-slash");
+        passwordIcon.classList.add("bi-eye");
     }
 });
 
-const paymentBody = document.querySelector('.button-payment');
-const paymentDrawwer = document.querySelector('.payment-drawwer');
+const paymentBody = document.querySelector(".button-payment");
+const paymentDrawwer = document.querySelector(".payment-drawwer");
 
 function paymentOpen() {
-    paymentDrawwer.classList.toggle('active');
+    paymentDrawwer.classList.toggle("active");
 }
