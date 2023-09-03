@@ -31,14 +31,33 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .paralax img.text-back {
     width: 75%;
-    transform: translateY(20%);
+    z-index: 2;
+    /* position: fixed; */
+
+    transform: translateY(60%);
     /* width: 400px; */
 }
 .paralax img.text-front {
     width: 75%;
-    transform: translateY(20%) translateX(10px);
+    z-index: 2;
+    /* position: fixed; */
+    transform: translateY(60%) translateX(10px);
 }
-
+.paralax img.sniper {
+    width: 30%;
+    left: 10%;
+    /* z-index: 0; */
+}
+.paralax img.basoka {
+    width: 25%;
+    right: 13%;
+    transform: translateY(20%) rotate(20deg);
+}
+.paralax img.sg {
+    width: 15%;
+    top: 5%;
+    right: 28%;
+}
 .paralax img {
     position: absolute;
     width: 100%;
@@ -52,58 +71,30 @@ section .text-bg {
     height: 100%;
     object-fit: contain;
 }
-#paralax img#sniper {
-    width: 550px;
-    animation: floating 3s infinite;
-    top: -90px;
-    left: 50px;
-}
 
 @keyframes brightnessAnimation {
     0%,
     100% {
-        filter: brightness(1);
     }
     50% {
-        filter: brightness(1.5);
     }
 }
 .paralax img#first {
     /* width: 100px; */
-    position: fixed;
-}
-#paralax img#firsst {
-    filter: blur(3px);
-}
-#paralax img#basoka {
-    width: 500px;
-    animation: floating 3s infinite;
-    right: 5%;
-    top: 30px;
+    /* position: fixed; */
+    z-index: 2;
 }
 
-#paralax::before {
+.paralax::before {
     content: "";
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 200px;
-    background: linear-gradient(to top, #272626, transparent);
+    background: linear-gradient(to top, #272726, transparent);
     z-index: 10000;
 }
-#paralax img#nibiru {
-    width: 250px;
-    right: 25%;
-    animation: floating 3s infinite;
 
-    top: -10px;
-}
-#paralax img#mahkota {
-    width: 500px;
-    left: 33%;
-    top: -100px;
-    animation: floating 3s infinite;
-}
 @keyframes floating {
     0%,
     100% {
@@ -113,29 +104,7 @@ section .text-bg {
         transform: translateY(-20px);
     }
 }
-#paralax .betrik {
-    height: auto;
-    position: fixed;
-    left: -5%;
-    z-index: 1;
-}
 
-#paralax h1 {
-    position: absolute;
-    font-size: 300px;
-    font-family: "Poppins", sans-serif;
-    /* color: yellow; */
-    font-weight: 800;
-    width: 100%;
-    transform: rotate(-5deg);
-    text-align: center;
-    outline: none;
-    color: #fff;
-
-    /* /* text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 40px gold, 0 0 80px gold,
-        0 0 160px gold, 0 0 10px gold; */
-    animation: animate 5s linear infinite;
-}
 @keyframes animate {
     0%,
     18%,
@@ -293,11 +262,7 @@ header.sticky {
         transform: translateY(-20px);
     }
 }
-.mahkota-home {
-    top: -55px;
-    width: 100px;
-    position: absolute;
-}
+
 #home .counter,
 .counter-fast,
 .counter-trust {
@@ -317,67 +282,29 @@ header.sticky {
     content: "%";
 }
 
-.btn1 {
-    position: relative;
-    font-size: 17px;
+.btn-order {
+    font-family: "poppins";
+    font-size: 1.2rem;
+    color: #fafafa;
     text-transform: uppercase;
-    text-decoration: none;
-    padding: 1em 2.5em;
-    border-radius: 6em;
-    transition: all 0.2s;
-    border: none;
-    font-family: inherit;
-    font-weight: 500;
-    color: black;
-    background-color: gold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid gold;
+    background: #252525;
+    box-shadow: 3px 3px gold;
+    cursor: pointer;
 }
 
-.btn1:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn1:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn1::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
-}
-
-.btn1::after {
-    background-color: #ecdd0d;
-    border-radius: 6em;
-}
-
-.btn1:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-@keyframes slide-in-top {
-    0% {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+.btn-order:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
 }
 #order {
     background-color: #272626;
     height: auto;
     /* margin-top: -6rem; */
     position: relative;
+    padding-top: 10rem;
     padding-bottom: 16rem;
     z-index: 100;
     font-family: "poppins";
@@ -398,11 +325,45 @@ header.sticky {
     height: auto;
     overflow: hidden;
 }
+
 .img-area img {
     width: 100%;
     height: auto;
-    transform: scaleZ(1.5);
     transition: all ease 0.5s;
+}
+.loader {
+    display: flex;
+    position: fixed;
+    left: 0;
+    z-index: 10000;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    width: 100%;
+    height: 100%;
+    /* filter: blur(5); */
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 250px;
+    height: 150px;
+    position: relative;
+    animation: rotation 0.75s linear infinite;
+    border-radius: 100em;
+}
+
+.path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 20;
+    stroke-linecap: round;
+}
+
+@keyframes rotation {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .img-text,
@@ -431,7 +392,6 @@ header.sticky {
     padding: 20px;
     margin-bottom: 20px;
     bottom: 0;
-    z-index: 1;
     transform: translateY(170px);
     /* opacity: 0; */
     font-family: "poppins";
@@ -444,8 +404,8 @@ header.sticky {
     font-weight: 300;
 }
 .img-area:hover .img-text {
+    z-index: 10000;
     transform: translateY(0);
-    /* opacity: 1; */
 }
 
 .modal-content {
@@ -478,7 +438,6 @@ header.sticky {
 
 .sec-right h1 {
     position: relative;
-    font-size: 1.86rem;
     margin: 10px 0 8px 0;
 }
 
@@ -547,6 +506,67 @@ header.sticky {
     position: absolute;
     bottom: -5px;
     width: 90px;
+}
+.preview {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #272626;
+}
+.swiper {
+    width: 70%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    /* height: 400px; */
+    filter: blur(4px);
+}
+.swiper-slide-active {
+    box-shadow: 0px 0px 30px rgba(199, 199, 12, 0.5);
+
+    filter: blur(0);
+}
+.swiper-slide .testimoni {
+    padding: 20px 20px;
+}
+.swiper-slide .testimoni h3 {
+    letter-spacing: 2;
+    /* border-bottom: 5px solid gold; */
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+.swiper-slide .testimoni h3::before {
+    content: "";
+    position: absolute;
+    border-bottom: 4px solid gold;
+    border-radius: 10px;
+    bottom: -7px;
+    left: 0;
+    width: 100%;
+}
+.swiper-slide .testimoni i {
+    color: gold;
+    font-size: 20px;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+    background-image: none;
 }
 footer {
     display: grid;
@@ -652,7 +672,6 @@ footer .container .contact .info li a {
         display: flex;
         margin: auto;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 1);
         transition: 0.5s;
         text-align: left;
     }
@@ -696,10 +715,16 @@ footer .container .contact .info li a {
     body {
         background-color: #272626;
     }
+    #home {
+        padding-top: 13rem;
+    }
 
     #home .betrik-home {
         animation: none; /* Menghilangkan animasi pada layar kecil */
         margin-top: 20px; /* Menambahkan margin atas pada gambar */
+    }
+    #order {
+        padding-top: 0;
     }
     #home .home-text {
         font-size: 3rem;
@@ -710,7 +735,8 @@ footer .container .contact .info li a {
         font-size: 2rem;
     }
     #home .btn1 {
-        width: 200px;
+        width: 45%;
+        margin-bottom: 30px;
         padding: 10px 10px;
     }
     .kolom-3 {
@@ -722,10 +748,12 @@ footer .container .contact .info li a {
     .order h1 {
         margin-top: 10rem;
     }
+    .swiper {
+        width: 100%;
+    }
     footer .container {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
         grid-gap: 20px;
     }
 }

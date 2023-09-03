@@ -1,31 +1,42 @@
-const first = document.querySelector("#first");
-// const text = document.querySelector("#text");
-const sniper = document.querySelector("#text-front");
-const mahkota = document.querySelector("#mahkota");
-const textBack = document.querySelector("#text-back");
-const nibiru = document.querySelector("#nibiru");
-function updateParallax() {
-    let value = window.scrollY;
-    first.style.transform = `translateY(${value * 0.7}px)`;
-    sniper.style.marginLeft = value * -2.5 + "px";
-    // nibiru.style.marginRight = value * -2.5 + "px";
+// const betrik = document.querySelector("#first");
+// const first = document.querySelector(".paralax");
+// const textFront = document.querySelector("#text-front");
+// const mahkota = document.querySelector("#mahkota");
+// const textBack = document.querySelector("#text-back");
+// function updateParallax() {
+//     let value = window.scrollY;
+//     betrik.style.marginTop = value * -2.5 + "px";
+//     // first.style.marginTop = value * -1.5 + "px";
+//     textFront.style.marginLeft = value * -2.5 + "px";
+//     textBack.style.marginRight = value * -2.5 + "px";
+//     // ... tambahkan perubahan lainnya
+// }
 
-    // text.style.marginTop = value * 2.5 + "px";
-    // mahkota.style.marginTop = value * -2.5 + "px";
-    textBack.style.marginRight = value * -2.5 + "px";
-
-    // ... tambahkan perubahan lainnya
-}
-
-window.addEventListener("scroll", function () {
-    requestAnimationFrame(updateParallax);
-});
+// window.addEventListener("scroll", function () {
+//     requestAnimationFrame(updateParallax);
+// });
 
 const header = document.querySelector("header");
-window.addEventListener("scroll", function () {
-    header.classList.toggle("sticky", window.scrollY > 1000);
-});
-[];
+
+function updateStickyClass() {
+    const isDesktop = window.innerWidth > 1000;
+    const isMobile = window.innerWidth <= 500;
+
+    if (isDesktop && window.scrollY > 1000) {
+        header.classList.add("sticky");
+    } else if (isMobile && window.scrollY > 100) {
+        header.classList.add("sticky");
+    } else {
+        header.classList.remove("sticky");
+    }
+}
+
+window.addEventListener("scroll", updateStickyClass);
+window.addEventListener("resize", updateStickyClass);
+
+// Panggil fungsi untuk menginisialisasi status "sticky" saat halaman dimuat
+updateStickyClass();
+
 const open = document.querySelector("#menu-icon");
 const nav = document.querySelector(".nav");
 

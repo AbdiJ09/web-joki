@@ -4,8 +4,8 @@
          <div class="row">
              @foreach ($services as $service)
                  <div class="col-md-4 col-sm-6">
-                     <div class="img-area shadow-lg rounded-3">
-                         <img src="{{ asset('img/' . $service->gambar) }}" alt="">
+                     <div class="img-area shadow-lg rounded-3 my-2">
+                         <img src="/img/{{ $service->gambar }}" alt="">
                          <div class="img-text">
                              <h3 class="fs-5">{{ $service->name }}</h3>
                              <h5>Mobile Legends</h5>

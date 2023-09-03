@@ -8,7 +8,6 @@
     <link rel="icon" href="/img/aj.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +38,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Black+Ops+One&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200&family=Russo+One&family=Stalinist+One&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 
 <body>
@@ -56,9 +58,23 @@
     </div>
 
 
+
     @if (Request::is('/'))
         <x-orders />
     @endif
+    <div class="loader">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 66" height="100px" width="100px" class="spinner">
+            <circle stroke="url(#gradient)" r="20" cy="33" cx="33" stroke-width="1"
+                fill="transparent" class="path"></circle>
+            <linearGradient id="gradient">
+                <stop stop-opacity="1" stop-color="gold" offset="0%"></stop>
+                <stop stop-opacity="0" stop-color="#000" offset="100%"></stop>
+            </linearGradient>
+
+        </svg>
+    </div>
+
+    <x-preview />
 
     <x-footer />
 
@@ -92,6 +108,31 @@
         });
     </script>
 
+    <script>
+        $(window).on("load", function() {
+            $(".loader").fadeOut("slow");
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: true,
+            },
+            loop: true,
+        });
+    </script>
 
 
 </body>
