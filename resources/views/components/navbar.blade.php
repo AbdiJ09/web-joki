@@ -9,7 +9,6 @@
                  <a href="/#home" class="nav-link">Home</a>
              @endif
          </li>
-
          <li>
              @if (Request::is('/'))
                  <a href="#order" class="nav-link">Service</a>

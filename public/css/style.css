@@ -395,12 +395,12 @@ header.sticky {
     text-align: center;
     color: #fff;
     position: relative;
-    height: auto;
+    height: 12rem;
     overflow: hidden;
 }
 .img-area img {
     width: 100%;
-    height: auto;
+    height: 100%;
     transform: scaleZ(1.5);
     transition: all ease 0.5s;
 }
@@ -434,7 +434,7 @@ header.sticky {
     z-index: 1;
     transform: translateY(170px);
     /* opacity: 0; */
-    font-family: "poppins";
+    font-family: "Poppins", sans-serif;
     transition: all ease 0.4s;
 }
 .img-text h3 {
@@ -460,6 +460,7 @@ header.sticky {
     background-color: #f0ad4e;
     border-color: #f0ad4e;
 }
+
 .sec-right {
     background: linear-gradient(
         to top,
@@ -470,24 +471,100 @@ header.sticky {
         rgba(51, 49, 49, 0.95) 100%
     );
     border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    padding: 2px 20px 20px 20px;
 }
 
-.sec-right {
-    font-family: "Poppins", sans-serif;
+.sec-right .focus-ring {
+    border-radius: 4px;
+    --bs-focus-ring-color: rgba(255, 215, 0, .27);
+    --bs-focus-ring-blur: 4px;
+    font-size: 14px;
+    transition: var(--bs-focus-ring-color) 0.3s ease, var(--bs-focus-ring-blur) 0.3s ease;
+}
+
+.sec-right .focus-ring:focus {
+    border: 1px solid gray;
+}
+
+.sec-right.form-account .form-select option {
+    font-size: 14px;
+}
+
+.sec-right.form-account .password {
+    position: relative;
+}
+
+.sec-right.form-account .iconPw {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    color: #000;
+    cursor: pointer;
+    display: none;
+}
+
+.sec-right.select-rank .btn {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.sec-right.select-rank .btn-check + .btn {
+    color: #fff;
+    font-size: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.2);
+    transition: background .3s ease, box-shadow .3s ease, color .3s ease;
+}
+
+.sec-right.select-rank .btn-check:checked + .btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sec-right.select-rank .btn-check:checked + .btn .fst-italic {
+    color: #ecdd0d;
+}
+
+.sec-right.select-rank .btn-check + .btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
 }
 
 .sec-right h1 {
     position: relative;
-    font-size: 1.86rem;
-    margin: 10px 0 8px 0;
+    font-size: 1.84rem;
+    margin-top: 6px;
+    padding-bottom: 4px;
 }
 
 .sec-right h1::before {
     content: "";
-    border-bottom: 4px solid gold;
+    border-bottom: 3px solid rgb(255, 217, 0);
     border-radius: 10px;
     position: absolute;
     bottom: -5px;
+    left: 0;
+    width: 100%;
+}
+
+.sec-left h1 {
+    position: relative;
+    font-size: 1.35rem;
+}
+
+.sec-left h1::before {
+    content: "";
+    border-bottom: 3px solid rgb(255, 217, 0);
+    border-radius: 10px;
+    position: absolute;
+    bottom: -6px;
     left: 0;
     width: 100%;
 }
@@ -503,8 +580,58 @@ header.sticky {
         rgba(51, 49, 49, 0.95) 100%
     );
     font-family: "poppins";
-    padding: 20px 2%;
+    padding: 20px 20px;
 }
+
+.sec-left .btn-other {
+    position: relative;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sec-left .btn-other .img-other {
+    position: relative;
+    width: 125px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 7px 0 0 7px;
+    transition: all 0.3s ease;
+}
+
+.sec-left .btn-other .img-other img {
+    width: 100%;
+    height: 100%;
+}
+
+.sec-left .btn-other .img-other::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: -100%; /* Mulai dari luar layar kiri */
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.1) 25%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.5) 75%,
+        rgba(255, 255, 255, 0.7) 100%
+    );
+    transition: all 0.3s ease;
+}
+
+.sec-left .btn-other:hover .img-other::after {
+    left: 0; /* Posisi latar belakang ke kiri saat hover */
+}
+
+.sec-left .btn-other .title {
+    color: #fff;
+    font-size: 14px;
+}
+
 #service .container {
     margin-top: 3rem;
 }
@@ -548,6 +675,100 @@ header.sticky {
     bottom: -5px;
     width: 90px;
 }
+
+.content-text .how-order {
+    font-size: 15px;
+}
+
+.payment-drawwer {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 7px;
+}
+
+.payment-drawwer .header-payment {
+    position: relative;
+    padding: 10px 0 0 15px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgba(24, 23, 23, 0.01);
+}
+
+.payment-drawwer .footer-payment {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 15px 6px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 0 0 6px 6px;
+}
+
+.payment-drawwer .button-payment {
+    max-height: 0;
+    height: 100px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.payment-drawwer.active .button-payment {
+    max-height: 250px; /* Atur nilai maksimum yang sesuai */
+    transition: max-height 0.3s ease;
+}
+
+.payment-drawwer .footer-payment img {
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+    margin: 0 3px 3px 3px;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.payment-drawwer.active .footer-payment img {
+    transform: scale(0);
+}
+
+.payment-drawwer .footer-payment .bi-chevron-down {
+    transition: transform 0.3s ease; /* Atur transisi rotasi */
+}
+
+.payment-drawwer.active .footer-payment .bi-chevron-down {
+    transform: rotate(180deg); /* Putar ikon 180 derajat saat dibuka */
+}
+
+.payment-group .btn-check + .btn {
+    cursor: pointer;
+    text-align: left;
+    padding: 5px 10px 6px 10px;
+    background-color: rgb(208, 208, 208);
+    border-radius: 3px;
+    border-color: transparent;
+    filter: grayscale(100%);
+    color: #000;
+}
+
+.payment-group .btn-check:checked + .btn {
+    filter: grayscale(0);
+}
+
+.payment-group label {
+    cursor: pointer;
+}
+
+.payment-group .info-top {
+    color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+}
+
+.payment-group .info-bottom {
+    font-size: 10px;
+    margin-left: 2px;
+    line-height: 12px;
+}
+
 footer {
     display: grid;
     justify-content: center;
@@ -728,15 +949,4 @@ footer .container .contact .info li a {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 20px;
     }
-}
-
-/* Form Card Style */
-
-.card-form {
-    font-family: "Poppins", sans-serif;
-    background-color: transparent;
-}
-
-.card-form .card-header {
-    color: white;
 }

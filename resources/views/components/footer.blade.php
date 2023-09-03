@@ -14,19 +14,19 @@
          <div class="sec quicklinks">
              <h2>Support</h2>
              <ul>
-                 <li><a href="#">FAQ</a></li>
-                 <li><a href="#">Privacy Policy</a></li>
-                 <li><a href="#">Help</a></li>
-                 <li><a href="#">Contact</a></li>
+                 <li><a href="#"><i class="bi bi-chevron-right"></i> FAQ</a></li>
+                 <li><a href="#"><i class="bi bi-chevron-right"></i> Privacy Policy</a></li>
+                 <li><a href="#"><i class="bi bi-chevron-right"></i> Help</a></li>
+                 <li><a href="#"><i class="bi bi-chevron-right"></i> Contact</a></li>
              </ul>
          </div>
          <div class="sec quicklinks">
              <h2>Order</h2>
              <ul>
-                 <li><a href="#">Joki Rank</a></li>
-                 <li><a href="#">Joki Classic</a></li>
-                 <li><a href="#">Jasa Gendong</a></li>
-                 <li><a href="#">Akun</a></li>
+                 <li><a href="#"><i class="bi bi-chevron-right"></i> Joki Rank</a></li>
+                 <li><a href="#"><i class="bi bi-chevron-right"></i> Joki Classic</a></li>
+                 <li><a href="#"><i class="bi bi-chevron-right"></i> Jasa Gendong</a></li>
+                 <li><a href="#"><i class="bi bi-chevron-right"></i> Akun</a></li>
              </ul>
          </div>
          <div class="sec contact">

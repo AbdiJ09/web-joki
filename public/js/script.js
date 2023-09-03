@@ -6,13 +6,13 @@ const textBack = document.querySelector("#text-back");
 const nibiru = document.querySelector("#nibiru");
 function updateParallax() {
     let value = window.scrollY;
-    first.style.transform = `translateY(${value * 0.7}px)`;
-    sniper.style.marginLeft = value * -2.5 + "px";
+    // first.style.transform = `translateY(${value * 0.7}px)`;
+    // sniper.style.marginLeft = value * -2.5 + "px";
     // nibiru.style.marginRight = value * -2.5 + "px";
 
     // text.style.marginTop = value * 2.5 + "px";
     // mahkota.style.marginTop = value * -2.5 + "px";
-    textBack.style.marginRight = value * -2.5 + "px";
+    // textBack.style.marginRight = value * -2.5 + "px";
 
     // ... tambahkan perubahan lainnya
 }
@@ -76,3 +76,37 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+const passwordInput = document.getElementById('password');
+const passwordIcon = document.getElementById('iconPw');
+
+passwordInput.addEventListener('input', function () {
+    if (passwordInput.value.trim() !== '') {
+        // Jika input password tidak kosong, tampilkan ikon
+        passwordIcon.style.display = 'block';
+    } else {
+        // Jika input password kosong, sembunyikan ikon
+        passwordIcon.style.display = 'none';
+    }
+});
+
+passwordIcon.addEventListener('click', function() {
+    if (passwordInput.getAttribute('type') === 'password') {
+        // Jika tipe input adalah 'password', ubah menjadi 'text'
+        passwordInput.setAttribute('type', 'text');
+        passwordIcon.classList.remove('bi-eye');
+        passwordIcon.classList.add('bi-eye-slash');
+    } else {
+        // Jika tipe input adalah 'text', ubah menjadi 'password'
+        passwordInput.setAttribute('type', 'password');
+        passwordIcon.classList.remove('bi-eye-slash');
+        passwordIcon.classList.add('bi-eye');
+    }
+});
+
+const paymentBody = document.querySelector('.button-payment');
+const paymentDrawwer = document.querySelector('.payment-drawwer');
+
+function paymentOpen() {
+    paymentDrawwer.classList.toggle('active');
+}
