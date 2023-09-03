@@ -247,13 +247,13 @@
                                     </div>
                                 </div>
                                 <div class="footer-payment" onclick="paymentOpen()">
-                                    <img src="https://takapedia.com/assets/img/logos/Shopeepay.png" class="bg-white" alt="" width="36" height="13">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png" class="bg-white" alt="" width="41" height="13">
-                                    <img src="https://takapedia.com/assets/img/logos/OVO.png" alt="" class="bg-white" width="24" height="13">
-                                    <img src="https://takapedia.com/assets/img/logos/Linkaja.png" alt="" class="bg-white" width="13" height="13">
+                                    <img src="https://takapedia.com/assets/img/logos/Shopeepay.png" class="bg-white" alt="" width="52" height="20">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png" class="bg-white" alt="" width="53" height="20">
+                                    <img src="https://takapedia.com/assets/img/logos/OVO.png" alt="" class="bg-white" width="40" height="20">
+                                    <img src="https://takapedia.com/assets/img/logos/Linkaja.png" alt="" class="bg-white" width="20" height="20">
                                     <i class="bi bi-chevron-down"></i>
                                 </div>
-                            </div>                        
+                            </div>
                         </div>
                     </form>
 
