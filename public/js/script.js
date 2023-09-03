@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const first = document.querySelector("#first");
 // const text = document.querySelector("#text");
 const sniper = document.querySelector("#text-front");
@@ -21,25 +20,6 @@ function updateParallax() {
 window.addEventListener("scroll", function () {
     requestAnimationFrame(updateParallax);
 });
-=======
-// const betrik = document.querySelector("#first");
-// const first = document.querySelector(".paralax");
-// const textFront = document.querySelector("#text-front");
-// const mahkota = document.querySelector("#mahkota");
-// const textBack = document.querySelector("#text-back");
-// function updateParallax() {
-//     let value = window.scrollY;
-//     betrik.style.marginTop = value * -2.5 + "px";
-//     // first.style.marginTop = value * -1.5 + "px";
-//     textFront.style.marginLeft = value * -2.5 + "px";
-//     textBack.style.marginRight = value * -2.5 + "px";
-//     // ... tambahkan perubahan lainnya
-// }
-
-// window.addEventListener("scroll", function () {
-//     requestAnimationFrame(updateParallax);
-// });
->>>>>>> 5298ccd99e3891bbac9f0672cdede482ebf4d8c0
 
 const header = document.querySelector("header");
 
