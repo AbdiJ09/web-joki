@@ -627,6 +627,7 @@ header.sticky {
 .content-text h2 {
     position: relative;
 }
+
 .content-text h2::before {
     content: "";
     border-bottom: 5px solid gold;
@@ -635,6 +636,7 @@ header.sticky {
     bottom: -5px;
     width: 90px;
 }
+
 footer {
     display: grid;
     justify-content: center;
