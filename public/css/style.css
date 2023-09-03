@@ -322,7 +322,7 @@ header.sticky {
     text-align: center;
     color: #fff;
     position: relative;
-    height: 12rem;
+    height: auto;
     overflow: hidden;
 }
 
@@ -438,10 +438,11 @@ header.sticky {
 
 .sec-right .focus-ring {
     border-radius: 4px;
-    --bs-focus-ring-color: rgba(255, 215, 0, .27);
+    --bs-focus-ring-color: rgba(255, 215, 0, 0.27);
     --bs-focus-ring-blur: 4px;
     font-size: 14px;
-    transition: var(--bs-focus-ring-color) 0.3s ease, var(--bs-focus-ring-blur) 0.3s ease;
+    transition: var(--bs-focus-ring-color) 0.3s ease,
+        var(--bs-focus-ring-blur) 0.3s ease;
 }
 
 .sec-right .focus-ring:focus {
@@ -478,7 +479,7 @@ header.sticky {
     background: rgba(255, 255, 255, 0);
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.2);
-    transition: background .3s ease, box-shadow .3s ease, color .3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .sec-right.select-rank .btn-check:checked + .btn {
@@ -486,7 +487,8 @@ header.sticky {
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .sec-right.select-rank .btn-check:checked + .btn .fst-italic {
@@ -636,7 +638,34 @@ header.sticky {
     bottom: -5px;
     width: 90px;
 }
+.preview {
+    background-color: #272626;
+    width: 100%;
+}
+.swiper {
+    width: 70%;
+    padding-top: 50px;
+    padding-bottom: 10rem;
+}
 
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    background-color: #000;
+    border-radius: 10px;
+    filter: blur(4px);
+    width: 300px;
+    /* height: 300px; */
+}
+.swiper-slide-active {
+    filter: blur(0);
+    box-shadow: 0 0 10px gold;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
 footer {
     display: grid;
     justify-content: center;
