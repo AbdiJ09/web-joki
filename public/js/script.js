@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 window.addEventListener("scroll", function () {
     requestAnimationFrame(updateParallax);
 });
 
->>>>>>> 47cdba5fa72539a91c86e04129360971b31cccba
 const header = document.querySelector("header");
 
 function updateStickyClass() {
