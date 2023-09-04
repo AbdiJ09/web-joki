@@ -469,12 +469,12 @@ header.sticky {
 .sec-right.select-rank .btn {
     position: relative;
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
 }
 
 .sec-right.select-rank .btn-check + .btn {
     color: #fff;
-    font-size: 12px;
+    font-size: 13px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0);
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -485,7 +485,7 @@ header.sticky {
 .sec-right.select-rank .btn-check:checked + .btn {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     transition: background 0.3s ease, border 0.3s ease, color 0.3s ease,
         box-shadow 0.3s ease;
@@ -496,13 +496,14 @@ header.sticky {
 }
 
 .sec-right.select-rank .btn-check + .btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .sec-right h1 {
     position: relative;
-    font-size: 1.86rem;
+    font-size: 1.7rem;
     margin: 10px 0 8px 0;
 }
 
@@ -727,6 +728,13 @@ header.sticky {
 }
 
 .payment-drawwer .btn-check:checked + .btn {
+    filter: grayscale(0);
+    background-color: #ffffff;
+    border: transparent;
+    color: #000;
+}
+
+.payment-drawwer .btn-check:hover + .btn {
     filter: grayscale(0);
     background-color: #ffffff;
     border: transparent;

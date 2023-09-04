@@ -51,16 +51,17 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="shadow-lg sec-left d-none d-lg-block">
                         <h1 class="fw-normal">Jasa Joki Lainnya</h1>
                         <a href="/order/joki-classic" class="btn btn-other px-0 py-0 w-100 mt-3">
                             <div class="row">
-                                <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="img-other">
+                                <div class="col-12 d-flex align-items-center">
+                                    <div class="img-other me-auto">
                                         <img src="/img/betrik2.jpg" alt="" class="img-fluid">
                                     </div>
-                                    <div class="row title" style="margin-right: 2.2rem">
-                                        <div class="col">
+                                    <div class="row title m-auto">
+                                        <div class="col me-2">
                                             <div class="row">
                                                 <div class="col">Joki Classic</div>
                                             </div>
@@ -74,12 +75,12 @@
                         </a>
                         <a href="/order/joki-gendong" class="btn btn-other px-0 py-0 w-100 mt-3">
                             <div class="row">
-                                <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="img-other">
+                                <div class="col-12 d-flex align-items-center">
+                                    <div class="img-other me-auto">
                                         <img src="/img/roger.webp" alt="" class="img-fluid">
                                     </div>
-                                    <div class="row title" style="margin-right: 1rem">
-                                        <div class="col">
+                                    <div class="row title m-auto">
+                                        <div class="col me-2">
                                             <div class="row">
                                                 <div class="col">Joki Gendong</div>
                                             </div>
@@ -140,7 +141,7 @@
                                     <div class="col-lg-4">
                                         <input type="radio" class="btn-check" name="options-base"
                                             id="rank{{ $loop->iteration }}" autocomplete="off">
-                                        <label class="btn text-start ps-2" for="rank{{ $loop->iteration }}">
+                                        <label class="btn text-start" for="rank{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="row fw-semibold">
@@ -161,7 +162,7 @@
                                     <div class="col-lg-4">
                                         <input type="radio" class="btn-check" name="options-base"
                                             id="promo{{ $loop->iteration }}" autocomplete="off">
-                                        <label class="btn text-start ps-2" for="promo{{ $loop->iteration }}">
+                                        <label class="btn text-start" for="promo{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="row fw-semibold">
@@ -182,7 +183,7 @@
                                     <div class="col-lg-4">
                                         <input type="radio" class="btn-check" name="options-base"
                                             id="murmer{{ $loop->iteration }}" autocomplete="off">
-                                        <label class="btn text-start ps-2" for="murmer{{ $loop->iteration }}">
+                                        <label class="btn text-start" for="murmer{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="row fw-semibold">
@@ -222,10 +223,10 @@
                                 <div class="header-payment" onclick="paymentOpen()">
                                     <h4><i class="fas fa-wallet"></i> E-Wallet</h4>
                                 </div>
-                                <div class="button-payment ps-3">
+                                <div class="button-payment px-3">
                                     <div class="row row-cols-2 row-cols-md-3 g-3">
                                         <div class="col-lg-4 p-1">
-                                            <div class="payment-group h-100">
+                                            <div class="payment-group shadow h-100">
                                                 <input type="radio" class="btn-check" name="dana" id="payment1">
                                                 <label class="btn label-payment d-block" for="payment1">
                                                     <div class="info-top">
@@ -240,15 +241,45 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 p-1">
-                                            <div class="payment-group h-100">
-                                                <input type="radio" class="btn-check" name="dana" id="payment2">
+                                            <div class="payment-group shadow h-100">
+                                                <input type="radio" class="btn-check" name="ovo" id="payment2">
                                                 <label class="btn label-payment d-block" for="payment2">
                                                     <div class="info-top">
-                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
+                                                        <img src="/img/payment-logos/OVO.png"
                                                             alt="" height="23">
                                                     </div>
                                                     <div class="info-bottom">
-                                                        DANA
+                                                        OVO
+                                                        <div class="nominal">Dicek otomatis</div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 p-1">
+                                            <div class="payment-group shadow h-100">
+                                                <input type="radio" class="btn-check" name="shopeepay" id="payment3">
+                                                <label class="btn label-payment d-block" for="payment3">
+                                                    <div class="info-top">
+                                                        <img src="/img/payment-logos/Shopeepay.png"
+                                                            alt="" height="23">
+                                                    </div>
+                                                    <div class="info-bottom">
+                                                        Shopee Pay
+                                                        <div class="nominal">Dicek otomatis</div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 p-1 mt-0">
+                                            <div class="payment-group shadow h-100">
+                                                <input type="radio" class="btn-check" name="linkaja" id="payment4">
+                                                <label class="btn label-payment d-block" for="payment4">
+                                                    <div class="info-top">
+                                                        <img src="/img/payment-logos/Linkaja.png"
+                                                            alt="" height="23">
+                                                    </div>
+                                                    <div class="info-bottom">
+                                                        Linkaja
                                                         <div class="nominal">Dicek otomatis</div>
                                                     </div>
                                                 </label>
@@ -257,13 +288,13 @@
                                     </div>
                                 </div>
                                 <div class="footer-payment" onclick="paymentOpen()">
-                                    <img src="https://takapedia.com/assets/img/logos/Shopeepay.png" class="bg-white"
+                                    <img src="/img/payment-logos/Shopeepay.png" class="bg-white"
                                         alt="" width="36" height="13">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
                                         class="bg-white" alt="" width="41" height="13">
-                                    <img src="https://takapedia.com/assets/img/logos/OVO.png" alt=""
+                                    <img src="/img/payment-logos/OVO.png" alt=""
                                         class="bg-white" width="24" height="13">
-                                    <img src="https://takapedia.com/assets/img/logos/Linkaja.png" alt=""
+                                    <img src="/img/payment-logos/Linkaja.png" alt=""
                                         class="bg-white" width="13" height="13">
                                     <i class="bi bi-chevron-down"></i>
                                 </div>
