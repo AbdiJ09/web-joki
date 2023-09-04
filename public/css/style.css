@@ -383,10 +383,10 @@ header.sticky {
     background: linear-gradient(
         to bottom,
         rgba(199, 0, 57, 0.01) 0,
-        rgba(245, 187, 26, 0.25) 25%,
-        rgba(252, 219, 37, 0.5) 50%,
-        rgba(138, 107, 6, 0.75) 75%,
-        rgba(199, 162, 0, 0.95) 100%
+        rgba(36, 28, 8, 0.25) 25%,
+        rgba(31, 27, 5, 0.5) 50%,
+        rgba(24, 19, 2, 0.75) 75%,
+        rgba(27, 27, 25, 0.95) 100%
     );
 }
 .img-text {
@@ -655,7 +655,20 @@ header.sticky {
     border-radius: 10px;
     filter: blur(4px);
     width: 300px;
-    /* height: 300px; */
+    position: relative;
+    height: 400px;
+}
+
+.swiper-slide .testimoni h3 {
+    position: relative;
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.swiper-slide .testimoni i {
+    color: gold;
+    font-size: 30px;
 }
 .swiper-slide-active {
     filter: blur(0);
@@ -665,6 +678,89 @@ header.sticky {
 .swiper-slide img {
     display: block;
     width: 100%;
+}
+.payment-drawwer {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 7px;
+}
+
+.payment-drawwer .header-payment {
+    position: relative;
+    padding: 10px 0 0 15px;
+    cursor: pointer;
+}
+
+.payment-drawwer .header-payment h4 {
+    font-size: 19px;
+}
+
+.payment-drawwer .footer-payment {
+    background-color: rgba(174, 174, 174, 0.261);
+    border-radius: 0 0 6px 6px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 15px 6px 0;
+    cursor: pointer;
+}
+
+.payment-drawwer .footer-payment img {
+    margin: 0 3px 3px 3px;
+    padding: 2px;
+    border-radius: 4px;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.payment-drawwer.active .footer-payment img {
+    transform: scale(0);
+}
+
+.payment-drawwer .btn-check + .btn {
+    background: rgb(208, 208, 208);
+    text-align: left;
+    border: transparent;
+    border-radius: 3px;
+    filter: grayscale(100%);
+    color: #000;
+}
+
+.payment-drawwer .btn-check:checked + .btn {
+    filter: grayscale(0);
+    background-color: #ffffff;
+    border: transparent;
+    color: #000;
+}
+
+.payment-drawwer .info-top {
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.payment-drawwer .info-bottom {
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.payment-drawwer .button-payment {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.payment-drawwer.active .button-payment {
+    max-height: 300px;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.payment-drawwer .footer-payment .bi-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.payment-drawwer.active .footer-payment .bi-chevron-down {
+    transform: rotate(180deg);
 }
 footer {
     display: grid;

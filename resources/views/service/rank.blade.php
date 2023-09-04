@@ -93,7 +93,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-8">
 
                     <form action="" method="post">
                         @csrf
@@ -102,18 +102,21 @@
                             <div class="row g-4">
                                 <div class="col-6">
                                     <div class="mt-4">
-                                        <input type="text" name="email" id="email" class="form-control focus-ring" placeholder="Masukkan Email/No HP">
+                                        <input type="text" name="email" id="email" class="form-control focus-ring"
+                                            placeholder="Masukkan Email/No HP">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-4 password">
-                                        <input type="password" name="password" id="password" class="form-control focus-ring" placeholder="Masukkan Password">
+                                        <input type="password" name="password" id="password"
+                                            class="form-control focus-ring" placeholder="Masukkan Password">
                                         <i class="bi bi-eye iconPw" id="iconPw"></i>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
-                                        <input type="text" name="idNick" id="idNick" class="form-control focus-ring" placeholder="Masukkan ID & Nickname">
+                                        <input type="text" name="idNick" id="idNick"
+                                            class="form-control focus-ring" placeholder="Masukkan ID & Nickname">
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -135,7 +138,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($ranks as $rank)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="options-base" id="rank{{ $loop->iteration }}" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="options-base"
+                                            id="rank{{ $loop->iteration }}" autocomplete="off">
                                         <label class="btn text-start ps-2" for="rank{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -155,7 +159,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($promos as $promo)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="options-base" id="promo{{ $loop->iteration }}" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="options-base"
+                                            id="promo{{ $loop->iteration }}" autocomplete="off">
                                         <label class="btn text-start ps-2" for="promo{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -175,7 +180,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($murmers as $murmer)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="options-base" id="murmer{{ $loop->iteration }}" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="options-base"
+                                            id="murmer{{ $loop->iteration }}" autocomplete="off">
                                         <label class="btn text-start ps-2" for="murmer{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -196,12 +202,14 @@
                         <div class="total-star shadow sec-right mb-4">
                             <h1 class="text-center fw-normal">Masukkan Jumlah Order</h1>
                             <div class="mt-3">
-                                <input type="text" class="form-control focus-ring" value="1" id="star_order" name="star_order">
+                                <input type="text" class="form-control focus-ring" value="1" id="star_order"
+                                    name="star_order">
                             </div>
                             <div class="caution mt-2">
                                 <p class="text-warning mb-0">Mohon Dibaca!</p>
                                 <small class="text-white text-capitalize mt-0">
-                                    1. Minimal order untuk joki rank / star : master/gm/epic/legend = 3, mythic<i class="bi bi-arrow-up"></i> = 2
+                                    1. Minimal order untuk joki rank / star : master/gm/epic/legend = 3, mythic<i
+                                        class="bi bi-arrow-up"></i> = 2
                                     <br>
                                     2. minimal order untuk joki murah = 1
                                 </small>
@@ -221,7 +229,8 @@
                                                 <input type="radio" class="btn-check" name="dana" id="payment1">
                                                 <label class="btn label-payment d-block" for="payment1">
                                                     <div class="info-top">
-                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png" alt="" height="23">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
+                                                            alt="" height="23">
                                                     </div>
                                                     <div class="info-bottom">
                                                         DANA
@@ -235,7 +244,8 @@
                                                 <input type="radio" class="btn-check" name="dana" id="payment2">
                                                 <label class="btn label-payment d-block" for="payment2">
                                                     <div class="info-top">
-                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png" alt="" height="23">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
+                                                            alt="" height="23">
                                                     </div>
                                                     <div class="info-bottom">
                                                         DANA
@@ -247,13 +257,17 @@
                                     </div>
                                 </div>
                                 <div class="footer-payment" onclick="paymentOpen()">
-                                    <img src="https://takapedia.com/assets/img/logos/Shopeepay.png" class="bg-white" alt="" width="36" height="13">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png" class="bg-white" alt="" width="41" height="13">
-                                    <img src="https://takapedia.com/assets/img/logos/OVO.png" alt="" class="bg-white" width="24" height="13">
-                                    <img src="https://takapedia.com/assets/img/logos/Linkaja.png" alt="" class="bg-white" width="13" height="13">
+                                    <img src="https://takapedia.com/assets/img/logos/Shopeepay.png" class="bg-white"
+                                        alt="" width="36" height="13">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
+                                        class="bg-white" alt="" width="41" height="13">
+                                    <img src="https://takapedia.com/assets/img/logos/OVO.png" alt=""
+                                        class="bg-white" width="24" height="13">
+                                    <img src="https://takapedia.com/assets/img/logos/Linkaja.png" alt=""
+                                        class="bg-white" width="13" height="13">
                                     <i class="bi bi-chevron-down"></i>
                                 </div>
-                            </div>                        
+                            </div>
                         </div>
                     </form>
 
