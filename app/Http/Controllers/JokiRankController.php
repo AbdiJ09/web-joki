@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JokiRank;
 use Illuminate\Http\Request;
 use App\Models\RankSelection;
 use Illuminate\Support\Facades\DB;
@@ -20,13 +21,12 @@ class JokiRankController extends Controller
     public function payment(Request $request)
     {
         // dd($request)->all();
-
         $validatedData = $request->validate([
             'email' => 'required|email|max:255',
             'password' => 'required|max:255',
             'id_and_nick' => 'required',
             'login_via' => 'required',
-            'select_joki' => 'required|checked',
+            'select_joki' => 'required',
             'star_order' => 'required',
             'whatsapp' => 'required',
             'payment' => 'required',
@@ -34,6 +34,6 @@ class JokiRankController extends Controller
 
         JokiRank::create($validatedData);
 
-        return redirect('/order/joki-rank/')->with('success', 'Konotollll');
+        return redirect('/order/joki-rank/');
     }
 }

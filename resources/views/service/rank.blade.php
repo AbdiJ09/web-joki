@@ -96,36 +96,38 @@
                 </div>
                 <div class="col-md-8">
 
-                    <form action="/order/joki-rank/payment" method="post">
+                    <form action="/order/joki-rank/payment" method="post" id="order-rank">
                         @csrf
                         <div class="form-account shadow sec-right mb-4">
-                            @if (session()->has('success'))
-                                <p>{{ session('success') }}</p>
-                            @endif
+
                             <h1 class="text-center fw-normal">Form Akun</h1>
                             <div class="row g-4">
                                 <div class="col-6">
                                     <div class="mt-4">
-                                        <input type="text" name="email" id="email" class="form-control focus-ring"
+                                        <input type="text" name="email" id="email"
+                                            class="form-control focus-ring @error('email') is-invalid @enderror"
                                             placeholder="Masukkan Email/No HP">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-4 password">
                                         <input type="password" name="password" id="password"
-                                            class="form-control focus-ring" placeholder="Masukkan Password">
+                                            class="form-control focus-ring @error('password') is-invalid @enderror"
+                                            placeholder="Masukkan Password">
                                         <i class="bi bi-eye iconPw" id="iconPw"></i>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
                                         <input type="text" name="id_and_nick" id="idNick"
-                                            class="form-control focus-ring" placeholder="Masukkan ID & Nickname">
+                                            class="form-control focus-ring @error('id_and_nick') is-invalid @enderror"
+                                            placeholder="Masukkan ID & Nickname">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
-                                        <select class="form-select focus-ring" aria-label="Default select example" name="login_via">
+                                        <select class="form-select focus-ring @error('login_via') is-invalid @enderror"
+                                            aria-label="Default select example" name="login_via">
                                             <option selected>Login Via</option>
                                             <option value="moonton">Moonton (Recommended)</option>
                                             <option value="vk">VK (Recommended)</option>
@@ -142,8 +144,9 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($ranks as $rank)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="select_joki"
-                                            id="rank{{ $loop->iteration }}" autocomplete="off" value="{{ $rank->rank }}/star">
+                                        <input type="radio" class="btn-check @error('select_joki') is-invalid @enderror"
+                                            name="select_joki" id="rank{{ $loop->iteration }}" autocomplete="off"
+                                            value="{{ $rank->rank }}/star">
                                         <label class="btn text-start" for="rank{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -163,8 +166,9 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($promos as $promo)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="select_joki"
-                                            id="promo{{ $loop->iteration }}" autocomplete="off" value="{{ $promo->promo }}">
+                                        <input type="radio" class="btn-check @error('select_joki') is-invalid @enderror"
+                                            name="select_joki" id="promo{{ $loop->iteration }}" autocomplete="off"
+                                            value="{{ $promo->promo }}">
                                         <label class="btn text-start" for="promo{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -184,8 +188,9 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($murmers as $murmer)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="select_joki"
-                                            id="murmer{{ $loop->iteration }}" autocomplete="off" value="{{ $murmer->joki_murah }}">
+                                        <input type="radio" class="btn-check @error('select_joki') is-invalid @enderror"
+                                            name="select_joki" id="murmer{{ $loop->iteration }}" autocomplete="off"
+                                            value="{{ $murmer->joki_murah }}">
                                         <label class="btn text-start" for="murmer{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -206,8 +211,9 @@
                         <div class="total-star shadow sec-right mb-4">
                             <h1 class="text-center fw-normal">Masukkan Jumlah Order</h1>
                             <div class="mt-3">
-                                <input type="text" class="form-control focus-ring" value="1" id="star_order"
-                                    name="star-value">
+                                <input type="text"
+                                    class="form-control focus-ring @error('star_order') is-invalid @enderror"
+                                    value="1" id="star_order" name="star_order">
                             </div>
                             <div class="caution mt-2">
                                 <p class="text-warning mb-0">Mohon Dibaca!</p>
@@ -230,7 +236,9 @@
                                     <div class="row row-cols-2 row-cols-md-3 g-3">
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="payment" id="payment1" value="DANA">
+                                                <input type="radio"
+                                                    class="btn-check @error('payment') is-invalid @enderror"
+                                                    name="payment" id="payment1" value="DANA">
                                                 <label class="btn label-payment d-block" for="payment1">
                                                     <div class="info-top">
                                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
@@ -245,7 +253,8 @@
                                         </div>
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="payment" id="payment2" value="OVO">
+                                                <input type="radio" class="btn-check" name="payment" id="payment2"
+                                                    value="OVO">
                                                 <label class="btn label-payment d-block" for="payment2">
                                                     <div class="info-top">
                                                         <img src="/img/payment-logos/OVO.png" alt=""
@@ -311,10 +320,12 @@
                                 <input type="text" class="form-control focus-ring" name="whatsapp" id="whatsapp"
                                     aria-describedby="helpId" placeholder="+62******">
                             </div>
-                            <button class="btn order-btn w-100 mt-3" type="submit">Order Now <i
+                            <button class="btn order-btn w-100 mt-3" id="btn-order-rank" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" type="button">Order Now <i
                                     class="bi bi-cart"></i></button>
                         </div>
                     </form>
+
 
                 </div>
             </div>

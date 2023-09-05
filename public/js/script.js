@@ -1,7 +1,3 @@
-window.addEventListener("scroll", function () {
-    requestAnimationFrame(updateParallax);
-});
-
 const header = document.querySelector("header");
 
 function updateStickyClass() {
@@ -107,3 +103,37 @@ const paymentDrawwer = document.querySelector(".payment-drawwer");
 function paymentOpen() {
     paymentDrawwer.classList.toggle("active");
 }
+const formRank = document.querySelector("#order-rank");
+const orderRank = document.querySelector("#btn-order-rank");
+const email = document.querySelector("#email");
+
+orderRank.addEventListener("click", function () {
+    const modal = document.createElement("div");
+    modal.classList.add("modal", "fade");
+    modal.innerHTML = `
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Judul Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ${email.value}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Tambahkan modal ke dalam dokumen
+    formRank.appendChild(modal);
+
+    // Inisialisasi modal Bootstrap
+    const modalInstance = new bootstrap.Modal(modal);
+
+    // Tampilkan modal
+    modalInstance.show();
+});
