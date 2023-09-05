@@ -103,37 +103,51 @@ const paymentDrawwer = document.querySelector(".payment-drawwer");
 function paymentOpen() {
     paymentDrawwer.classList.toggle("active");
 }
-const formRank = document.querySelector("#order-rank");
-const orderRank = document.querySelector("#btn-order-rank");
-const email = document.querySelector("#email");
+// const formRank = document.querySelector("#order-rank");
+// const orderRank = document.querySelector("#btn-order-rank");
+// const email = document.querySelector("#email");
 
-orderRank.addEventListener("click", function () {
-    const modal = document.createElement("div");
-    modal.classList.add("modal", "fade");
-    modal.innerHTML = `
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Judul Modal</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ${email.value}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    `;
+// orderRank.addEventListener("click", function () {
+//     const modal = document.createElement("div");
+//     modal.classList.add("modal", "fade");
+//     modal.innerHTML = `
+//         <div class="modal-dialog modal-dialog-centered">
+//             <div class="modal-content">
+//                 <div class="modal-header">
+//                     <h5 class="modal-title">Judul Modal</h5>
+//                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+//                 </div>
+//                 <div class="modal-body">
+//                     ${email.value}
+//                 </div>
+//                 <div class="modal-footer">
+//                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+//                     <button type="button" class="btn btn-primary">Simpan Perubahan</button>
+//                 </div>
+//             </div>
+//         </div>
+//     `;
 
-    // Tambahkan modal ke dalam dokumen
-    formRank.appendChild(modal);
+//     // Tambahkan modal ke dalam dokumen
+//     formRank.appendChild(modal);
 
-    // Inisialisasi modal Bootstrap
-    const modalInstance = new bootstrap.Modal(modal);
+//     // Inisialisasi modal Bootstrap
+//     const modalInstance = new bootstrap.Modal(modal);
 
-    // Tampilkan modal
-    modalInstance.show();
+//     // Tampilkan modal
+//     modalInstance.show();
+// });
+
+document.getElementById('btn-order-rank').addEventListener('click', function() {
+    // Ambil nilai dari input WhatsApp
+    const emailValue = document.getElementById('email').value;
+    const nickValue = document.getElementById('idNick').value;
+    const whatsappValue = document.getElementById('whatsapp').value;
+    const selectedRank = document.querySelector('input[name="select_joki"]:checked').value;
+
+    // Tampilkan nilai di dalam modal
+    document.getElementById('email-display').textContent = emailValue;
+    document.getElementById('nick-display').textContent = nickValue;
+    document.getElementById('joki-display').textContent = selectedRank;
+    document.getElementById('whatsapp-display').textContent = whatsappValue;
 });
