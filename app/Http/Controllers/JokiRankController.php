@@ -19,6 +19,21 @@ class JokiRankController extends Controller
 
     public function payment(Request $request)
     {
-        dd($request)->all();
+        // dd($request)->all();
+
+        $validatedData = $request->validate([
+            'email' => 'required|email|max:255',
+            'password' => 'required|max:255',
+            'id_and_nick' => 'required',
+            'login_via' => 'required',
+            'select_joki' => 'required',
+            'star_order' => 'required',
+            'whatsapp' => 'required',
+            'payment' => 'required',
+        ]);
+
+        JokiRank::create($validatedData);
+
+        return redirect('/order/joki-rank/')->with('success', 'Konotollll');
     }
 }

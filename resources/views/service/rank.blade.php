@@ -99,6 +99,9 @@
                     <form action="/order/joki-rank/payment" method="post">
                         @csrf
                         <div class="form-account shadow sec-right mb-4">
+                            @if (session()->has('success'))
+                                <p>{{ session('success') }}</p>
+                            @endif
                             <h1 class="text-center fw-normal">Form Akun</h1>
                             <div class="row g-4">
                                 <div class="col-6">
@@ -116,13 +119,13 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
-                                        <input type="text" name="idNick" id="idNick"
+                                        <input type="text" name="id_and_nick" id="idNick"
                                             class="form-control focus-ring" placeholder="Masukkan ID & Nickname">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
-                                        <select class="form-select focus-ring" aria-label="Default select example">
+                                        <select class="form-select focus-ring" aria-label="Default select example" name="login_via">
                                             <option selected>Login Via</option>
                                             <option value="moonton">Moonton (Recommended)</option>
                                             <option value="vk">VK (Recommended)</option>
@@ -139,8 +142,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($ranks as $rank)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="options-base"
-                                            id="rank{{ $loop->iteration }}" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="select_joki"
+                                            id="rank{{ $loop->iteration }}" autocomplete="off" value="{{ $rank->rank }}/star">
                                         <label class="btn text-start" for="rank{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -160,8 +163,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($promos as $promo)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="options-base"
-                                            id="promo{{ $loop->iteration }}" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="select_joki"
+                                            id="promo{{ $loop->iteration }}" autocomplete="off" value="{{ $promo->promo }}">
                                         <label class="btn text-start" for="promo{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -181,8 +184,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($murmers as $murmer)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check" name="options-base"
-                                            id="murmer{{ $loop->iteration }}" autocomplete="off">
+                                        <input type="radio" class="btn-check" name="select_joki"
+                                            id="murmer{{ $loop->iteration }}" autocomplete="off" value="{{ $murmer->joki_murah }}">
                                         <label class="btn text-start" for="murmer{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
@@ -204,7 +207,7 @@
                             <h1 class="text-center fw-normal">Masukkan Jumlah Order</h1>
                             <div class="mt-3">
                                 <input type="text" class="form-control focus-ring" value="1" id="star_order"
-                                    name="star_order">
+                                    name="star-value">
                             </div>
                             <div class="caution mt-2">
                                 <p class="text-warning mb-0">Mohon Dibaca!</p>
@@ -227,7 +230,7 @@
                                     <div class="row row-cols-2 row-cols-md-3 g-3">
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="dana" id="payment1">
+                                                <input type="radio" class="btn-check" name="payment" id="payment1" value="DANA">
                                                 <label class="btn label-payment d-block" for="payment1">
                                                     <div class="info-top">
                                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
@@ -242,7 +245,7 @@
                                         </div>
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="ovo" id="payment2">
+                                                <input type="radio" class="btn-check" name="payment" id="payment2" value="OVO">
                                                 <label class="btn label-payment d-block" for="payment2">
                                                     <div class="info-top">
                                                         <img src="/img/payment-logos/OVO.png" alt=""
@@ -257,7 +260,7 @@
                                         </div>
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="shopeepay" id="payment3">
+                                                <input type="radio" class="btn-check" name="payment" id="payment3">
                                                 <label class="btn label-payment d-block" for="payment3">
                                                     <div class="info-top">
                                                         <img src="/img/payment-logos/Shopeepay.png" alt=""
@@ -270,9 +273,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 p-1 mt-0">
+                                        <div class="col-lg-4 p-1 mt-0 mb-2">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="linkaja" id="payment4">
+                                                <input type="radio" class="btn-check" name="payment" id="payment4">
                                                 <label class="btn label-payment d-block" for="payment4">
                                                     <div class="info-top">
                                                         <img src="/img/payment-logos/Linkaja.png" alt=""
@@ -305,10 +308,10 @@
                             <h1 class="text-center fw-normal">No Whatsapp</h1>
                             <div class="form-group mt-3">
                                 <label for="whatsapp" class="mb-2">No Whatsapp</label>
-                                <input type="text" class="form-control focus-ring" name="" id="whatsapp"
+                                <input type="text" class="form-control focus-ring" name="whatsapp" id="whatsapp"
                                     aria-describedby="helpId" placeholder="+62******">
                             </div>
-                            <button class="btn btn-secondary w-100 mt-3" type="submit">Order Now <i
+                            <button class="btn order-btn w-100 mt-3" type="submit">Order Now <i
                                     class="bi bi-cart"></i></button>
                         </div>
                     </form>

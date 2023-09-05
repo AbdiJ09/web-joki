@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('password');
             $table->string('id_and_nick');
             $table->string('login_via');
-            $table->string('selection_rank');
+            $table->string('select_joki');
+            $table->string('star_order');
+            $table->string('whatsapp');
+            $table->string('payment');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

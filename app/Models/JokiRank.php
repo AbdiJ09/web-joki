@@ -11,4 +11,6 @@ class JokiRank extends Model
     use HasFactory;
 
     protected $table = 'joki_ranks';
+
+    protected $fillable = ['email', 'password', 'id_and_nick', 'login_via', 'select_joki', 'star_order', 'whatsapp', 'payment'];
 }

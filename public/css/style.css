@@ -503,7 +503,7 @@ header.sticky {
 
 .sec-right h1 {
     position: relative;
-    font-size: 1.7rem;
+    font-size: 1.64rem;
     margin: 10px 0 8px 0;
 }
 
@@ -725,6 +725,7 @@ header.sticky {
     border-radius: 3px;
     filter: grayscale(100%);
     color: #000;
+    position: relative;
 }
 
 .payment-drawwer .btn-check:checked + .btn {
@@ -732,6 +733,30 @@ header.sticky {
     background-color: #ffffff;
     border: transparent;
     color: #000;
+}
+
+.payment-drawwer .btn-check:checked + .btn::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+    background: url("/img/aj-verified-removebg-preview.png");
+    background-size: cover;
+}
+
+.payment-drawwer .btn-check:checked + .btn::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border-left: 33px solid transparent;
+    border-bottom: 33px solid yellow;
+    z-index: 0;
+    transform: rotate(-90deg);
 }
 
 .payment-drawwer .btn-check:hover + .btn {
@@ -773,6 +798,12 @@ header.sticky {
 
 .card-order input[type="text"]::placeholder {
     font-size: 17px;
+}
+
+.card-order .order-btn {
+    background-color: rgba(174, 174, 174, 0.261);
+    color: #fafafa;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 footer {
