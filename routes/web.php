@@ -4,6 +4,8 @@ use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\JokiRankController;
+use App\Models\JokiRank;
+use Spatie\FlareClient\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,8 @@ Route::get('/', function () {
 // Route::get('/service/{slug}', [ServiceController::class, 'show']);
 
 Route::get('/order/joki-rank', [JokiRankController::class, 'show']);
+Route::get('/terms', function () {
+    return view('terms');
+});
+
+Route::post('/order/joki-rank/payment', [JokiRankController::class, 'payment']);

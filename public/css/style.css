@@ -770,6 +770,11 @@ header.sticky {
 .payment-drawwer.active .footer-payment .bi-chevron-down {
     transform: rotate(180deg);
 }
+
+.card-order input[type="text"]::placeholder {
+    font-size: 17px;
+}
+
 footer {
     display: grid;
     justify-content: center;
@@ -843,6 +848,10 @@ footer .container .contact .info li span {
 footer .container .contact .info li a {
     color: #aaa;
     text-decoration: none;
+}
+#terms {
+    background-color: #272626;
+    padding: 5rem 0;
 }
 .copyrightText {
     width: 100%;
@@ -957,5 +966,6 @@ footer .container .contact .info li a {
         width: 100%;
         display: grid;
         grid-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
     }
 }

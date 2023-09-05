@@ -8,7 +8,7 @@ function updateStickyClass() {
     const isDesktop = window.innerWidth > 1000;
     const isMobile = window.innerWidth <= 500;
 
-    if (isDesktop && window.scrollY > 1000) {
+    if (isDesktop && window.scrollY > 400) {
         header.classList.add("sticky");
     } else if (isMobile && window.scrollY > 100) {
         header.classList.add("sticky");

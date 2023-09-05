@@ -45,10 +45,6 @@
 </head>
 
 <body>
-    @if (Request::is('/'))
-        <!-- Jika file bukan 'order.blade.php' -->
-        <x-paralax />
-    @endif
 
     {{-- <x-paralax /> --}}
     <x-navbar />
@@ -73,8 +69,9 @@
 
         </svg>
     </div>
-
-    <x-preview />
+    @if (!Request::is('terms'))
+        <x-preview />
+    @endif
 
     <x-footer />
 

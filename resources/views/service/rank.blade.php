@@ -96,7 +96,7 @@
                 </div>
                 <div class="col-md-8">
 
-                    <form action="" method="post">
+                    <form action="/order/joki-rank/payment" method="post">
                         @csrf
                         <div class="form-account shadow sec-right mb-4">
                             <h1 class="text-center fw-normal">Form Akun</h1>
@@ -217,7 +217,7 @@
                             </div>
                         </div>
 
-                        <div class="payment-method shadow sec-right">
+                        <div class="payment-method shadow sec-right mb-4">
                             <h1 class="text-center fw-normal">Pilih Metode Pembayaran</h1>
                             <div class="payment-drawwer mt-4">
                                 <div class="header-payment" onclick="paymentOpen()">
@@ -245,8 +245,8 @@
                                                 <input type="radio" class="btn-check" name="ovo" id="payment2">
                                                 <label class="btn label-payment d-block" for="payment2">
                                                     <div class="info-top">
-                                                        <img src="/img/payment-logos/OVO.png"
-                                                            alt="" height="23">
+                                                        <img src="/img/payment-logos/OVO.png" alt=""
+                                                            height="23">
                                                     </div>
                                                     <div class="info-bottom">
                                                         OVO
@@ -260,8 +260,8 @@
                                                 <input type="radio" class="btn-check" name="shopeepay" id="payment3">
                                                 <label class="btn label-payment d-block" for="payment3">
                                                     <div class="info-top">
-                                                        <img src="/img/payment-logos/Shopeepay.png"
-                                                            alt="" height="23">
+                                                        <img src="/img/payment-logos/Shopeepay.png" alt=""
+                                                            height="23">
                                                     </div>
                                                     <div class="info-bottom">
                                                         Shopee Pay
@@ -275,8 +275,8 @@
                                                 <input type="radio" class="btn-check" name="linkaja" id="payment4">
                                                 <label class="btn label-payment d-block" for="payment4">
                                                     <div class="info-top">
-                                                        <img src="/img/payment-logos/Linkaja.png"
-                                                            alt="" height="23">
+                                                        <img src="/img/payment-logos/Linkaja.png" alt=""
+                                                            height="23">
                                                     </div>
                                                     <div class="info-bottom">
                                                         Linkaja
@@ -288,17 +288,28 @@
                                     </div>
                                 </div>
                                 <div class="footer-payment" onclick="paymentOpen()">
-                                    <img src="/img/payment-logos/Shopeepay.png" class="bg-white"
-                                        alt="" width="36" height="13">
+                                    <img src="/img/payment-logos/Shopeepay.png" class="bg-white" alt=""
+                                        width="36" height="13">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
                                         class="bg-white" alt="" width="41" height="13">
-                                    <img src="/img/payment-logos/OVO.png" alt=""
-                                        class="bg-white" width="24" height="13">
-                                    <img src="/img/payment-logos/Linkaja.png" alt=""
-                                        class="bg-white" width="13" height="13">
+                                    <img src="/img/payment-logos/OVO.png" alt="" class="bg-white" width="24"
+                                        height="13">
+                                    <img src="/img/payment-logos/Linkaja.png" alt="" class="bg-white"
+                                        width="13" height="13">
                                     <i class="bi bi-chevron-down"></i>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="card-order  shadow sec-right mb-4">
+                            <h1 class="text-center fw-normal">No Whatsapp</h1>
+                            <div class="form-group mt-3">
+                                <label for="whatsapp" class="mb-2">No Whatsapp</label>
+                                <input type="text" class="form-control focus-ring" name="" id="whatsapp"
+                                    aria-describedby="helpId" placeholder="+62******">
+                            </div>
+                            <button class="btn btn-secondary w-100 mt-3" type="submit">Order Now <i
+                                    class="bi bi-cart"></i></button>
                         </div>
                     </form>
 

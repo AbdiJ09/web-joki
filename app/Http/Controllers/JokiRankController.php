@@ -13,7 +13,12 @@ class JokiRankController extends Controller
         $ranks = DB::table('rank_selections')->get();
         $promos = DB::table('promos')->get();
         $murmers = DB::table('murmers')->get();
-        
+
         return view('service.rank', compact('ranks', 'promos', 'murmers'));
+    }
+
+    public function payment(Request $request)
+    {
+        dd($request)->all();
     }
 }

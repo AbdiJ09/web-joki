@@ -2,8 +2,7 @@
      <div class="container">
          <div class="sec aboutus">
              <h2>About Us</h2>
-             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, nulla. Veritatis quaerat,
-                 dolores modi ipsam earum quia mollitia neque voluptate.</p>
+             <p>Platform Jasa joki Mobile legends termurah,terpercaya dan Legal 100%(Open 9:00 - 11:00 WIB)</p>
              <ul class="sci">
                  <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
                  <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
@@ -42,6 +41,8 @@
          </div>
      </div>
  </footer>
- <div class="copyrightText">
-     <p>Copyright 2023 AJ STORE</p>
+ <div class="copyrightText d-flex justify-content-center align-items-center">
+     <p>&copy; Copyright 2023 AJ STORE</p>
+     <span class="mb-3 ms-2">~</span>
+     <a href="/terms" class="d-block link-light mb-3 ms-2 terms">Terms and conditions</a>
  </div>
