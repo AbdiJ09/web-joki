@@ -26,7 +26,7 @@ class JokiRankController extends Controller
             'password' => 'required|max:255',
             'id_and_nick' => 'required',
             'login_via' => 'required',
-            'select_joki' => 'required',
+            'select_joki' => 'required|checked',
             'star_order' => 'required',
             'whatsapp' => 'required',
             'payment' => 'required',
