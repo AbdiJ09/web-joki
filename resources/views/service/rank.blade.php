@@ -99,20 +99,19 @@
                     <form action="/order/joki-rank/payment" method="post" id="order-rank">
                         @csrf
                         <div class="form-account shadow sec-right mb-4">
-
                             <h1 class="text-center fw-normal">Form Akun</h1>
                             <div class="row g-4">
                                 <div class="col-6">
                                     <div class="mt-4">
                                         <input type="text" name="email" id="email"
-                                            class="form-control focus-ring @error('email') is-invalid @enderror"
+                                            class="form-control focus-ring"
                                             placeholder="Masukkan Email/No HP">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-4 password">
                                         <input type="password" name="password" id="password"
-                                            class="form-control focus-ring @error('password') is-invalid @enderror"
+                                            class="form-control focus-ring"
                                             placeholder="Masukkan Password">
                                         <i class="bi bi-eye iconPw" id="iconPw"></i>
                                     </div>
@@ -120,13 +119,13 @@
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
                                         <input type="text" name="id_and_nick" id="idNick"
-                                            class="form-control focus-ring @error('id_and_nick') is-invalid @enderror"
+                                            class="form-control focus-ring"
                                             placeholder="Masukkan ID & Nickname">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
-                                        <select class="form-select focus-ring @error('login_via') is-invalid @enderror"
+                                        <select class="form-select focus-ring"
                                             aria-label="Default select example" name="login_via">
                                             <option selected>Login Via</option>
                                             <option value="moonton">Moonton (Recommended)</option>
@@ -144,7 +143,7 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($ranks as $rank)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check @error('select_joki') is-invalid @enderror"
+                                        <input type="radio" class="btn-check"
                                             name="select_joki" id="rank{{ $loop->iteration }}" autocomplete="off"
                                             value="{{ $rank->rank }} / Star">
                                         <label class="btn text-start" for="rank{{ $loop->iteration }}">
@@ -166,7 +165,7 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($promos as $promo)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check @error('select_joki') is-invalid @enderror"
+                                        <input type="radio" class="btn-check"
                                             name="select_joki" id="promo{{ $loop->iteration }}" autocomplete="off"
                                             value="{{ $promo->promo }}">
                                         <label class="btn text-start" for="promo{{ $loop->iteration }}">
@@ -188,7 +187,7 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($murmers as $murmer)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check @error('select_joki') is-invalid @enderror"
+                                        <input type="radio" class="btn-check"
                                             name="select_joki" id="murmer{{ $loop->iteration }}" autocomplete="off"
                                             value="{{ $murmer->joki_murah }}">
                                         <label class="btn text-start" for="murmer{{ $loop->iteration }}">
@@ -212,7 +211,7 @@
                             <h1 class="text-center fw-normal">Masukkan Jumlah Order</h1>
                             <div class="mt-3">
                                 <input type="text"
-                                    class="form-control focus-ring @error('star_order') is-invalid @enderror"
+                                    class="form-control focus-ring"
                                     value="1" id="star_order" name="star_order">
                             </div>
                             <div class="caution mt-2">
@@ -237,7 +236,7 @@
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
                                                 <input type="radio"
-                                                    class="btn-check @error('payment') is-invalid @enderror"
+                                                    class="btn-check"
                                                     name="payment" id="payment1" value="DANA">
                                                 <label class="btn label-payment d-block" for="payment1">
                                                     <div class="info-top">
@@ -317,39 +316,37 @@
                             <h1 class="text-center fw-normal">No Whatsapp</h1>
                             <div class="form-group mt-3">
                                 <label for="whatsapp" class="mb-2">No Whatsapp</label>
-                                <input type="text" class="form-control focus-ring" name="whatsapp" id="whatsapp"
-                                    aria-describedby="helpId" placeholder="+62******">
+                                <input type="text" class="form-control focus-ring" name="whatsapp" id="whatsapp" placeholder="+62******">
                             </div>
-                            <button class="btn order-btn w-100 mt-3" id="btn-order-rank" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" type="button">Order Now <i
+                            <button class="btn order-btn w-100 mt-3" id="btn-order-rank" type="button">Order Now <i
                                     class="bi bi-cart"></i></button>
                         </div>
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="modalVerif" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Verifikasi Data Anda</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <p>Email : <span id="email-display"></span></p>
-                                        <p>Id Dan Nickname : <span id="nick-display"></span></p>
-                                        <p>Joki Yang Dipilih : <span id="joki-display"></span></p>
+                                        <p>Pasword : <span id="password-display"></span></p>
+                                        <p>Id & Nickname : <span id="id_and_nick-display"></span></p>
+                                        <p>Login Via : <span id="login_via-display"></span></p>
+                                        <p>Jasa Joki Yang Dipilih : <span id="select_joki-display"></span></p>
+                                        <p>Jumlah order : <span id="star_order-display"></span></p>
                                         <p>Nomor Whatsapp : <span id="whatsapp-display"></span></p>
+                                        <p>Metode Pembayaran : <span id="payment-display"></span></p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
-
 
                 </div>
             </div>

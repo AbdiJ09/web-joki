@@ -138,20 +138,70 @@ function paymentOpen() {
 //     modalInstance.show();
 // });
 
-document
-    .getElementById("btn-order-rank")
-    .addEventListener("click", function () {
-        // Ambil nilai dari input WhatsApp
-        const emailValue = document.getElementById("email").value;
-        const nickValue = document.getElementById("idNick").value;
-        const whatsappValue = document.getElementById("whatsapp").value;
-        const selectedRank = document.querySelector(
-            'input[name="select_joki"]:checked'
-        ).value;
+document.getElementById('btn-order-rank').addEventListener('click', function() {
+    const inputNames = [
+        'email',
+        'password',
+        'id_and_nick',
+        'login_via',
+        'select_joki',
+        'star_order',
+        'whatsapp',
+        'payment'
+    ];
 
-        // Tampilkan nilai di dalam modal
-        document.getElementById("email-display").textContent = emailValue;
-        document.getElementById("nick-display").textContent = nickValue;
-        document.getElementById("joki-display").textContent = selectedRank;
-        document.getElementById("whatsapp-display").textContent = whatsappValue;
+    let isValid = true;
+
+    inputNames.forEach(inputName => {
+        const inputElement = document.querySelector(`[name="${inputName}"]`);
+        if (inputElement) {
+            if (inputElement.type === 'select-one') {
+                // Kasus untuk elemen select
+                const selectedOption = inputElement.options[inputElement.selectedIndex];
+                if (!selectedOption.value) {
+                    console.log(`${inputName} harus dipilih`);
+                    isValid = false;
+                }
+            } else if (inputElement.type === 'radio') {
+                // Kasus untuk elemen radio
+                const radioButtons = document.querySelectorAll(`[name="${inputName}"]:checked`);
+                if (radioButtons.length === 0) {
+                    console.log(`${inputName} harus dipilih`);
+                    isValid = false;
+                }
+            } else {
+                // Kasus default untuk input teks
+                const inputValue = inputElement.value.trim();
+                if (inputValue === '') {
+                    console.log(`${inputName} harus diisi`);
+                    isValid = false;
+                }
+            }
+        } else {
+            console.log(`Elemen dengan name "${inputName}" tidak ditemukan.`);
+        }
     });
+
+    if (isValid) {
+        inputNames.forEach(inputName => {
+            const inputElement = document.querySelector(`[name="${inputName}"]`);
+            if (inputElement) {
+                if (inputElement.type === 'select-one') {
+                    const selectedOption = inputElement.options[inputElement.selectedIndex];
+                    const value = selectedOption.value;
+                    document.getElementById(`${inputName}-display`).textContent = value;
+                } else if (inputElement.type === 'radio') {
+                    const selectedRadio = document.querySelector(`[name="${inputName}"]:checked`);
+                    const value = selectedRadio.value;
+                    document.getElementById(`${inputName}-display`).textContent = value;
+                } else {
+                    const value = inputElement.value;
+                    document.getElementById(`${inputName}-display`).textContent = value;
+                }
+            }
+        });
+
+        const modal = new bootstrap.Modal(document.getElementById('modalVerif'));
+        modal.show();
+    }
+});
