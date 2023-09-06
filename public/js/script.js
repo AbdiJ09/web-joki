@@ -138,16 +138,20 @@ function paymentOpen() {
 //     modalInstance.show();
 // });
 
-document.getElementById('btn-order-rank').addEventListener('click', function() {
-    // Ambil nilai dari input WhatsApp
-    const emailValue = document.getElementById('email').value;
-    const nickValue = document.getElementById('idNick').value;
-    const whatsappValue = document.getElementById('whatsapp').value;
-    const selectedRank = document.querySelector('input[name="select_joki"]:checked').value;
+document
+    .getElementById("btn-order-rank")
+    .addEventListener("click", function () {
+        // Ambil nilai dari input WhatsApp
+        const emailValue = document.getElementById("email").value;
+        const nickValue = document.getElementById("idNick").value;
+        const whatsappValue = document.getElementById("whatsapp").value;
+        const selectedRank = document.querySelector(
+            'input[name="select_joki"]:checked'
+        ).value;
 
-    // Tampilkan nilai di dalam modal
-    document.getElementById('email-display').textContent = emailValue;
-    document.getElementById('nick-display').textContent = nickValue;
-    document.getElementById('joki-display').textContent = selectedRank;
-    document.getElementById('whatsapp-display').textContent = whatsappValue;
-});
+        // Tampilkan nilai di dalam modal
+        document.getElementById("email-display").textContent = emailValue;
+        document.getElementById("nick-display").textContent = nickValue;
+        document.getElementById("joki-display").textContent = selectedRank;
+        document.getElementById("whatsapp-display").textContent = whatsappValue;
+    });
