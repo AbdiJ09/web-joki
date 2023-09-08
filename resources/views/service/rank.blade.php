@@ -102,32 +102,30 @@
                             <h1 class="text-center fw-normal">Form Akun</h1>
                             <div class="row g-4">
                                 <div class="col-6">
+                                    <input type="hidden" name="id_pesanan" id="id-pesanan" value="{{ $randomOrderId }}">
                                     <div class="mt-4">
-                                        <input type="text" name="email" id="email"
-                                            class="form-control focus-ring"
+                                        <input type="text" name="email" id="email" class="form-control focus-ring"
                                             placeholder="Masukkan Email/No HP">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-4 password">
                                         <input type="password" name="password" id="password"
-                                            class="form-control focus-ring"
-                                            placeholder="Masukkan Password">
+                                            class="form-control focus-ring" placeholder="Masukkan Password">
                                         <i class="bi bi-eye iconPw" id="iconPw"></i>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
-                                        <input type="text" name="id_and_nick" id="idNick"
-                                            class="form-control focus-ring"
-                                            placeholder="Masukkan ID & Nickname">
+                                        <input type="text" name="NickName" id="idNick"
+                                            class="form-control focus-ring" placeholder="Masukkan ID & Nickname">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mt-1 mb-3">
-                                        <select class="form-select focus-ring"
-                                            aria-label="Default select example" name="login_via">
-                                            <option selected>Login Via</option>
+                                        <select class="form-select focus-ring" aria-label="Default select example"
+                                            name="LoginVia">
+                                            <option selected value="-">Login Via</option>
                                             <option value="moonton">Moonton (Recommended)</option>
                                             <option value="vk">VK (Recommended)</option>
                                             <option value="facebook">Facebook</option>
@@ -143,8 +141,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($ranks as $rank)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check"
-                                            name="select_joki" id="rank{{ $loop->iteration }}" autocomplete="off"
+                                        <input type="radio" class="btn-check" name="Nominal"
+                                            id="rank{{ $loop->iteration }}" autocomplete="off"
                                             value="{{ $rank->rank }} / Star">
                                         <label class="btn text-start" for="rank{{ $loop->iteration }}">
                                             <div class="row">
@@ -153,7 +151,8 @@
                                                         <div class="col">{{ $rank->rank }} / Star</div>
                                                     </div>
                                                     <div class="row fst-italic">
-                                                        <div class="col">{{ $rank->price }}</div>
+                                                        <div class="col price-rank">
+                                                            {{ $rank->price }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -165,8 +164,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($promos as $promo)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check"
-                                            name="select_joki" id="promo{{ $loop->iteration }}" autocomplete="off"
+                                        <input type="radio" class="btn-check" name="Nominal"
+                                            id="promo{{ $loop->iteration }}" autocomplete="off"
                                             value="{{ $promo->promo }}">
                                         <label class="btn text-start" for="promo{{ $loop->iteration }}">
                                             <div class="row">
@@ -175,7 +174,7 @@
                                                         <div class="col">{{ $promo->promo }}</div>
                                                     </div>
                                                     <div class="row fst-italic">
-                                                        <div class="col">{{ $promo->price }}</div>
+                                                        <div class="col price-rank">{{ $promo->price }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,8 +186,8 @@
                             <div class="row row-cols-2 row-cols-lg-3 g-2 mt-1">
                                 @foreach ($murmers as $murmer)
                                     <div class="col-lg-4">
-                                        <input type="radio" class="btn-check"
-                                            name="select_joki" id="murmer{{ $loop->iteration }}" autocomplete="off"
+                                        <input type="radio" class="btn-check" name="Nominal"
+                                            id="murmer{{ $loop->iteration }}" autocomplete="off"
                                             value="{{ $murmer->joki_murah }}">
                                         <label class="btn text-start" for="murmer{{ $loop->iteration }}">
                                             <div class="row">
@@ -197,7 +196,7 @@
                                                         <div class="col">{{ $murmer->joki_murah }}</div>
                                                     </div>
                                                     <div class="row fst-italic">
-                                                        <div class="col">{{ $murmer->price }}</div>
+                                                        <div class="col price-rank">{{ $murmer->price }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,9 +209,7 @@
                         <div class="total-star shadow sec-right mb-4">
                             <h1 class="text-center fw-normal">Masukkan Jumlah Order</h1>
                             <div class="mt-3">
-                                <input type="text"
-                                    class="form-control focus-ring"
-                                    value="1" id="star_order" name="star_order">
+                                <input type="text" class="form-control focus-ring" id="star_order" name="order">
                             </div>
                             <div class="caution mt-2">
                                 <p class="text-warning mb-0">Mohon Dibaca!</p>
@@ -235,13 +232,13 @@
                                     <div class="row row-cols-2 row-cols-md-3 g-3">
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio"
-                                                    class="btn-check"
-                                                    name="payment" id="payment1" value="DANA">
+                                                <input type="radio" class="btn-check" name="payment" id="payment1"
+                                                    value="DANA">
                                                 <label class="btn label-payment d-block" for="payment1">
                                                     <div class="info-top">
                                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png"
                                                             alt="" height="23">
+                                                        <p class="harga" id="select-price"></p>
                                                     </div>
                                                     <div class="info-bottom">
                                                         DANA
@@ -258,6 +255,7 @@
                                                     <div class="info-top">
                                                         <img src="/img/payment-logos/OVO.png" alt=""
                                                             height="23">
+                                                        <p class="harga" id="select-price"></p>
                                                     </div>
                                                     <div class="info-bottom">
                                                         OVO
@@ -268,11 +266,13 @@
                                         </div>
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="payment" id="payment3">
+                                                <input type="radio" class="btn-check" name="payment" id="payment3"
+                                                    value="Shopee Pay">
                                                 <label class="btn label-payment d-block" for="payment3">
                                                     <div class="info-top">
                                                         <img src="/img/payment-logos/Shopeepay.png" alt=""
                                                             height="23">
+                                                        <p class="harga" id="select-price"></p>
                                                     </div>
                                                     <div class="info-bottom">
                                                         Shopee Pay
@@ -283,11 +283,13 @@
                                         </div>
                                         <div class="col-lg-4 p-1 mt-0 mb-2">
                                             <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="payment" id="payment4">
+                                                <input type="radio" class="btn-check" name="payment" id="payment4"
+                                                    value="Link aja">
                                                 <label class="btn label-payment d-block" for="payment4">
                                                     <div class="info-top">
                                                         <img src="/img/payment-logos/Linkaja.png" alt=""
                                                             height="23">
+                                                        <p class="harga" id="select-price"></p>
                                                     </div>
                                                     <div class="info-bottom">
                                                         Linkaja
@@ -316,32 +318,64 @@
                             <h1 class="text-center fw-normal">No Whatsapp</h1>
                             <div class="form-group mt-3">
                                 <label for="whatsapp" class="mb-2">No Whatsapp</label>
-                                <input type="text" class="form-control focus-ring" name="whatsapp" id="whatsapp" placeholder="+62******">
+                                <input type="text" class="form-control focus-ring" name="whatsapp" id="whatsapp"
+                                    placeholder="+62******">
                             </div>
                             <button class="btn order-btn w-100 mt-3" id="btn-order-rank" type="button">Order Now <i
                                     class="bi bi-cart"></i></button>
                         </div>
 
                         <div class="modal fade" id="modalVerif" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h1 class="modal-title" id="exampleModalLabel">Verifikasi Pesanan</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
-                                        <p>Email : <span id="email-display"></span></p>
-                                        <p>Pasword : <span id="password-display"></span></p>
-                                        <p>Id & Nickname : <span id="id_and_nick-display"></span></p>
-                                        <p>Login Via : <span id="login_via-display"></span></p>
-                                        <p>Jasa Joki Yang Dipilih : <span id="select_joki-display"></span></p>
-                                        <p>Jumlah order : <span id="star_order-display"></span></p>
-                                        <p>Nomor Whatsapp : <span id="whatsapp-display"></span></p>
-                                        <p>Metode Pembayaran : <span id="payment-display"></span></p>
+                                    <div class="modal-body fs-5 text-white">
+                                        <div class="row">
+                                            <div class="col-md-6 verif-order">
+                                                <p><i class="bi bi-envelope-open"></i> Email : <span
+                                                        id="email-display"></span></p>
+                                            </div>
+                                            <div class="col-md-6 verif-order">
+                                                <p><i class="bi bi-lock"></i> Pasword : <span
+                                                        id="password-display"></span>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6 verif-order">
+                                                <p><i class="bi bi-person-check"></i> Id & Nickname : <span
+                                                        id="NickName-display"></span></p>
+
+                                            </div>
+                                            <div class="col-md-6 verif-order">
+                                                <p><i class="bi bi-box-arrow-in-right"></i> Login Via : <span
+                                                        id="LoginVia-display"></span></p>
+                                            </div>
+                                            <div class="col-md-6 verif-order">
+                                                <p><i class="bi bi-controller"></i> Jasa Joki Yang Dipilih : <span
+                                                        id="Nominal-display"></span></p>
+                                            </div>
+                                            <div class="col-md-6 verif-order">
+                                                <p><i class="bi bi-cart-plus"></i> Jumlah order : <span
+                                                        id="order-display"></span></p>
+                                            </div>
+                                            <div class="col-md-6 verif-order">
+                                                <p><i class="bi bi-whatsapp"></i> Nomor Whatsapp : <span
+                                                        id="whatsapp-display"></span></p>
+                                            </div>
+                                            <div class="col-md-6 verif-order">
+                                                <p><i class="bi bi-cash-stack"></i> Metode Pembayaran : <span
+                                                        id="payment-display"></span></p>
+                                            </div>
+
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn pesan">Pesan Sekarang</button>
                                     </div>
                                 </div>
                             </div>

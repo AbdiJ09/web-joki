@@ -4,7 +4,7 @@ function updateStickyClass() {
     const isDesktop = window.innerWidth > 1000;
     const isMobile = window.innerWidth <= 500;
 
-    if (isDesktop && window.scrollY > 400) {
+    if (isDesktop && window.scrollY > 100) {
         header.classList.add("sticky");
     } else if (isMobile && window.scrollY > 100) {
         header.classList.add("sticky");
@@ -103,105 +103,126 @@ const paymentDrawwer = document.querySelector(".payment-drawwer");
 function paymentOpen() {
     paymentDrawwer.classList.toggle("active");
 }
-// const formRank = document.querySelector("#order-rank");
-// const orderRank = document.querySelector("#btn-order-rank");
-// const email = document.querySelector("#email");
+function warningNotif(message, icon) {
+    iziToast.error({
+        title: "Warning",
+        message: message,
+        position: "topRight",
+        timeout: 5000,
+        theme: "light",
+        icon: icon,
+        titleSize: 20,
+        messageSize: 20,
+        titleLineHeight: "30",
+        maxWidth: 400,
+        layout: 2, // Atur layout agar judul dan ikon berada di atas pesan
+        timeout: 2000,
+    });
+}
+document
+    .getElementById("btn-order-rank")
+    .addEventListener("click", function () {
+        const inputNames = [
+            "email",
+            "password",
+            "NickName",
+            "LoginVia",
+            "Nominal",
+            "order",
+            "whatsapp",
+            "payment",
+        ];
 
-// orderRank.addEventListener("click", function () {
-//     const modal = document.createElement("div");
-//     modal.classList.add("modal", "fade");
-//     modal.innerHTML = `
-//         <div class="modal-dialog modal-dialog-centered">
-//             <div class="modal-content">
-//                 <div class="modal-header">
-//                     <h5 class="modal-title">Judul Modal</h5>
-//                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-//                 </div>
-//                 <div class="modal-body">
-//                     ${email.value}
-//                 </div>
-//                 <div class="modal-footer">
-//                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-//                     <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-//                 </div>
-//             </div>
-//         </div>
-//     `;
+        let isValid = true;
 
-//     // Tambahkan modal ke dalam dokumen
-//     formRank.appendChild(modal);
+        inputNames.forEach((inputName) => {
+            console.log(inputName);
+            const inputElement = document.querySelector(
+                `[name="${inputName}"]`
+            );
+            const inputValue = inputElement.value.trim();
 
-//     // Inisialisasi modal Bootstrap
-//     const modalInstance = new bootstrap.Modal(modal);
-
-//     // Tampilkan modal
-//     modalInstance.show();
-// });
-
-document.getElementById('btn-order-rank').addEventListener('click', function() {
-    const inputNames = [
-        'email',
-        'password',
-        'id_and_nick',
-        'login_via',
-        'select_joki',
-        'star_order',
-        'whatsapp',
-        'payment'
-    ];
-
-    let isValid = true;
-
-    inputNames.forEach(inputName => {
-        const inputElement = document.querySelector(`[name="${inputName}"]`);
-        if (inputElement) {
-            if (inputElement.type === 'select-one') {
-                // Kasus untuk elemen select
-                const selectedOption = inputElement.options[inputElement.selectedIndex];
-                if (!selectedOption.value) {
-                    console.log(`${inputName} harus dipilih`);
-                    isValid = false;
-                }
-            } else if (inputElement.type === 'radio') {
-                // Kasus untuk elemen radio
-                const radioButtons = document.querySelectorAll(`[name="${inputName}"]:checked`);
-                if (radioButtons.length === 0) {
-                    console.log(`${inputName} harus dipilih`);
-                    isValid = false;
-                }
-            } else {
-                // Kasus default untuk input teks
-                const inputValue = inputElement.value.trim();
-                if (inputValue === '') {
-                    console.log(`${inputName} harus diisi`);
+            if (inputElement.type === "select-one") {
+                const selectInput =
+                    inputElement.options[inputElement.selectedIndex];
+                if (selectInput.value === "-") {
+                    warningNotif(
+                        "Data login kosong,silahkan di input",
+                        "fas fa-exclamation-triangle"
+                    );
                     isValid = false;
                 }
             }
-        } else {
-            console.log(`Elemen dengan name "${inputName}" tidak ditemukan.`);
-        }
-    });
+            if (inputElement.type === "radio") {
+                const radio = document.querySelectorAll(
+                    `[name="${inputName}"]:checked`
+                );
 
-    if (isValid) {
-        inputNames.forEach(inputName => {
-            const inputElement = document.querySelector(`[name="${inputName}"]`);
-            if (inputElement) {
-                if (inputElement.type === 'select-one') {
-                    const selectedOption = inputElement.options[inputElement.selectedIndex];
-                    const value = selectedOption.value;
-                    document.getElementById(`${inputName}-display`).textContent = value;
-                } else if (inputElement.type === 'radio') {
-                    const selectedRadio = document.querySelector(`[name="${inputName}"]:checked`);
-                    const value = selectedRadio.value;
-                    document.getElementById(`${inputName}-display`).textContent = value;
-                } else {
-                    const value = inputElement.value;
-                    document.getElementById(`${inputName}-display`).textContent = value;
+                if (radio.length === 0) {
+                    warningNotif(
+                        `Nominal ${inputName} kosong, silahkan di input`,
+                        "fas fa-exclamation-triangle"
+                    );
+                    isValid = false;
                 }
+            }
+            if (inputValue === "") {
+                warningNotif(
+                    `Data ${inputName} kosong, silahkan di isi `,
+                    "fas fa-exclamation-triangle"
+                );
+                isValid = false;
+                // const inputValue = inputElement.value.trim();
             }
         });
 
-        const modal = new bootstrap.Modal(document.getElementById('modalVerif'));
-        modal.show();
-    }
+        if (isValid) {
+            inputNames.forEach((inputName) => {
+                const inputElement = document.querySelector(
+                    `[name="${inputName}"]`
+                );
+                if (inputElement) {
+                    if (inputElement.type === "select-one") {
+                        const selectedOption =
+                            inputElement.options[inputElement.selectedIndex];
+                        const value = selectedOption.value;
+                        document.getElementById(
+                            `${inputName}-display`
+                        ).textContent = value;
+                    } else if (inputElement.type === "radio") {
+                        const selectedRadio = document.querySelector(
+                            `[name="${inputName}"]:checked`
+                        );
+                        const value = selectedRadio.value;
+                        document.getElementById(
+                            `${inputName}-display`
+                        ).textContent = value;
+                    } else {
+                        const value = inputElement.value;
+                        document.getElementById(
+                            `${inputName}-display`
+                        ).textContent = value;
+                    }
+                }
+            });
+
+            const modal = new bootstrap.Modal(
+                document.getElementById("modalVerif")
+            );
+            modal.show();
+        }
+    });
+
+const radioButtons = document.querySelectorAll(".btn-check");
+radioButtons.forEach(function (radioButton) {
+    radioButton.addEventListener("change", function () {
+        if (this.checked) {
+            let priceValue =
+                this.parentElement.querySelector(".price-rank").textContent;
+            const price = document.querySelectorAll(".harga");
+            price.forEach((p) => {
+                p.textContent = priceValue;
+            });
+        }
+    });
 });

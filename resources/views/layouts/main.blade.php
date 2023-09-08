@@ -18,7 +18,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- Default theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
 </head>
 
 <body>
@@ -49,6 +52,7 @@
     @if (!Request::is('terms'))
         <x-preview />
     @endif
+  
 
     <x-footer />
 
@@ -59,7 +63,25 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10.0.0/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <script src="/js/script.js"></script>
+    <script>
+        document.getElementById("show-error-button").addEventListener("click", function() {
+
+            iziToast.error({
+                title: 'Error',
+                message: 'Terjadi kesalahan dalam aplikasi.',
+                position: 'topRight',
+                timeout: 5000,
+                theme: 'light',
+                timeout: 2000
+            });
+
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             let modalShown = localStorage.getItem('modalShown');

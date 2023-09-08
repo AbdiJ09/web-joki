@@ -4,7 +4,7 @@
          <div class="row">
              <div class="col-md-4 col-sm-6">
                  <div class="img-area shadow-lg rounded-3">
-                     <img src="/img/betrik2.jpg" alt="">
+                     <img src="/img/irithel.jpg" alt="">
                      <div class="img-text">
                          <h3 class="fs-6 fw-semibold">Joki Classic(Up Winrate)</h3>
                          <h5 class="fs-6">Mobile Legends</h5>
@@ -26,7 +26,7 @@
              </div>
              <div class="col-md-4 col-sm-6">
                  <div class="img-area shadow-lg rounded-3">
-                     <img src="/img/roger.webp" alt="">
+                     <img src="/img/lesti.jpg" alt="">
                      <div class="img-text">
                          <h3 class="fs-6 fw-semibold">Joki Gendong(Ranked / Classic)</h3>
                          <h5 class="fs-6">Mobile Legends</h5>

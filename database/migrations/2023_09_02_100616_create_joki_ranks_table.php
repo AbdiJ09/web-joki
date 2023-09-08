@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('joki_ranks', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_pesanan')->unique();
             $table->string('email');
             $table->string('password');
             $table->string('id_and_nick');

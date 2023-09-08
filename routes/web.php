@@ -30,3 +30,4 @@ Route::get('/terms', function () {
 });
 
 Route::post('/order/joki-rank/payment', [JokiRankController::class, 'payment']);
+Route::get('process/orderan/{id_pesanan}', [JokiRankController::class, 'processOrderan'])->name('process.orderan');
