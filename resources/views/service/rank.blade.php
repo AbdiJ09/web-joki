@@ -25,8 +25,17 @@
             </div>
         </div>
     </div>
+
     <section id="service">
         <div class="container">
+            @if (session()->has('warning'))
+                <div class="alert alert-warning alert-dismissible fade show col-md-7 position-absolute"
+                    style="float: right;transform:translateY(-40px)" role="alert">
+                    <strong><i class="bi bi-exclamation-triangle-fill"></i> Warning</strong>
+                    {{ session('warning') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class="row justify-content-center align-items-start g-4">
                 <div class="col-md-4">
                     <div class="shadow-lg sec-left mb-4">
@@ -94,6 +103,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="col-md-8">
 
                     <form action="/order/joki-rank/payment" method="post" id="order-rank">
@@ -103,9 +113,10 @@
                             <div class="row g-4">
                                 <div class="col-6">
                                     <input type="hidden" name="id_pesanan" id="id-pesanan" value="{{ $randomOrderId }}">
+                                    <input type="hidden" name="price" id="price">
                                     <div class="mt-4">
-                                        <input type="text" name="email" id="email" class="form-control focus-ring"
-                                            placeholder="Masukkan Email/No HP">
+                                        <input type="text" name="email" id="email"
+                                            class="form-control focus-ring" placeholder="Masukkan Email/No HP">
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -152,7 +163,7 @@
                                                     </div>
                                                     <div class="row fst-italic">
                                                         <div class="col price-rank">
-                                                            {{ $rank->price }}</div>
+                                                            Rp{{ number_format($rank->price, 0, '.', '.') }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,7 +220,8 @@
                         <div class="total-star shadow sec-right mb-4">
                             <h1 class="text-center fw-normal">Masukkan Jumlah Order</h1>
                             <div class="mt-3">
-                                <input type="text" class="form-control focus-ring" id="star_order" name="order">
+                                <input type="number" class="form-control focus-ring total-order" id="star_order"
+                                    name="order">
                             </div>
                             <div class="caution mt-2">
                                 <p class="text-warning mb-0">Mohon Dibaca!</p>
@@ -325,6 +337,7 @@
                                     class="bi bi-cart"></i></button>
                         </div>
 
+
                         <div class="modal fade" id="modalVerif" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -375,13 +388,12 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn pesan">Pesan Sekarang</button>
+                                        <button type="button" class="btn pesan">Pesan Sekarang</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

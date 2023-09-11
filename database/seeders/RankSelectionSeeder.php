@@ -16,35 +16,35 @@ class RankSelectionSeeder extends Seeder
         $ranks = [
             [
                 'rank' => 'Master',
-                'price' => 'Rp.4.000',
+                'price' => 4000,
             ],
             [
                 'rank' => 'GM',
-                'price' => 'Rp.5.000',
+                'price' => 5000,
             ],
             [
                 'rank' => 'Epic',
-                'price' => 'Rp.7.000',
+                'price' => 7000,
             ],
             [
                 'rank' => 'Legend',
-                'price' => 'Rp.8.500',
+                'price' => 8000,
             ],
             [
                 'rank' => 'Mythic',
-                'price' => 'Rp.10.000',
+                'price' => 10000,
             ],
             [
                 'rank' => 'Mythic Honor',
-                'price' => 'Rp.11.500',
+                'price' => 11500,
             ],
             [
                 'rank' => 'Mythic Glory',
-                'price' => 'Rp.13.000',
+                'price' => 13000,
             ],
             [
                 'rank' => 'Mythic Immortal',
-                'price' => 'Rp.15.000',
+                'price' => 15000,
             ],
         ];
 

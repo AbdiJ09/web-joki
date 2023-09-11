@@ -13,8 +13,6 @@
                     <a href="#order" class="link-light"><button class="btn-order">
                             Order Now
                         </button></a>
-
-
                 </div>
 
                 <div class="col-md-6">

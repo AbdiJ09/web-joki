@@ -22,20 +22,18 @@ class JokiRankController extends Controller
         }
         return view('service.rank', compact('ranks', 'promos', 'murmers', 'randomOrderId'));
     }
-
     public function payment(Request $request)
     {
-        // dd($request)->all();
-        // $validatedData = $request->validate([
-        //     'email' => 'required|email|max:255',
-        //     'password' => 'required|max:255',
-        //     'id_and_nick' => 'required',
-        //     'login_via' => 'required',
-        //     'select_joki' => 'required',
-        //     'star_order' => 'required',
-        //     'whatsapp' => 'required',
-        //     'payment' => 'required',
-        // ]);
+        $id_pesanan = $request->id_pesanan;
+
+        // Periksa apakah id_pesanan sudah ada dalam database
+        $existingOrder = JokiRank::where('id_pesanan', $id_pesanan)->first();
+
+        if ($existingOrder) {
+            // id_pesanan sudah ada, lakukan tindakan yang sesuai, misalnya tampilkan pesan kesalahan
+            return redirect('order/joki-rank')->with("warning", "Pesanan telah dibuat");
+        }
+
 
         $dataOrderRank = [
             "id_pesanan" => $request->id_pesanan,
@@ -46,17 +44,17 @@ class JokiRankController extends Controller
             "select_joki" => $request->Nominal,
             "star_order" => $request->order,
             "whatsapp" => $request->whatsapp,
-            "payment" => $request->payment
+            "payment" => $request->payment,
         ];
 
-
         JokiRank::create($dataOrderRank);
-
         return redirect()->route('process.orderan', ["id_pesanan" => $request->id_pesanan]);
     }
     public function processOrderan($id_pesanan)
     {
+
         $customer = JokiRank::where('id_pesanan', $id_pesanan)->first();
+
         return view('components.proccesOrder', [
             "customer" => $customer
         ]);

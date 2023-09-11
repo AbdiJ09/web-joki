@@ -2,7 +2,7 @@
      <div class="container">
          <h1 class="text-center">Service</h1>
          <div class="row">
-             <div class="col-md-4 col-sm-6">
+             <div class="col-md-4 col-sm-6 mb-4">
                  <div class="img-area shadow-lg rounded-3">
                      <img src="/img/irithel.jpg" alt="">
                      <div class="img-text">
@@ -13,7 +13,7 @@
                      </div>
                  </div>
              </div>
-             <div class="col-md-4 col-sm-6">
+             <div class="col-md-4 col-sm-6 mb-4">
                  <div class="img-area shadow-lg rounded-3">
                      <img src="/img/lance.jpg" alt="">
                      <div class="img-text">
@@ -24,7 +24,7 @@
                      </div>
                  </div>
              </div>
-             <div class="col-md-4 col-sm-6">
+             <div class="col-md-4 col-sm-6 mb-4">
                  <div class="img-area shadow-lg rounded-3">
                      <img src="/img/lesti.jpg" alt="">
                      <div class="img-text">

@@ -119,6 +119,7 @@ function warningNotif(message, icon) {
         timeout: 2000,
     });
 }
+
 document
     .getElementById("btn-order-rank")
     .addEventListener("click", function () {
@@ -175,7 +176,6 @@ document
                 // const inputValue = inputElement.value.trim();
             }
         });
-
         if (isValid) {
             inputNames.forEach((inputName) => {
                 const inputElement = document.querySelector(
@@ -204,6 +204,10 @@ document
                         ).textContent = value;
                     }
                 }
+                const btnSubmit = document.querySelector(".pesan");
+                btnSubmit.addEventListener("click", function () {
+                    btnSubmit.setAttribute("type", "submit");
+                });
             });
 
             const modal = new bootstrap.Modal(
@@ -220,6 +224,8 @@ radioButtons.forEach(function (radioButton) {
             let priceValue =
                 this.parentElement.querySelector(".price-rank").textContent;
             const price = document.querySelectorAll(".harga");
+            const totalOrder = document.getElementById("star_order");
+
             price.forEach((p) => {
                 p.textContent = priceValue;
             });
