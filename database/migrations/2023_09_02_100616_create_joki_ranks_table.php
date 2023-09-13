@@ -22,8 +22,12 @@ return new class extends Migration
             $table->string('star_order');
             $table->string('whatsapp');
             $table->string('payment');
-            $table->integer('price');
+            $table->string('price');
             $table->string('status')->default('pending');
+            // $table->timestamp('payment_expiry')->default(now()->addMinutes(30));
+            $table->timestamp('payment_expiry')->nullable();
+
+
             $table->timestamps();
         });
     }

@@ -132,6 +132,7 @@ document
             "order",
             "whatsapp",
             "payment",
+            // "price",
         ];
 
         let isValid = true;
@@ -217,18 +218,22 @@ document
         }
     });
 
-const radioButtons = document.querySelectorAll(".btn-check");
-radioButtons.forEach(function (radioButton) {
-    radioButton.addEventListener("change", function () {
-        if (this.checked) {
-            let priceValue =
-                this.parentElement.querySelector(".price-rank").textContent;
-            const price = document.querySelectorAll(".harga");
-            const totalOrder = document.getElementById("star_order");
-
-            price.forEach((p) => {
-                p.textContent = priceValue;
-            });
-        }
-    });
+const starOrderInput = document.querySelector("#star_order");
+const priceRank = document.querySelector("#price");
+starOrderInput.addEventListener("input", function () {
+    const checkedRadioButton = document.querySelector(".btn-check:checked");
+    if (checkedRadioButton) {
+        let priceValue =
+            checkedRadioButton.parentElement.querySelector(
+                ".price-rank"
+            ).textContent;
+        priceValue = parseFloat(priceValue.replace("Rp.", "").replace(",", "")); // Mengonversi menjadi float
+        const price = document.querySelectorAll(".harga");
+        let total = this.value * priceValue;
+        priceRank.value = total.toFixed(3);
+        console.log(total);
+        price.forEach((p) => {
+            p.textContent = `Rp.${total.toFixed(3)}`; // Menggunakan toFixed() untuk menampilkan dua angka desimal
+        });
+    }
 });

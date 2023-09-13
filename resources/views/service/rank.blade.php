@@ -2,20 +2,33 @@
 @section('container')
     <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="modal-content informasi-content">
+                <div class="modal-header informasi-header">
                     <h5 class="modal-title" id="infoModalLabel">Informasi Sebelum Order Jasa Joki</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    Sebelum Anda me, harap perhatikan informasi berikut:
-                    <ul>
+                <div class="modal-body informasi-body">
+                    Sebelum Anda order, harap perhatikan informasi berikut:
+
+                    <p class="text-warning mt-3">Orderan Joki Di Cek Pukul 09.00 - 21.00 WIB
+                        (Jika Order Melewati Batas Pengecekan Orderan , Maka Orderan Di Cek di Hari Berikutnya)</p>
+                    <ol>
                         <li>Matikan Verifikasi Akun Untuk Mempermudah Login</li>
                         <li>Jika akun di login Tanpa izin , maka proses Joki Akan di batalkan dan uang akan hangus</li>
                         <li>Jika Ada Problem saat login ke akun ,maka akan segera di Hubungi oleh admin</li>
-                    </ul>
+                        <li>Jika Akun Belum Di Proses Selama 1-3 Jam Harap Hubungi Contact US/Admin</li>
+                        <li>Jika Menemukan adanya Penjoki yang menawarkan jasa joki tanpa dari nomer wa resmi kami / tanpa
+                            dari instagram official kami @aj_store.23 Customer Akan Mendapatkan joki gratis (Lapor
+                            Ke Admin AJ Store / Contact US Yang Ada Di Website) Dan Memberikan Bukti </li>
+                        <li>Jika Proses Joki Sudah Selesai Maka akan Di Kabarin Oleh Admin</li>
+                    </ol>
+                    <p>Jika Butuh Bantuan Harap Hubungi Admin AJ Store
+
+                        Terimakasih
+
+                    </p>
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
+                <div class="modal-footer d-flex justify-content-between informasi-footer">
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="hideModalCheckbox">
                         <label class="form-check-label" for="hideModalCheckbox">Jangan tampilkan lagi</label>
@@ -33,6 +46,14 @@
                     style="float: right;transform:translateY(-40px)" role="alert">
                     <strong><i class="bi bi-exclamation-triangle-fill"></i> Warning</strong>
                     {{ session('warning') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            @if (session()->has('warningg'))
+                <div class="alert alert-warning alert-dismissible fade show col-md-7 position-absolute"
+                    style="float: right;transform:translateY(-40px)" role="alert">
+                    <strong><i class="bi bi-exclamation-triangle-fill"></i> Warning</strong>
+                    {{ session('warningg') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
@@ -57,6 +78,10 @@
                                     <li>Masukan No Whatsapp dengan benar</li>
                                     <li>Klik Order Now</li>
                                 </ol>
+                                <p class="text-warning">Estimasi Proses Jasa Joki Kita Usahakan Secepatnya </p>
+                                <p class="text-warning">Minimal 24 Jam - Maximal 3x24 Jam</p>
+                                <p class="text-warning">**Noted!!! : Sebelum Order Mohon Baca Informasi (Pop Up)
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -108,11 +133,13 @@
 
                     <form action="/order/joki-rank/payment" method="post" id="order-rank">
                         @csrf
+
                         <div class="form-account shadow sec-right mb-4">
                             <h1 class="text-center fw-normal">Form Akun</h1>
                             <div class="row g-4">
                                 <div class="col-6">
-                                    <input type="hidden" name="id_pesanan" id="id-pesanan" value="{{ $randomOrderId }}">
+                                    <input type="hidden" name="id_pesanan" id="id-pesanan"
+                                        value="{{ $randomOrderId }}">
                                     <input type="hidden" name="price" id="price">
                                     <div class="mt-4">
                                         <input type="text" name="email" id="email"
@@ -162,8 +189,10 @@
                                                         <div class="col">{{ $rank->rank }} / Star</div>
                                                     </div>
                                                     <div class="row fst-italic">
-                                                        <div class="col price-rank">
-                                                            Rp{{ number_format($rank->price, 0, '.', '.') }}</div>
+                                                        <div class="col">
+                                                            Rp <span
+                                                                class="price-rank">{{ number_format($rank->price, 0, '.', '.') }}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -262,11 +291,11 @@
                                         <div class="col-lg-4 p-1">
                                             <div class="payment-group shadow h-100">
                                                 <input type="radio" class="btn-check" name="payment" id="payment2"
-                                                    value="OVO">
+                                                    value="GOPAY">
                                                 <label class="btn label-payment d-block" for="payment2">
                                                     <div class="info-top">
-                                                        <img src="/img/payment-logos/OVO.png" alt=""
-                                                            height="23">
+                                                        <img src="/img/payment-logos/gopay2.png" height="23"
+                                                            alt="" style="transform: translateX(-10px)">
                                                         <p class="harga" id="select-price"></p>
                                                     </div>
                                                     <div class="info-bottom">
@@ -276,40 +305,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 p-1">
-                                            <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="payment" id="payment3"
-                                                    value="Shopee Pay">
-                                                <label class="btn label-payment d-block" for="payment3">
-                                                    <div class="info-top">
-                                                        <img src="/img/payment-logos/Shopeepay.png" alt=""
-                                                            height="23">
-                                                        <p class="harga" id="select-price"></p>
-                                                    </div>
-                                                    <div class="info-bottom">
-                                                        Shopee Pay
-                                                        <div class="nominal">Dicek otomatis</div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 p-1 mt-0 mb-2">
-                                            <div class="payment-group shadow h-100">
-                                                <input type="radio" class="btn-check" name="payment" id="payment4"
-                                                    value="Link aja">
-                                                <label class="btn label-payment d-block" for="payment4">
-                                                    <div class="info-top">
-                                                        <img src="/img/payment-logos/Linkaja.png" alt=""
-                                                            height="23">
-                                                        <p class="harga" id="select-price"></p>
-                                                    </div>
-                                                    <div class="info-bottom">
-                                                        Linkaja
-                                                        <div class="nominal">Dicek otomatis</div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="footer-payment" onclick="paymentOpen()">
@@ -340,13 +336,13 @@
 
                         <div class="modal fade" id="modalVerif" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable">
-                                <div class="modal-content">
-                                    <div class="modal-header">
+                                <div class="modal-content verifikasi-content">
+                                    <div class="modal-header verifikasi-header">
                                         <h1 class="modal-title" id="exampleModalLabel">Verifikasi Pesanan</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body fs-5 text-white">
+                                    <div class="modal-body fs-5 text-white verifikasi-body">
                                         <div class="row">
                                             <div class="col-md-6 verif-order">
                                                 <p><i class="bi bi-envelope-open"></i> Email : <span
@@ -385,7 +381,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer verifikasi-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
                                         <button type="button" class="btn pesan">Pesan Sekarang</button>

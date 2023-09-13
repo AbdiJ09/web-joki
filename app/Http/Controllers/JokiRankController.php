@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\JokiRank;
+use App\Models\PaymentDetail;
 use Illuminate\Http\Request;
 use App\Models\RankSelection;
+// use Illuminate\Support\Carbon;
+use Carbon\Carbon; // Import kelas Carbon
 use Illuminate\Support\Facades\DB;
 
 class JokiRankController extends Controller
@@ -33,6 +36,7 @@ class JokiRankController extends Controller
             // id_pesanan sudah ada, lakukan tindakan yang sesuai, misalnya tampilkan pesan kesalahan
             return redirect('order/joki-rank')->with("warning", "Pesanan telah dibuat");
         }
+        $payment_expiry = Carbon::now('Asia/Jakarta')->addMinutes(1); // Set waktu dengan zona waktu WIB
 
 
         $dataOrderRank = [
@@ -45,16 +49,32 @@ class JokiRankController extends Controller
             "star_order" => $request->order,
             "whatsapp" => $request->whatsapp,
             "payment" => $request->payment,
+            "price" => $request->price,
+            "payment_expiry" => $payment_expiry->toDateTimeString()
         ];
 
-        JokiRank::create($dataOrderRank);
+        $JokiRank = JokiRank::create($dataOrderRank);
+        if ($request->payment === "DANA" || $request->payment === "GOPAY") {
+            $paymentDetails = new PaymentDetail([
+                'dana_number' => ($request->payment === 'DANA') ? '088210673563' : null,
+                'ovo_number' => ($request->payment === "GOPAY") ? '088210673563' : null
+            ]);
+            $JokiRank->PaymentDetails()->save($paymentDetails);
+        }
         return redirect()->route('process.orderan', ["id_pesanan" => $request->id_pesanan]);
     }
     public function processOrderan($id_pesanan)
     {
 
         $customer = JokiRank::where('id_pesanan', $id_pesanan)->first();
+        $paymentExpiry = Carbon::parse($customer->payment_expiry, 'Asia/Jakarta');
+        $currentTime = Carbon::now('Asia/Jakarta');
 
+        if ($currentTime > $paymentExpiry) {
+            JokiRank::where('id_pesanan', $id_pesanan)->delete();
+            // Pesanan telah kadaluwarsa, tampilkan notifikasi
+            return redirect('/order/joki-rank')->with('warningg', 'pesanan expired');
+        }
         return view('components.proccesOrder', [
             "customer" => $customer
         ]);

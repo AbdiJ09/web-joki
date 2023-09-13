@@ -4,6 +4,8 @@ use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\JokiRankController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use App\Models\JokiRank;
 use Spatie\FlareClient\View;
 
@@ -31,3 +33,8 @@ Route::get('/terms', function () {
 
 Route::post('/order/joki-rank/payment', [JokiRankController::class, 'payment']);
 Route::get('process/orderan/{id_pesanan}', [JokiRankController::class, 'processOrderan'])->name('process.orderan');
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/register', [LoginController::class, 'store']);
+Route::post('/login', [LoginController::class, 'auth']);
+Route::post('/logout', [LoginController::class, 'logout']);
