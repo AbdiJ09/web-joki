@@ -79,7 +79,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                    <i class="bx bxs-user"></i>
+                    <i class="fw-bold">@</i>
                 </div>
                 <div class="input-box animation" style="--li:18;--s:1">
                     <input type="text" name="name" class="is-invalid" id="name" required autocomplete="off">
@@ -117,7 +117,7 @@
                     <button class="btn-login" type="submit">Register</button>
                 </div>
                 <div class="regi-link animation" style="--li:21;--s:4">
-                    <p>Don't have account? <a href="#" class="singin">Sing In</a></p>
+                    <p>Have Acoount? <a href="#" class="singin">Sing In</a></p>
                 </div>
             </form>
 

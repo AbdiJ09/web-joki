@@ -58,13 +58,13 @@
                 </div>
             @endif
             <div class="row justify-content-center align-items-start g-4">
-                <div class="col-md-4">
+                <div class="col-md-4 position-relative">
                     <div class="shadow-lg sec-left mb-4">
-                        <div class="logo shadow-lg">
-                            <img src="/img/3.png" class="img-fluid w-100" alt="">
+                        <div class="logo">
+                            <img src="/img/btf.png" class="img-fluid " alt="">
                         </div>
                         <div class="content-text text-start mt-5">
-                            <h2 class="fw-normal ">Joki <span style="color: gold">Rank</span></h2>
+                            <h2 class="fw-normal pt-5">Joki <span style="color: gold">Rank</span></h2>
                             <p class="text-white-50 mt-3 mb-1">Jasa Joki (Up Rank)</p>
                             <p class="fw-normal fs-5" style="color: gold">Open 24 Jam</p>
                             <h5 class="fw-normal text-white">Orderan Di Cek Admin Pukul 10.00-22.00 WIB</h5>

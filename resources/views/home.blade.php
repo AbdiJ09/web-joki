@@ -6,7 +6,8 @@
                 <div class="col-md-5 position-relative">
                     <h1 class="home-text text-white fw-semibold ">Welcome To AJ <span style="color: gold"
                             class="fw-bold store">STORE,</span></h1>
-                    <p class="fs-5 text-white-50">Website yang menyediakan layanan Jasa Joki Mobile Legends,Rank,Classic,Dll.
+                    <p class="fs-5 text-white-50 home-about">Website yang menyediakan layanan Jasa Joki Mobile
+                        Legends,Rank,Classic,Dll.
                     </p>
 
 

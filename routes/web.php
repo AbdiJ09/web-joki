@@ -33,8 +33,22 @@ Route::get('/terms', function () {
 
 Route::post('/order/joki-rank/payment', [JokiRankController::class, 'payment']);
 Route::get('process/orderan/{id_pesanan}', [JokiRankController::class, 'processOrderan'])->name('process.orderan');
+Route::post('/proccess/orderan/transaksi/{id_pesanan}', [JokiRankController::class, 'proccessTransaksi']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/register', [LoginController::class, 'store']);
 Route::post('/login', [LoginController::class, 'auth']);
 Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/dashboard', function () {
+
+
+    return view('dashboard.index');
+})->name('dashboard')->middleware('auth');
+
+
+
+Route::get('/dashboard/orderan', function () {
+    return view('dashboard.pageAdmin', [
+        'orders' => JokiRank::latest()->get()
+    ]);
+})->middleware('admin');

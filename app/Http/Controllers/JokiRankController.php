@@ -36,7 +36,7 @@ class JokiRankController extends Controller
             // id_pesanan sudah ada, lakukan tindakan yang sesuai, misalnya tampilkan pesan kesalahan
             return redirect('order/joki-rank')->with("warning", "Pesanan telah dibuat");
         }
-        $payment_expiry = Carbon::now('Asia/Jakarta')->addMinutes(1); // Set waktu dengan zona waktu WIB
+        $payment_expiry = Carbon::now('Asia/Jakarta')->addMinutes(30); // Set waktu dengan zona waktu WIB
 
 
         $dataOrderRank = [
@@ -78,5 +78,33 @@ class JokiRankController extends Controller
         return view('components.proccesOrder', [
             "customer" => $customer
         ]);
+    }
+
+    public function proccessTransaksi(Request $request, string $id_pesanan)
+    {
+
+        $transaksi = $request->validate([
+            'image' => 'image'
+        ]);
+
+        // Cari pesanan berdasarkan ID
+        $pesanan = JokiRank::where('id_pesanan', $id_pesanan)->firstOrFail();
+
+        if ($request->file('image')->isValid()) {
+            // Simpan path gambar jika ada
+            $imagePath = $request->file('image')->store('bukti-pesanan');
+            $transaksi['image'] = $imagePath;
+
+            // Simpan path gambar ke dalam kolom yang sesuai di tabel JokiRank
+            $pesanan->image = $imagePath;
+        }
+
+        // Ubah status pesanan menjadi "paid"
+        $pesanan->status = 'paid';
+
+        // Simpan perubahan pesanan
+        $pesanan->update($transaksi);
+        // Redirect atau kirim respons sesuai kebutuhan Anda
+        return response()->json(['success' => true, 'message' => 'Pembayaran berhasil']);
     }
 }

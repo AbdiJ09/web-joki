@@ -12,19 +12,19 @@ body {
     min-height: 100vh;
 
     background-color: #25252b;
-    background-image: url("/img/lance.jpg");
+    background-image: url("/img/lesti.jpg");
     background-position: center;
     background-size: cover;
-    backdrop-filter: blur(5px) brightness(60%);
+    backdrop-filter: blur(5px) brightness(70%);
 }
 .container {
     position: relative;
-    width: 900px;
+    width: 1000px;
     overflow: hidden;
     height: 500px;
     border-radius: 10px;
     border: 2px solid goldenrod;
-    box-shadow: 0 0 25px goldenrod;
+    /* box-shadow: 0 0 25px goldenrod; */
     background-color: #000;
 }
 .btn-back {
@@ -80,6 +80,7 @@ body {
 .form-box h2 {
     font-size: 32px;
     text-align: center;
+    margin-top: 50px;
 }
 .form-box .input-box {
     position: relative;
@@ -116,6 +117,8 @@ body {
 .input-box input:focus ~ label,
 .input-box input:valid ~ label {
     top: -5px;
+    z-index: 10000;
+
     color: gold;
 }
 .input-box i {
@@ -159,7 +162,7 @@ body {
 .regi-link {
     font-size: 14px;
     text-align: center;
-    margin: 20px 0 10px;
+    margin: 20px 0 30px;
 }
 .regi-link a {
     text-decoration: none;
@@ -193,6 +196,8 @@ body {
 }
 .info-content.Register {
     left: 0;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: left;
     padding: 0 150px 60px 40px;
     pointer-events: none;
@@ -207,6 +212,7 @@ body {
 .container.active .info-content.Register .animation {
     transform: translateX(0%);
     opacity: 1;
+    text-shadow: 10 10 40px rgba(0, 0, 0, 0.5);
     filter: blur(0);
     transition-delay: calc(0.1s * var(--li));
 }
@@ -224,15 +230,16 @@ body {
 .info-content p {
     font-size: 16px;
 }
+
 .container .curved-shape {
     position: absolute;
     right: 0;
     top: -5px;
     height: 600px;
-    width: 900px;
+    width: 1000px;
     /* background: linear-gradient(45deg, #25252b, gold); */
-    background-image: url("/img/lance.jpg");
-    background-position: center start;
+    background-image: url("/img/irithel.jpg");
+    background-position: center bottom;
     background-size: cover;
     transform: rotate(10deg) skewY(40deg);
     border-bottom: 3px solid goldenrod;
@@ -257,7 +264,7 @@ body {
 .form-box.Register {
     /* display: none; */
     right: 0;
-    padding: 0 60px;
+    padding: 0 70px;
 }
 .container.active .curved-shape2 {
     transform: rotate(-11deg) skewY(-41deg);

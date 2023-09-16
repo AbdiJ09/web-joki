@@ -6,6 +6,7 @@ use App\Models\OptionJoki;
 use App\Models\PaymentDetail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Crypt;
 
 class JokiRank extends Model
 {
@@ -18,5 +19,14 @@ class JokiRank extends Model
     public function paymentDetails()
     {
         return $this->hasOne(PaymentDetail::class);
+    }
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Crypt::encrypt($value);
+    }
+
+    public function getPasswordAttribute($value)
+    {
+        return Crypt::decrypt($value);
     }
 }

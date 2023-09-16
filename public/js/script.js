@@ -1,23 +1,10 @@
 const header = document.querySelector("header");
 
-function updateStickyClass() {
-    const isDesktop = window.innerWidth > 1000;
-    const isMobile = window.innerWidth <= 500;
-
-    if (isDesktop && window.scrollY > 100) {
-        header.classList.add("sticky");
-    } else if (isMobile && window.scrollY > 100) {
-        header.classList.add("sticky");
-    } else {
-        header.classList.remove("sticky");
-    }
-}
-
-window.addEventListener("scroll", updateStickyClass);
-window.addEventListener("resize", updateStickyClass);
-
+window.addEventListener("scroll", function () {
+    header.classList.toggle("sticky", window.scrollY > 200);
+});
+[];
 // Panggil fungsi untuk menginisialisasi status "sticky" saat halaman dimuat
-updateStickyClass();
 
 const open = document.querySelector("#menu-icon");
 const nav = document.querySelector(".nav");

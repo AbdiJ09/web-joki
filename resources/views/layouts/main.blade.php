@@ -52,12 +52,14 @@
 
         </svg>
     </div>
-    @if (!Request::is('terms') && !Request::routeIs('process.orderan'))
+    @if (!Request::is('terms') && !Request::routeIs('process.orderan') && !Request::is('order/joki-rank'))
         <x-preview />
     @endif
 
     <x-footer />
-
+    <script src="
+                            https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js
+                            "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
@@ -69,6 +71,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script src="/js/script.js"></script>
+    <script>
+        // Fungsi untuk menampilkan SweetAlert
+        function showSweetAlert(title, text, icon) {
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: icon,
+            });
+        }
+
+        // Ajax request ke server untuk memproses pembayaran
+        // Ajax request ke server untuk memproses pembayaran
+        $('#btn-submit').click(function(e) {
+            e.preventDefault();
+            var id_pesanan = $('#id_pesanan').val();
+
+            // Periksa apakah gambar sudah diunggah
+            if ($('#image')[0].files.length === 0) {
+                showSweetAlert('Error', 'Pilih gambar terlebih dahulu', 'error');
+                return; // Jangan kirim permintaan jika gambar belum diunggah
+            }
+
+            // Lakukan AJAX request ke server di sini
+            $.ajax({
+                type: 'POST',
+                url: '/proccess/orderan/transaksi/' + id_pesanan,
+                data: new FormData($('#transaksi')[0]), // Ganti dengan ID formulir Anda
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    if (response.success) {
+                        showSweetAlert('Pembayaran Berhasil', response.message, 'success');
+
+                    } else {
+                        showSweetAlert('Pembayaran Gagal', response.message, 'error');
+                    }
+                },
+                error: function(error) {
+                    console.log(error);
+                    showSweetAlert('Error', 'Terjadi kesalahan saat memproses pembayaran', 'error');
+                }
+            });
+        });
+    </script>
     <script>
         document.getElementById("show-error-button").addEventListener("click", function() {
 
