@@ -18,19 +18,19 @@ class JokiRankController extends Controller
         $promos = DB::table('promos')->get();
         $murmers = DB::table('murmers')->get();
         // $timestamp = now()->format('YmdHis');
-        $randomOrderId = rand(100000, 999999);
-        while (JokiRank::where('id_pesanan', $randomOrderId)->exists()) {
+        $invoiceCode = uniqid();
+        while (JokiRank::where('invoice_code', $invoiceCode)->exists()) {
             // $timestamp = now()->format("YmdHis");
-            $randomOrderId = rand(100000, 999999);
+            $invoiceCode = uniqid();
         }
-        return view('service.rank', compact('ranks', 'promos', 'murmers', 'randomOrderId'));
+        return view('service.rank', compact('ranks', 'promos', 'murmers', 'invoiceCode'));
     }
     public function payment(Request $request)
     {
         $id_pesanan = $request->id_pesanan;
 
         // Periksa apakah id_pesanan sudah ada dalam database
-        $existingOrder = JokiRank::where('id_pesanan', $id_pesanan)->first();
+        $existingOrder = JokiRank::where('invoice_code', $id_pesanan)->first();
 
         if ($existingOrder) {
             // id_pesanan sudah ada, lakukan tindakan yang sesuai, misalnya tampilkan pesan kesalahan
@@ -40,7 +40,7 @@ class JokiRankController extends Controller
 
 
         $dataOrderRank = [
-            "id_pesanan" => $request->id_pesanan,
+            "invoice_code" => $request->id_pesanan,
             "email" => $request->email,
             "password" => $request->password,
             "id_and_nick" => $request->NickName,
@@ -66,12 +66,12 @@ class JokiRankController extends Controller
     public function processOrderan($id_pesanan)
     {
 
-        $customer = JokiRank::where('id_pesanan', $id_pesanan)->first();
+        $customer = JokiRank::where('invoice_code', $id_pesanan)->first();
         $paymentExpiry = Carbon::parse($customer->payment_expiry, 'Asia/Jakarta');
         $currentTime = Carbon::now('Asia/Jakarta');
 
         if ($currentTime > $paymentExpiry) {
-            JokiRank::where('id_pesanan', $id_pesanan)->delete();
+            JokiRank::where('invoice_code', $id_pesanan)->delete();
             // Pesanan telah kadaluwarsa, tampilkan notifikasi
             return redirect('/order/joki-rank')->with('warningg', 'pesanan expired');
         }
@@ -88,7 +88,7 @@ class JokiRankController extends Controller
         ]);
 
         // Cari pesanan berdasarkan ID
-        $pesanan = JokiRank::where('id_pesanan', $id_pesanan)->firstOrFail();
+        $pesanan = JokiRank::where('invoice_code', $id_pesanan)->firstOrFail();
 
         if ($request->file('image')->isValid()) {
             // Simpan path gambar jika ada

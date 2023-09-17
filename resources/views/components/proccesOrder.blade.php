@@ -3,8 +3,8 @@
     <section id="invoice">
 
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 invoice-wrapper mt-5 text-dark">
+            <div class="row justify-content-center" style="padding-top:8rem">
+                <div class="col-md-8 invoice-wrapper text-dark">
 
                     <div class="header-invoice">
                         <h1>Lakukan Pembayaran Sebelum:</h1>
@@ -101,7 +101,7 @@
                             <h6>RP.{{ $customer->price }}</h6>
                         </div>
                     </div>
-                    <form action="/proccess/orderan/transaksi/{{ $customer->id_pesanan }}" method="post"
+                    <form action="/proccess/orderan/transaksi/{{ $customer->invoice_code }}" method="post"
                         enctype="multipart/form-data" id="transaksi">
                         @csrf
                         <div class="invoice-content mt-3">
@@ -110,7 +110,7 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="hidden" id="id_pesanan" name="id_pesanan"
-                                    value="{{ $customer->id_pesanan }}">
+                                    value="{{ $customer->invoice_code }}">
                                 <div class="file-input-container">
                                     <input type="file" id="image" name="image" onchange="previewImage()"
                                         oninput="checkForm()">

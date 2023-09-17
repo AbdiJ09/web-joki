@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-centered" style="padding-top: 5rem" role="document">
             <div class="modal-content informasi-content">
                 <div class="modal-header informasi-header">
                     <h5 class="modal-title" id="infoModalLabel">Informasi Sebelum Order Jasa Joki</h5>
@@ -68,7 +68,7 @@
                             <p class="text-white-50 mt-3 mb-1">Jasa Joki (Up Rank)</p>
                             <p class="fw-normal fs-5" style="color: gold">Open 24 Jam</p>
                             <h5 class="fw-normal text-white">Orderan Di Cek Admin Pukul 10.00-22.00 WIB</h5>
-                            <div class="how-order border-top border-warning my-3 border-3">
+                            <div class="how-order border-t-4 border-yellow-400 my-3">
                                 <h5 class="fw-normal mt-2">Cara Order:</h5>
                                 <ol class="text-capitalize">
                                     <li>Isi Data Formulir Akun Kamu</li>
@@ -138,8 +138,7 @@
                             <h1 class="text-center fw-normal">Form Akun</h1>
                             <div class="row g-4">
                                 <div class="col-6">
-                                    <input type="hidden" name="id_pesanan" id="id-pesanan"
-                                        value="{{ $randomOrderId }}">
+                                    <input type="hidden" name="id_pesanan" id="id-pesanan" value="{{ $invoiceCode }}">
                                     <input type="hidden" name="price" id="price">
                                     <div class="mt-4">
                                         <input type="text" name="email" id="email"

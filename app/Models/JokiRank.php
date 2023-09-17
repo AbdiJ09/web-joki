@@ -14,7 +14,7 @@ class JokiRank extends Model
 
     protected $table = 'joki_ranks';
 
-    protected $fillable = ['id_pesanan', 'email', 'password', 'id_and_nick', 'login_via', 'select_joki', 'star_order', 'whatsapp', 'payment', 'price', 'payment_expiry'];
+    protected $fillable = ['invoice_code', 'email', 'password', 'id_and_nick', 'login_via', 'select_joki', 'star_order', 'whatsapp', 'payment', 'price', 'payment_expiry'];
 
     public function paymentDetails()
     {

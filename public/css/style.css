@@ -178,9 +178,8 @@ header.sticky {
 #home {
     background-color: #272626;
     height: auto;
-    margin-top: -8rem;
     position: relative;
-    padding-top: 20rem;
+    padding-top: 15rem;
     z-index: 100;
     max-width: 100%;
     padding-bottom: 5rem;
@@ -580,35 +579,49 @@ header.sticky {
 }
 
 .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    background-color: #000;
+    background-color: #242222;
     border-radius: 10px;
     filter: blur(4px);
-    width: 300px;
+    overflow: hidden;
+    width: 400px;
+    height: 70vh;
     position: relative;
-    height: 400px;
 }
 
 .swiper-slide .testimoni h3 {
-    position: relative;
-    font-size: 25px;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-
-.swiper-slide .testimoni i {
-    color: gold;
     font-size: 30px;
+    letter-spacing: 1px;
+}
+.testimoni-header h2 {
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.swiper-slide .testimoni i {
+    color: goldenrod;
+    margin-left: 15px;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-size: 40px;
 }
 .swiper-slide-active {
     filter: blur(0);
-    box-shadow: 0 0 10px gold;
+    box-shadow: 0 0 20px goldenrod;
+    /* border: 2px solid goldenrod; */
 }
 
-.swiper-slide img {
-    display: block;
+.swiper-slide .swiper-header {
+    background-image: url("/img/lesti.jpg");
+    background-position: center top;
+    background-size: cover;
     width: 100%;
+    transform: scale(1.3);
+    border: 2px solid #fff;
+    background-color: red;
+    height: 150px;
+}
+.testimoni img {
+    transform: translateX(20px) translateY(-30px);
 }
 .payment-drawwer {
     width: 100%;
@@ -1138,7 +1151,7 @@ footer .container .contact .info li a {
         background-color: #272626;
     }
     #home {
-        padding-top: 18rem;
+        padding-top: 9rem;
     }
 
     #home .betrik-home {
@@ -1170,6 +1183,9 @@ footer .container .contact .info li a {
         width: 45%;
         margin-bottom: 30px;
         padding: 10px 10px;
+    }
+    .swiper-slide {
+        width: 350px;
     }
     .kolom-3 {
         display: grid;

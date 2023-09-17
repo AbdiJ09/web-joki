@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
         $this->call([RankSelectionSeeder::class]);
 
         $this->call([PromoSelectionSeeder::class]);

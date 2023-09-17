@@ -69,7 +69,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="text-uppercase text-white font-weight-bolder">
-                                            Id Pesanan</th>
+                                            Invoice Code</th>
                                         <th scope="col" class="text-uppercase text-white  font-weight-bolder  ps-2">
                                             Email</th>
                                         <th scope="col"
@@ -95,7 +95,7 @@
                                     @foreach ($orders as $order)
                                         <tr>
                                             <td>
-                                                <h6 class="text-white opacity-8 text-center">{{ $order->id_pesanan }}</h6>
+                                                <h6 class="text-white opacity-8 text-center">{{ $order->invoice_code }}</h6>
                                             </td>
                                             <td>
                                                 <h6 class="text-white opacity-8 ">{{ $order->email }}</h6>
@@ -142,7 +142,7 @@
                                                                             <strong>ID Pesanan:</strong>
                                                                         </div>
                                                                         <div class="col-md-8">
-                                                                            {{ $order->id_pesanan }}
+                                                                            {{ $order->invoice_code }}
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">

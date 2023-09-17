@@ -46,7 +46,9 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 
-
+Route::get('/index', function () {
+    return View('index');
+});
 Route::get('/dashboard/orderan', function () {
     return view('dashboard.pageAdmin', [
         'orders' => JokiRank::latest()->get()

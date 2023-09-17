@@ -2,156 +2,61 @@
 
      <div class="swiper mySwiper">
          <div class="swiper-wrapper">
-             <div class="swiper-slide">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
+             @for ($i = 0; $i < 15; $i++)
+                 <div class="swiper-slide">
+                     <div class="swiper-header"></div>
+                     <div class="testimoni mt-4">
+                         <div class="testimoni-header row justify-content-center">
+                             <div class="col-md-4 col-4">
 
-                 </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Cepat banget euy joki nya</p>
-                     <h5 class="text-white-50">@x</h5>
-                     <img src="/img/back2.png" alt="">
+                                 <img src="/img/freya.jpg" width="100" height="100"
+                                     class="border border-white rounded-circle" alt="">
+                             </div>
+                             <div class="col-md-8 col-8">
 
-                 </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
+                                 <h3 class="text-white fw-bold">JOKI RANK</h3>
+                                 <h2>20 Star Mytic</h2>
+                                 <p>22 maret 2023</p>
+                             </div>
+                         </div>
+                         <div class="d-flex justify-content-center">
 
-                 </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
+                             <i class="bi bi-star-fill"></i>
+                             <i class="bi bi-star-fill"></i>
+                             <i class="bi bi-star-fill"></i>
+                             <i class="bi bi-star-fill"></i>
+                             <i class="bi bi-star-fill"></i>
+                         </div>
+                         <div class="ulasan-wrapper text-start mx-3" style="margin-top: -30px">
+                             <p class="text-white fw-semibold" style="margin-bottom: 1px">Ulasan:</p>
+                             <div class="ulasan border border-3 rounded-2 border-white p-2">
 
-                 </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
+                                 <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+                                     explicabo!</p>
+                             </div>
+                             <div class="d-flex justify-content-center  align-items-center my-4 flex-wrap">
+                                 <div class="grade  me-3 border-2 border border-white  rounded-1 px-1">
+                                     Tepat Waktu
+                                 </div>
+                                 <div class="grade  me-3 border-2 border border-white  rounded-1 px-2">
+                                     Terbaik
+                                 </div>
+                                 <div class="grade  me-3 border-2 border border-white  rounded-1 px-2">
+                                     Terpercaya
+                                 </div>
 
-                 </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
 
-                 </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
 
-                 </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
+                             </div>
+                         </div>
+                         <h5 class="text-center py-4" style="margin-top: -20px">@AJ</h5>
 
+                     </div>
+                     <div class="swiper-footer">
+                         <img src="/img/shape.png" class="position-absolute w-100 bottom-0 " alt="">
+                     </div>
                  </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
-
-                 </div>
-             </div>
-             <div class="swiper-slide ">
-                 <div class="testimoni text-center mt-4">
-                     <h3>Joki Rank</h3>
-                     <h2>20 Star Mytic</h2>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <i class="bi bi-star-fill"></i>
-                     <p class="mt-2">Mantap banget jokinya bangke</p>
-                     <h5 class="text-white-50">@Abdi Janarianto</h5>
-                     <img src="/img/back2.png" alt="">
-
-                 </div>
-             </div>
+             @endfor
 
 
 
