@@ -30,13 +30,13 @@ class LoginController extends Controller
             return response()->json(['error' => $e->getMessage()], 422);
         }
     }
+
     public function auth(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required'
         ]);
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->route('dashboard');

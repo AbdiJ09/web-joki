@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('payment');
             $table->string('price');
             $table->string('status')->default('pending');
-            // $table->timestamp('payment_expiry')->default(now()->addMinutes(30));
             $table->timestamp('payment_expiry')->nullable();
 
 

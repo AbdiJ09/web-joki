@@ -10,7 +10,7 @@
                     <div class="img-text">
                         <h3 class="fs-6 fw-semibold">Joki Classic(Up Winrate)</h3>
                         <h5 class="fs-6">Mobile Legends</h5>
-                        <a href="/order/joki-classic"><button
+                        <a href="{{ route('order.joki-classic') }}"><button
                                 class="btn btn-warning fw-semibold text-white text-uppercase px-3 py-0">Order</button></a>
                     </div>
                 </div>

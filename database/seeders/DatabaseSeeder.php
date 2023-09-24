@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call([PromoSelectionSeeder::class]);
 
         $this->call([MurmerSelectionSeeder::class]);
+
+        $this->call([ClassicSelectionSeeder::class]);
     }
 }

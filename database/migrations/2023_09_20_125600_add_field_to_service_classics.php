@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('service_classics', function (Blueprint $table) {
-            $table->string('email');
-            $table->string('password');
-            $table->string('req_hero');
-            $table->string('note', 60);
-            $table->string('id_nick');
-            $table->string('login');
+            $table->string('invoice_code')->unique();
+            $table->string('select_joki');
+            $table->string('order');
+            $table->string('whastapp');
+            $table->string('payment');
+            $table->string('price');
+            $table->string('status')->default('pending');
+            $table->string('image')->nullable();
+            $table->timestamp('payment_expiry')->nullable();
         });
     }
-
 
     /**
      * Reverse the migrations.

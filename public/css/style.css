@@ -1,5 +1,6 @@
 body {
-    background-color: #000;
+    background-color: #272626;
+    font-family: "poppins";
     color: #fff;
     overflow-x: hidden;
     /* min-height: 10000vh; */
@@ -224,6 +225,9 @@ header.sticky {
 
 #home .counter::after {
     content: "%";
+}
+#popular .text-popular {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .btn-order {
@@ -1177,7 +1181,7 @@ footer .container .contact .info li a {
         transform: translateX(100px);
     }
     #home p {
-        font-size: 1px;
+        font-size: 16px;
     }
     #home .btn1 {
         width: 45%;

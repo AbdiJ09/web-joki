@@ -11,23 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('service_classics', function (Blueprint $table) {
-            $table->string('email');
-            $table->string('password');
-            $table->string('req_hero');
-            $table->string('note', 60);
-            $table->string('id_nick');
-            $table->string('login');
+        Schema::table('joki_ranks', function (Blueprint $table) {
+            $table->string('invoice_code')->nullable()->change();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('service_classics', function (Blueprint $table) {
+        Schema::table('joki_ranks', function (Blueprint $table) {
             //
         });
     }

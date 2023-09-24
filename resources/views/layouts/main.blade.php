@@ -37,6 +37,41 @@
         @yield('container')
     </div>
 
+    <section id="popular" class="pt-5 mt-5">
+        <div class="container">
+            <div class="text-popular col-lg-4">
+
+                <h1 class="fw-bold mb-4 text-center rounded-3 p-2 mt-2" style="color: gold">🔱POPULAR🔱</h1>
+            </div>
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="img-area shadow-lg rounded-3">
+                        <img src="/img/lance.jpg" alt="">
+                        <div class="img-text">
+                            <h3 class="fs-6 fw-semibold">Joki Rank</h3>
+                            <h5 class="fs-6">Mobile Legends</h5>
+                            <a href="/order/joki-rank"><button
+                                    class="btn btn-warning fw-semibold text-white text-uppercase px-3 py-0">Order</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="img-area shadow-lg rounded-3">
+                        <img src="/img/fanny.png" alt="">
+                        <div class="img-text">
+                            <h3 class="fs-6 fw-semibold">Akun</h3>
+                            <h5 class="fs-6">Mobile Legends</h5>
+                            <a href="/akun"><button
+                                    class="btn btn-warning fw-semibold text-white text-uppercase px-3 py-0">Got
+                                    it</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 
     @if (Request::is('/'))
@@ -53,15 +88,19 @@
 
         </svg>
     </div>
-    @if (!Request::is('terms') && !Request::routeIs('process.orderan') && !Request::is('order/joki-rank'))
+    @if (
+        !Request::is('terms') &&
+            !Request::routeIs('process.orderan') &&
+            !Request::is('order/joki-rank') &&
+            !Request::is('order/joki-classic'))
         <x-preview />
     @endif
 
     <x-footer />
     <script
         src="
-                                                                                                                                                            https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js
-                                                                                                                                                            ">
+                                                                                                                                                                                                                                                                                                                                                                                            https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js
+                                                                                                                                                                                                                                                                                                                                                                                            ">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">

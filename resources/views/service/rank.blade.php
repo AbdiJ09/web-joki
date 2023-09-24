@@ -137,28 +137,28 @@
                         <div class="form-account shadow sec-right mb-4">
                             <h1 class="text-center fw-normal">Form Akun</h1>
                             <div class="row g-4">
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <input type="hidden" name="id_pesanan" id="id-pesanan" value="{{ $invoiceCode }}">
                                     <input type="hidden" name="price" id="price">
-                                    <div class="mt-4">
+                                    <div class="mt-1">
                                         <input type="text" name="email" id="email"
                                             class="form-control focus-ring" placeholder="Masukkan Email/No HP">
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="mt-4 password">
+                                <div class="col-md-6">
+                                    <div class="mt-1 password">
                                         <input type="password" name="password" id="password"
                                             class="form-control focus-ring" placeholder="Masukkan Password">
                                         <i class="bi bi-eye iconPw" id="iconPw"></i>
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="mt-1 mb-3">
+                                <div class="col-md-6">
+                                    <div class="mt-1">
                                         <input type="text" name="NickName" id="idNick"
                                             class="form-control focus-ring" placeholder="Masukkan ID & Nickname">
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <div class="mt-1 mb-3">
                                         <select class="form-select focus-ring" aria-label="Default select example"
                                             name="LoginVia">
@@ -269,8 +269,8 @@
                                     <h4><i class="fas fa-wallet"></i> E-Wallet</h4>
                                 </div>
                                 <div class="button-payment px-3">
-                                    <div class="row row-cols-2 row-cols-md-3 g-3">
-                                        <div class="col-lg-4 p-1">
+                                    <div class="row g-3">
+                                        <div class="col-lg-4 col-md-3 p-1">
                                             <div class="payment-group shadow h-100">
                                                 <input type="radio" class="btn-check" name="payment" id="payment1"
                                                     value="DANA">
@@ -287,7 +287,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 p-1">
+                                        <div class="col-lg-4 col-md-3 p-1">
                                             <div class="payment-group shadow h-100">
                                                 <input type="radio" class="btn-check" name="payment" id="payment2"
                                                     value="GOPAY">

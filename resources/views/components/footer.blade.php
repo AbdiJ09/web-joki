@@ -32,10 +32,10 @@
              <h2>Contact Us</h2>
              <ul class="info">
                  <li><span><i class="fa-solid fa-phone"></i></span>
-                     <p><a href="#">+123 000</a></p>
+                     <p><a href="#">+62 851 7502 5519</a></p>
                  </li>
                  <li><span><i class="fa-solid fa-envelope"></i></span>
-                     <p><a href="#">aj@gmail.com</a></p>
+                     <p><a href="#">storeaj2023@gmail.com</a></p>
                  </li>
              </ul>
          </div>

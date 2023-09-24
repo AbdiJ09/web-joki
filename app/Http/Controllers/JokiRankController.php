@@ -52,7 +52,6 @@ class JokiRankController extends Controller
             "price" => $request->price,
             "payment_expiry" => $payment_expiry->toDateTimeString()
         ];
-
         $JokiRank = JokiRank::create($dataOrderRank);
         if ($request->payment === "DANA" || $request->payment === "GOPAY") {
             $paymentDetails = new PaymentDetail([
