@@ -16,19 +16,19 @@ class PromoSelectionSeeder extends Seeder
         $promos = [
             [
                 'promo' => '10 Star Epic',
-                'price' => 'Rp.62.500'
+                'price' => 60000
             ],
             [
                 'promo' => '10 Star Legend',
-                'price' => 'Rp.70.000'
+                'price' => 65000
             ],
             [
                 'promo' => '10 Star Mythic',
-                'price' => 'Rp.130.500'
+                'price' =>  120000
             ],
             [
                 'promo' => '10 Star Mythic Honor',
-                'price' => 'Rp.154.000'
+                'price' => 150000
             ]
         ];
 

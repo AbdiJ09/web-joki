@@ -12,19 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class JokiRankController extends Controller
 {
-    public function show()
-    {
-        $ranks = DB::table('rank_selections')->get();
-        $promos = DB::table('promos')->get();
-        $murmers = DB::table('murmers')->get();
-        // $timestamp = now()->format('YmdHis');
-        $invoiceCode = uniqid();
-        while (JokiRank::where('invoice_code', $invoiceCode)->exists()) {
-            // $timestamp = now()->format("YmdHis");
-            $invoiceCode = uniqid();
-        }
-        return view('service.rank', compact('ranks', 'promos', 'murmers', 'invoiceCode'));
-    }
     public function payment(Request $request)
     {
         $id_pesanan = $request->id_pesanan;
@@ -64,7 +51,6 @@ class JokiRankController extends Controller
     }
     public function processOrderan($id_pesanan)
     {
-
         $customer = JokiRank::where('invoice_code', $id_pesanan)->first();
         $paymentExpiry = Carbon::parse($customer->payment_expiry, 'Asia/Jakarta');
         $currentTime = Carbon::now('Asia/Jakarta');

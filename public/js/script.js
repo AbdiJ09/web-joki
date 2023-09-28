@@ -314,13 +314,18 @@ starOrderInput.addEventListener("input", function () {
             checkedRadioButton.parentElement.querySelector(
                 ".price-rank"
             ).textContent;
-        priceValue = parseFloat(priceValue.replace("Rp.", "").replace(",", "")); // Mengonversi menjadi float
+        priceValue = parseFloat(
+            priceValue.replace("Rp.", "").replace(".", "").replace(".", "")
+        ); // Mengonversi menjadi float
         const price = document.querySelectorAll(".harga");
         let total = this.value * priceValue;
-        priceRank.value = total.toFixed(3);
+        priceRank.value = total;
         console.log(total);
         price.forEach((p) => {
-            p.textContent = `Rp.${total.toFixed(3)}`; // Menggunakan toFixed() untuk menampilkan dua angka desimal
+            p.textContent = total.toLocaleString("id-ID", {
+                style: "currency",
+                currency: "IDR",
+            });
         });
     }
 });

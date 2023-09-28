@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AJ Store</title>
     <link rel="icon" href="/img/aj.png" type="image/x-icon">
@@ -30,48 +32,13 @@
 
 <body>
 
-    {{-- <x-paralax /> --}}
     <x-navbar />
 
     <div id="root">
         @yield('container')
     </div>
 
-    <section id="popular" class="pt-5 mt-5">
-        <div class="container">
-            <div class="text-popular col-lg-4">
-
-                <h1 class="fw-bold mb-4 text-center rounded-3 p-2 mt-2" style="color: gold">🔱POPULAR🔱</h1>
-            </div>
-            <div class="row">
-
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="img-area shadow-lg rounded-3">
-                        <img src="/img/lance.jpg" alt="">
-                        <div class="img-text">
-                            <h3 class="fs-6 fw-semibold">Joki Rank</h3>
-                            <h5 class="fs-6">Mobile Legends</h5>
-                            <a href="/order/joki-rank"><button
-                                    class="btn btn-warning fw-semibold text-white text-uppercase px-3 py-0">Order</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="img-area shadow-lg rounded-3">
-                        <img src="/img/fanny.png" alt="">
-                        <div class="img-text">
-                            <h3 class="fs-6 fw-semibold">Akun</h3>
-                            <h5 class="fs-6">Mobile Legends</h5>
-                            <a href="/akun"><button
-                                    class="btn btn-warning fw-semibold text-white text-uppercase px-3 py-0">Got
-                                    it</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
+    <x-popular />
 
 
     @if (Request::is('/'))
@@ -97,21 +64,19 @@
     @endif
 
     <x-footer />
-    <script
-        src="
-                                                                                                                                                                                                                                                                                                                                                                                            https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js
-                                                                                                                                                                                                                                                                                                                                                                                            ">
-    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10.0.0/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10.0.0/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
     <script src="/js/script.js"></script>
     <script>
         // Fungsi untuk menampilkan SweetAlert

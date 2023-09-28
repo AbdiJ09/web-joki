@@ -213,7 +213,8 @@
                                                         <div class="col">{{ $promo->promo }}</div>
                                                     </div>
                                                     <div class="row fst-italic">
-                                                        <div class="col price-rank">{{ $promo->price }}</div>
+                                                        <div class="col price-rank">
+                                                            Rp.{{ number_format($promo->price, 0, '.', '.') }}</div>
                                                     </div>
                                                 </div>
                                             </div>

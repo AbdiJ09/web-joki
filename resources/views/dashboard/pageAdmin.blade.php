@@ -116,7 +116,8 @@
                                                 </td>
                                             @endif
                                             <td class="align-middle text-center ">
-                                                <h6 class="text-white opacity-8 ">Rp.{{ $order->price }}</h6>
+                                                <h6 class="text-white opacity-8 ">
+                                                    Rp.{{ number_format($order->price, 0, '.', '.') }}</h6>
                                             </td>
                                             <td>
                                                 <button type="button" class="badge bg-info" data-bs-toggle="modal"

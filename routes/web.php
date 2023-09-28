@@ -25,7 +25,7 @@ use Spatie\FlareClient\View;
 Route::get('/', function () {
     return view('home');
 });
-
+Route::get('/services/{service}', [ServiceController::class, 'show'])->name('service.show');
 Route::get('/order/joki-rank', [JokiRankController::class, 'show']);
 Route::get('/terms', function () {
     return view('terms');
@@ -35,7 +35,6 @@ Route::get('process/orderan/{id_pesanan}', [JokiRankController::class, 'processO
 Route::post('/proccess/orderan/transaksi/{id_pesanan}', [JokiRankController::class, 'proccessTransaksi']);
 
 // route classic
-Route::get('order/joki-classic', [ServiceClassicController::class, 'show'])->name('order.joki-classic');
 Route::post('order/joki-classic/payment', [ServiceClassicController::class, 'payment'])->name('order.joki-classic.payment');
 // end route classic
 

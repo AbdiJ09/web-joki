@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        Schema::create('rank_selections', function (Blueprint $table) {
-            $table->id();
-            $table->string('rank');
-            $table->float('price');
-            $table->timestamps();
+        Schema::table('promos', function (Blueprint $table) {
+            $table->float('price', 8, 2)->change();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rank_selections');
+        Schema::table('promos', function (Blueprint $table) {
+            //
+        });
     }
 };

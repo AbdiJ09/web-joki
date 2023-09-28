@@ -8,19 +8,37 @@
 
                     <div class="header-invoice">
                         <h1>Lakukan Pembayaran Sebelum:</h1>
-                        <h1 class="text-danger fw-bold fs-5">{{ substr($customer->payment_expiry, 11, 8) }}
-                            WIB
-                        </h1>
+                        <h1 class="text-danger fw-bold fs-5" id="paymentExpiry">{{ substr($customer->payment_expiry, 11, 8) }}
+                            WIB</h1>
+
+
                     </div>
+
                     <div class="invoice-content mt-3">
                         <div class="col-md-5 col-6">
                             <h6>Nomor Invoice</h6>
                         </div>
 
-                        <div class="col-md-4 d-flex">
+                        <div class="col-md-4 d-flex postion-relative">
 
-                            <h6>{{ $customer->id_pesanan }}</h6>
-                            <i class='bx bxs-copy ms-2' id="copyIcon"></i>
+                            <h6>{{ $customer->invoice_code }}</h6>
+                            <button type="button" class="btn bg-transparent text-white" id="liveToastBtn">
+                                <i class='bx bxs-copy -mt-5 fs-5'></i>
+
+                            </button>
+
+                            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                <div class="toast align-items-center text-bg-info" role="alert" aria-live="assertive"
+                                    id="liveToast" aria-atomic="true">
+                                    <div class="d-flex">
+                                        <div class="toast-body">
+                                            Copied code to clipboard!
+                                        </div>
+                                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                                            aria-label="Close"></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="invoice-content mt-3">
@@ -98,7 +116,8 @@
                             <h6>Total Tagihan</h6>
                         </div>
                         <div class="col-md-4">
-                            <h6>RP.{{ $customer->price }}</h6>
+                            <h6>RP.{{ number_format($customer->price, 0, '.', '.') }}</h6>
+
                         </div>
                     </div>
                     <form action="/proccess/orderan/transaksi/{{ $customer->invoice_code }}" method="post"
@@ -132,13 +151,18 @@
                 </div>
             </div>
         </div>
+
     </section>
 
 
 
     <script>
+        // Dapatkan elemen dengan id "paymentExpiry"
+
         // Dapatkan elemen ikon "copy"
-        const copyIcon = document.getElementById('copyIcon');
+        const copyIcon = document.getElementById('liveToastBtn');
+        const toastLiveExample = document.getElementById("liveToast");
+
 
         // Tambahkan event listener untuk mengklik ikon "copy"
         copyIcon.addEventListener('click', function() {
@@ -163,7 +187,14 @@
             document.body.removeChild(textArea);
 
             // Tampilkan pesan atau lakukan tindakan lain jika diperlukan
-            alert('Teks telah disalin ke clipboard');
+            if (copyIcon) {
+                const toastBootstrap =
+                    bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+                copyIcon.addEventListener("click", () => {
+                    toastBootstrap.show();
+                });
+            }
+
         });
 
         function previewImage() {

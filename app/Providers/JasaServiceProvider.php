@@ -21,7 +21,7 @@ class JasaServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->composer('components.orders', function ($view) {
+        view()->composer(['components.orders'], function ($view) {
             $services = Service::all();
             $view->with('services', $services);
         });

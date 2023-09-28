@@ -2,20 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JokiRank;
 use App\Models\Service;
+use App\Models\ServiceClassic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Spatie\FlareClient\View;
 
 class ServiceController extends Controller
 {
+
     public function show($slug)
     {
+
         $service = Service::where('slug', $slug)->first();
+        $service->popularitas += 1;
+        $service->save();
         if ($service->slug == 'joki-rank') {
-            return view('service.rank', compact('service'));
+
+            $ranks = DB::table('rank_selections')->get();
+            $promos = DB::table('promos')->get();
+            $murmers = DB::table('murmers')->get();
+            // $timestamp = now()->format('YmdHis');
+            $invoiceCode = uniqid();
+            while (JokiRank::where('invoice_code', $invoiceCode)->exists()) {
+                // $timestamp = now()->format("YmdHis");
+                $invoiceCode = uniqid();
+            }
+            return view('service.rank', compact('ranks', 'promos', 'murmers', 'invoiceCode'));
         } else if ($service->slug == 'joki-classic') {
-            return View('service.classic', compact('service'));
-        } else if ($service->slug == 'jasa-gendong') {
+            $classic = DB::table('select_classics')->get();
+            $invoiceCode = uniqid();
+            while (ServiceClassic::where('invoice_code', $invoiceCode)->exists()) {
+                // $timestamp = now()->format("YmdHis");
+                $invoiceCode = uniqid();
+            }
+
+            return view('service.classic', compact('classic', 'invoiceCode'));
+        } else if ($service->slug == 'joki-gendong') {
             return View('service.gendong', compact('service'));
         }
     }
