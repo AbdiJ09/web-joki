@@ -13,7 +13,6 @@ class ServiceClassicController extends Controller
         $classic = DB::table('select_classics')->get();
         $invoiceCode = uniqid();
         while (ServiceClassic::where('invoice_code', $invoiceCode)->exists()) {
-            // $timestamp = now()->format("YmdHis");
             $invoiceCode = uniqid();
         }
 

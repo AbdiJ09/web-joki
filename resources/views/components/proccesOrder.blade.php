@@ -135,7 +135,7 @@
                                         oninput="checkForm()">
                                     <label for="image" class="label-img">Upload Bukti</label>
                                 </div>
-                                <img class="img-fluid img-preview" id="img-preview" src="">
+                                <img class="img-fluid img-preview" id="img-preview" src="" alt="">
                             </div>
                         </div>
                         <button class="btn-submit my-4 disabled btn " style="border:1px solid goldenrod" id="btn-submit">

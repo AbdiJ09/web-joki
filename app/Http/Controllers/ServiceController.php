@@ -23,23 +23,20 @@ class ServiceController extends Controller
             $ranks = DB::table('rank_selections')->get();
             $promos = DB::table('promos')->get();
             $murmers = DB::table('murmers')->get();
-            // $timestamp = now()->format('YmdHis');
             $invoiceCode = uniqid();
             while (JokiRank::where('invoice_code', $invoiceCode)->exists()) {
-                // $timestamp = now()->format("YmdHis");
                 $invoiceCode = uniqid();
             }
             return view('service.rank', compact('ranks', 'promos', 'murmers', 'invoiceCode'));
-        } else if ($service->slug == 'joki-classic') {
+        } elseif ($service->slug == 'joki-classic') {
             $classic = DB::table('select_classics')->get();
             $invoiceCode = uniqid();
             while (ServiceClassic::where('invoice_code', $invoiceCode)->exists()) {
-                // $timestamp = now()->format("YmdHis");
                 $invoiceCode = uniqid();
             }
 
             return view('service.classic', compact('classic', 'invoiceCode'));
-        } else if ($service->slug == 'joki-gendong') {
+        } elseif ($service->slug == 'joki-gendong') {
             return View('service.gendong', compact('service'));
         }
     }

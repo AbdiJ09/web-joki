@@ -12,7 +12,7 @@
                         <div class="img-text">
                             <h3 class="fs-6 fw-semibold">{{ $p->name }}</h3>
                             <h5 class="fs-6">Mobile Legends</h5>
-                            <a href="/order/joki-rank"><button
+                            <a href="/services/{{ $p->slug }}"><button
                                     class="btn btn-warning fw-semibold text-white text-uppercase px-3 py-0">Order</button></a>
                         </div>
                     </div>

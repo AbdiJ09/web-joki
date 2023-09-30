@@ -3,7 +3,6 @@ const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
     header.classList.toggle("sticky", window.scrollY > 200);
 });
-[];
 // Panggil fungsi untuk menginisialisasi status "sticky" saat halaman dimuat
 
 const open = document.querySelector("#menu-icon");
@@ -103,7 +102,6 @@ function warningNotif(message, icon) {
         titleLineHeight: "30",
         maxWidth: 400,
         layout: 2, // Atur layout agar judul dan ikon berada di atas pesan
-        timeout: 2000,
     });
 }
 
@@ -163,7 +161,6 @@ document
                     "fas fa-exclamation-triangle"
                 );
                 isValid = false;
-                // const inputValue = inputElement.value.trim();
             }
         });
         if (isValid) {
@@ -261,7 +258,6 @@ document
                     "fas fa-exclamation-triangle"
                 );
                 isValid = false;
-                // const inputValue = inputElement.value.trim();
             }
         });
         if (isValid) {

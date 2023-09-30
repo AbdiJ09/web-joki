@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
@@ -26,10 +27,10 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/services/{service}', [ServiceController::class, 'show'])->name('service.show');
-Route::get('/order/joki-rank', [JokiRankController::class, 'show']);
 Route::get('/terms', function () {
     return view('terms');
 });
+
 Route::post('/order/joki-rank/payment', [JokiRankController::class, 'payment']);
 Route::get('process/orderan/{id_pesanan}', [JokiRankController::class, 'processOrderan'])->name('process.orderan');
 Route::post('/proccess/orderan/transaksi/{id_pesanan}', [JokiRankController::class, 'proccessTransaksi']);
@@ -43,12 +44,4 @@ Route::post('/register', [LoginController::class, 'store']);
 Route::post('/login', [LoginController::class, 'auth']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->name('dashboard')->middleware('auth');
-Route::get('/dashboard/orderan', function () {
-    return view('dashboard.pageAdmin', [
-        'orders' => JokiRank::latest()->get()
-    ]);
-})->middleware('admin');
+Route::resource('/dashboard', DashboardController::class)->middleware('auth');

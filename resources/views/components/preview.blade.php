@@ -35,13 +35,13 @@
                                      explicabo!</p>
                              </div>
                              <div class="d-flex justify-content-center  align-items-center my-4 flex-wrap">
-                                 <div class="grade  me-3 border-2 border border-white  rounded-1 px-1">
+                                 <div class="grade  me-3 border border-3 border-white  rounded-1 px-1">
                                      Tepat Waktu
                                  </div>
-                                 <div class="grade  me-3 border-2 border border-white  rounded-1 px-2">
+                                 <div class="grade  me-3 border-3 border border-white  rounded-1 px-2">
                                      Terbaik
                                  </div>
-                                 <div class="grade  me-3 border-2 border border-white  rounded-1 px-2">
+                                 <div class="grade  me-3 border-3 border border-white  rounded-1 px-2">
                                      Terpercaya
                                  </div>
 
