@@ -73,26 +73,17 @@
                             <h6>{{ $customer->payment }}</h6>
                         </div>
                     </div>
-                    <div class="invoice-content mt-3">
-                        <div class="col-md-5 col-6">
-                            <h6>
-                                @if ($customer->payment === 'DANA')
-                                    Nomor Dana
-                                @elseif($customer->payment === 'GOPAY')
-                                    Nomor Gopay
-                                @endif
-                            </h6>
-                        </div>
+                    <div class="invoice-content mt-3 d-flex justify-content-center">
+
                         <div class="col-md-4">
-                            <h6>
-                                @if ($customer->payment === 'DANA')
-                                    {{ $customer->paymentDetails->dana_number }}
-                                @elseif($customer->payment === 'GOPAY')
-                                    {{ $customer->paymentDetails->ovo_number }}
-                                @else
-                                    N/A
-                                @endif
-                            </h6>
+                            @if ($barcodeImage)
+                                <img src="{{ $barcodeImage }}" style="width:400px;height:400px" alt="QR Code">
+                            @else
+                                <h6>Qr Code not found</h6>
+                            @endif
+                            <hr class="mt-3">
+                            <strong class="me-2 fs-5">OR-></strong>
+                            <a href="{{ $deepLink }}" class="btn btn-success">Open Gopay</a>
                         </div>
                     </div>
                     <div class="invoice-content mt-3">

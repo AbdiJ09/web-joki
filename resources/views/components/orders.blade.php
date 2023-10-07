@@ -4,7 +4,7 @@
         <h1 class="text-center">Service</h1>
         <div class="row">
             @foreach ($services as $service)
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-4 col-sm-6 mb-4 services">
                     <div class="img-area shadow-lg rounded-3">
                         <img src="/img/{{ $service->gambar }}" alt="">
                         <div class="img-text">

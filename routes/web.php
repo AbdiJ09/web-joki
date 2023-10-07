@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\JokiRankController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ServiceClassicController;
 use App\Http\Controllers\UserController;
 use App\Models\JokiRank;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Spatie\FlareClient\View;
 
 /*
@@ -43,5 +45,15 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/register', [LoginController::class, 'store']);
 Route::post('/login', [LoginController::class, 'auth']);
 Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/dashboard', function () {
+    return view('dashboard1.index');
+});
+Route::resource('/admin', DashboardController::class)->middleware('admin');
+Route::get('/filterData', [DashboardController::class, 'filterData']);
+Route::get('/checkout', [PaymentController::class, 'checkout']);
+Route::post('/checkout/process', [PaymentController::class, 'processPayment']);
 
-Route::resource('/dashboard', DashboardController::class)->middleware('auth');
+// route detail_invoice
+Route::get('/detail_invoice', function () {
+    return view('service.rank.detail_invoice');
+})->name('detail_invoice');

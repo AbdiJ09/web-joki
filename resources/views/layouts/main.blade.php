@@ -6,12 +6,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="view-transition" content="same-origin">
     <title>AJ Store</title>
     <link rel="icon" href="/img/aj.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/swiper@10.0.0/swiper-bundle.min.css" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    {{-- <script type="module" src="/js/viewTransition.js"></script> --}}
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,21 +41,12 @@
         @yield('container')
     </div>
 
-    <x-popular />
-
-
     @if (Request::is('/'))
+        <x-events />
+        <x-popular />
         <x-orders />
-    @endif
-
-    @if (
-        !Request::is('terms') &&
-            !Request::routeIs('process.orderan') &&
-            !Request::is('order/joki-rank') &&
-            !Request::is('order/joki-classic'))
         <x-preview />
     @endif
-
     <x-footer />
 
 
@@ -158,7 +152,7 @@
             centeredSlides: true,
             slidesPerView: "auto",
             autoplay: {
-                delay: 2000,
+                delay: 5000,
                 disableOnInteraction: false,
             },
             coverflowEffect: {

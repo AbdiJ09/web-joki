@@ -11,20 +11,44 @@
          </nav>
          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
              <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                 <div class="input-group">
-                     <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                     <form action="/dashboard">
-                         <input type="text" class="form-control" placeholder="Type here..." name="search"
-                             value="{{ request('search') }}" id="search">
-                     </form>
-                 </div>
+                 @if (Request::user()->is_admin)
+                     <div class="input-group">
+                         <span class="input-group-text text-body"><i class="fas fa-search"
+                                 aria-hidden="true"></i></span>
+                         <form action="/admin">
+                             <input type="text" class="form-control" placeholder="Type here..." name="search"
+                                 value="{{ request('search') }}" id="search">
+                         </form>
+                     </div>
+                     <div class="col-md-2">
+
+                         <form action="/admin" method="get">
+
+
+                             <select class="form-select custom-select " name="filter"
+                                 aria-label="Default select example">
+                                 <option selected></option>
+                                 <option value="">All data</option>
+                                 <option value="Data terbaru">Data terbaru</option>
+                                 <option value="Data lama">Data lama</option>
+                                 <option value="Tanggal pesanan lama">Tanggal pesanan lama</option>
+                             </select>
+
+                         </form>
+                     </div>
+                 @else
+                     <div class="input-group">
+                         <span class="input-group-text text-body"><i class="fas fa-search"
+                                 aria-hidden="true"></i></span>
+                         <form action="/dashboard">
+                             <input type="text" class="form-control" placeholder="Type here..." name="search"
+                                 value="{{ request('search') }}" id="search">
+                         </form>
+                     </div>
+                 @endif
              </div>
              <ul class="navbar-nav  justify-content-end">
-                 <li class="nav-item d-flex align-items-center">
-                     <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
-                         href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online
-                         Builder</a>
-                 </li>
+
                  <li class="nav-item d-flex align-items-center">
                      <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                          <i class="fa fa-user me-sm-1"></i>
@@ -56,7 +80,7 @@
                              <a class="dropdown-item border-radius-md" href="javascript:;">
                                  <div class="d-flex py-1">
                                      <div class="my-auto">
-                                         <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                         <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 " alt>
                                      </div>
                                      <div class="d-flex flex-column justify-content-center">
                                          <h6 class="text-sm font-weight-normal mb-1">
@@ -75,7 +99,7 @@
                                  <div class="d-flex py-1">
                                      <div class="my-auto">
                                          <img src="../assets/img/small-logos/logo-spotify.svg"
-                                             class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                                             class="avatar avatar-sm bg-gradient-dark  me-3 " alt>
                                      </div>
                                      <div class="d-flex flex-column justify-content-center">
                                          <h6 class="text-sm font-weight-normal mb-1">

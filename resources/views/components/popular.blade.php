@@ -1,4 +1,4 @@
-<section id="popular" class="pt-5 mt-5">
+<section id="popular" class="">
     <div class="container">
         <div class="text-popular col-lg-4">
 
@@ -6,7 +6,7 @@
         </div>
         <div class="row">
             @foreach ($popularServices as $p)
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-4 col-sm-6 mb-4 popular">
                     <div class="img-area shadow-lg rounded-3">
                         <img src="/img/{{ $p->gambar }}" alt="">
                         <div class="img-text">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JokiRank;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,17 +13,39 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        $searchText = $request->input('search');
-        $latestJoki = JokiRank::latest('created_at')->first()->take(5);
+        $query = JokiRank::query();
 
+        $filter = $request->input('filter');
+
+        // Periksa apakah filter adalah "Semua Data"
+        if ($filter && $filter !== "") {
+            if ($filter == 'Data terbaru') {
+                $query->orderBy('created_at', 'desc');
+            } elseif ($filter == 'Data lama') {
+                $query->orderBy('created_at', 'asc');
+            } elseif ($filter == 'Tanggal pesanan lama') {
+                $query->orderBy('created_at', 'asc');
+            }
+        }
+        $searchText = $request->input('search');
         if ($searchText) {
-            $latestJoki->where('invoice_code', 'like', '%' . $searchText . '%')
-                ->orWhere('status', 'like', '%' . $searchText . '%');
+            $query->where(function ($q) use ($searchText) {
+                $q->where('invoice_code', 'like', '%' . $searchText . '%')
+                    ->orWhere('status', 'like', '%' . $searchText . '%');
+            });
         }
 
-        $orderRank = $latestJoki->get();
-        return view('dashboard1.index', compact('orderRank'));
+
+        $isAdmin = false;
+        $sales = JokiRank::sum('price');
+        $users = User::where('is_admin', $isAdmin)->count();
+
+        $orderRank = $query->get();
+        return view('dashboard1.admin', compact('orderRank', 'sales', 'users'));
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.

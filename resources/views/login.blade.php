@@ -12,6 +12,8 @@
         href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Black+Ops+One&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200&family=Russo+One&family=Stalinist+One&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/css/login.css">
+    {{-- <script type="module" src="/js/viewTransition.js"></script> --}}
+
 </head>
 
 <body>

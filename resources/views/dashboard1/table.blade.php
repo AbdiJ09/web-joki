@@ -45,7 +45,7 @@
                     </td>
                     <td class="align-middle text-center">
                         <div
-                            class="bg-gradient-info icon-sm icon-shape shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            class="bg-gradient-warning icon-sm icon-shape shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <button type="button" class="bg-transparent border-0" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal{{ $order->id }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em"
@@ -59,77 +59,7 @@
 
 
                         </div>
-                        <div class="modal fade" id="exampleModal{{ $order->id }}" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content bg-gradient-light">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Detail Orderan</h5>
-                                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body text-start p-4">
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-
-                                            <p class="m-auto"><strong>Invoice Code :</strong>
-                                                {{ $order->invoice_code }}
-                                            </p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Email : </strong>{{ $order->email }}</p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Password : </strong>{{ $order->password }}</p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Order ID : </strong>{{ $order->id_and_nick }}</p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Login Via : </strong>{{ $order->login_via }}</p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Whatsapp : </strong>{{ $order->whatsapp }}</p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Status : </strong>{{ $order->status }}</p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Joki : </strong>{{ $order->select_joki }}</p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Star Order : </strong>{{ $order->star_order }}
-                                            </p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <p class="m-auto"><strong>Price : </strong>{{ $order->price }}</p>
-                                        </div>
-                                        <div
-                                            class="bg-gradient-dark text-white py-2 d-flex mb-3 shadow border-radius-md text-center">
-                                            <button class="btn btn-light m-auto" data-bs-toggle="modal"
-                                                data-bs-target="#bukti">Bukti</button>
-                                        </div>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn bg-gradient-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn bg-gradient-dark">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <x-modal-order :order="$order" />
                     </td>
 
                 </tr>

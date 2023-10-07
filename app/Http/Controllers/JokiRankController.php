@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\JokiRank;
 use App\Models\PaymentDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\RankSelection;
 // use Illuminate\Support\Carbon;
 use Carbon\Carbon; // Import kelas Carbon
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class JokiRankController extends Controller
 {
@@ -25,34 +28,61 @@ class JokiRankController extends Controller
             // id_pesanan sudah ada, lakukan tindakan yang sesuai, misalnya tampilkan pesan kesalahan
             return redirect('order/joki-rank')->with("warning", "Pesanan telah dibuat");
         }
-        $payment_expiry = Carbon::now(SELF::TIMEZONE)->addMinutes(1); // Set waktu dengan zona waktu WIB
+        $payment_expiry = Carbon::now(SELF::TIMEZONE)->addMinutes(30); // Set waktu dengan zona waktu WIB
 
 
-        $dataOrderRank = [
-            "invoice_code" => $request->id_pesanan,
-            "email" => $request->email,
-            "password" => $request->password,
-            "id_and_nick" => $request->NickName,
-            "login_via" => $request->LoginVia,
-            "select_joki" => $request->Nominal,
-            "star_order" => $request->order,
-            "whatsapp" => $request->whatsapp,
-            "payment" => $request->payment,
-            "price" => $request->price,
-            "payment_expiry" => $payment_expiry->toDateTimeString()
-        ];
-        $jokiRank = JokiRank::create($dataOrderRank);
-        if ($request->payment === "DANA" || $request->payment === "GOPAY") {
-            $paymentDetails = new PaymentDetail([
-                'dana_number' => ($request->payment === 'DANA') ? '088210673563' : null,
-                'ovo_number' => ($request->payment === "GOPAY") ? '088210673563' : null
-            ]);
-            $jokiRank->PaymentDetails()->save($paymentDetails);
+
+        if ($request->payment === "GOPAY") {
+            $payment = new JokiRank;
+            $payment->invoice_code = $request->id_pesanan;
+            $payment->email = $request->email;
+            $payment->password = $request->password;
+            $payment->id_and_nick = $request->NickName;
+            $payment->login_via = $request->LoginVia;
+            $payment->select_joki = $request->Nominal;
+            $payment->star_order = $request->order;
+            $payment->whatsapp = $request->whatsapp;
+            $payment->price = $request->price;
+            $payment->payment = $request->payment;
+            $payment->status = "pending";
+            $payment->payment_expiry = $payment_expiry->toDateTimeString();
+            $payment->save();
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => $payment->id,
+                    'gross_amount' => $request->price,
+                ),
+                'payment_type' => 'gopay',
+                'gopay' => array(
+                    'enable_callback' => true,                // optional
+                    'callback_url' => 'someapps://callback'   // optional
+                )
+            );
+            $auth = base64_encode(config('midtrans.server_key'));
+            $response = Http::withHeaders([
+                'Accept' => 'application/json',
+                'Authorization' => "Basic $auth",
+
+            ])->post('https://api.sandbox.midtrans.com/v2/charge', $params);
+            $response = json_decode($response);
+
+            $generateQrCodeAction = collect($response->actions)->firstWhere('name', 'generate-qr-code');
+            $deplinkAction = collect($response->actions)->firstWhere('name', 'deeplink-redirect');
+
+            $qrCodeUrl = $generateQrCodeAction ? $generateQrCodeAction->url : "default_qr_code_url";
+            $deepLinkUrl = $deplinkAction ? $deplinkAction->url : "default_deep_link_url";
+
+
+
+            return redirect()->route('process.orderan', ["id_pesanan" => $request->id_pesanan, "qrCode" => $qrCodeUrl, "deepLink" => $deepLinkUrl]);
         }
-        return redirect()->route('process.orderan', ["id_pesanan" => $request->id_pesanan]);
     }
-    public function processOrderan($id_pesanan)
+    public function processOrderan($id_pesanan, Request $request)
     {
+
+        $callbackUrl = $request->qrCode;
+        $deepLinkUrol = $request->deepLink;
+
         $customer = JokiRank::where('invoice_code', $id_pesanan)->first();
         $paymentExpiry = Carbon::parse($customer->payment_expiry, self::TIMEZONE);
         $currentTime = Carbon::now('Asia/Jakarta');
@@ -60,10 +90,13 @@ class JokiRankController extends Controller
         if ($currentTime > $paymentExpiry) {
             JokiRank::where('invoice_code', $id_pesanan)->delete();
             // Pesanan telah kadaluwarsa, tampilkan notifikasi
-            return redirect('/services/joki-rank')->with('warningg', 'pesanan expired');
+            return redirect('/services/joki-rank')->with('warningg', 'Pesanan telah kadaluwarsa');
         }
+
         return view('components.proccesOrder', [
-            "customer" => $customer
+            "customer" => $customer,
+            "barcodeImage" => $callbackUrl,
+            "deepLink" => $deepLinkUrol
         ]);
     }
 
@@ -84,14 +117,10 @@ class JokiRankController extends Controller
 
             // Simpan path gambar ke dalam kolom yang sesuai di tabel JokiRank
             $pesanan->image = $imagePath;
+            $pesanan->status = 'paid';
+            $pesanan->update($transaksi);
+            return response()->json(['success' => true, 'message' => 'Pembayaran berhasil']);
         }
-
-        // Ubah status pesanan menjadi "paid"
-        $pesanan->status = 'paid';
-
-        // Simpan perubahan pesanan
-        $pesanan->update($transaksi);
-        // Redirect atau kirim respons sesuai kebutuhan Anda
-        return response()->json(['success' => true, 'message' => 'Pembayaran berhasil']);
+        return response()->json(['success' => false, 'message' => 'Pembayaran gagal']);
     }
 }

@@ -18,32 +18,6 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: #f0ad4e;
 }
 
-.paralax img#first {
-    /* width: 100px; */
-    /* position: fixed; */
-    z-index: 2;
-}
-
-.paralax::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(to top, #272726, transparent);
-    z-index: 10000;
-}
-
-@keyframes floating {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
 @keyframes animate {
     0%,
     18%,
@@ -70,9 +44,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: 900;
     transition: all ease 0.4s;
 }
-.container .logo:hover {
-    transform: rotate(360deg);
-}
+
 header {
     position: fixed;
     width: 100%;
@@ -171,7 +143,7 @@ header.sticky {
 }
 #home {
     background-color: #272626;
-    height: auto;
+    height: 100vh;
     position: relative;
     padding-top: 15rem;
     z-index: 100;
@@ -499,21 +471,16 @@ header.sticky {
     background-color: #333;
 }
 #service .logo {
-    height: 200px;
     display: flex;
+    overflow: hidden;
     text-align: center;
-    transform: translateX(50%);
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     width: 100%;
 }
 #service .logo img {
-    width: 900px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(-50%);
+    width: 100%;
 }
 .content-text h2 {
     position: relative;
@@ -546,7 +513,13 @@ header.sticky {
     height: 70vh;
     position: relative;
 }
-
+.swiper-slide.events {
+    width: 90%;
+}
+.swiper-slide-active.events {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    filter: blur(0);
+}
 .swiper-slide .testimoni h3 {
     font-size: 30px;
     letter-spacing: 1px;
@@ -953,6 +926,30 @@ input[type="file"] {
 .btn-submit:hover {
     background-color: goldenrod;
 }
+#invoice_detail img {
+    width: 50%;
+}
+#invoice_detail h5 {
+    margin: auto;
+    display: block;
+    width: 50%;
+}
+.invoice-data-account span {
+    margin: auto;
+    display: block;
+    width: 25%;
+}
+.invoice-data-account .data {
+    width: 50%;
+}
+.invoice-more-detail span {
+    margin: auto;
+    display: block;
+    width: 25%;
+}
+.invoice-more-detail .data {
+    width: 50%;
+}
 
 footer {
     display: grid;
@@ -1039,11 +1036,13 @@ footer .container .contact .info li a {
     color: #aaa;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
+
 @media (max-width: 1070px) {
     header {
         padding: 30px 5%;
         transition: 0.2s;
     }
+
     #menu-icon {
         display: block;
     }
@@ -1083,10 +1082,44 @@ footer .container .contact .info li a {
         left: 20px;
     }
 }
-@media (max-width: 991px) {
-    .paralax {
-        display: none;
+@media (max-width: 800px) {
+    #home .home-text {
+        font-size: 3.5rem;
+        width: 100%;
     }
+    #home {
+        padding-left: 10px;
+        padding-top: 9rem;
+    }
+    #home p {
+        font-size: 1.5rem;
+    }
+    .popular {
+        width: 100%;
+    }
+    #home .home-text .store {
+        animation: none;
+    }
+    .services {
+        width: 100%;
+    }
+    .swiper-slide {
+        width: 60%;
+    }
+    .swiper-slide.events {
+        width: 90% !important;
+        margin-top: 5rem;
+        height: auto;
+    }
+    .kolom-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
     footer {
         padding: 40px;
     }
@@ -1102,11 +1135,13 @@ footer .container .contact .info li a {
         padding: 20px 40px 30px;
     }
 }
-@media (max-width: 767px) {
+
+@media (max-width: 700px) {
     body {
         background-color: #272626;
     }
     #home {
+        padding-left: 10px;
         padding-top: 9rem;
     }
 
@@ -1118,8 +1153,7 @@ footer .container .contact .info li a {
         padding-top: 0;
     }
     #home .home-text {
-        font-size: 2.5rem;
-        width: 300px;
+        font-size: 3.3rem;
     }
     #home .home-text .store {
         animation: none;
@@ -1143,6 +1177,11 @@ footer .container .contact .info li a {
     .swiper-slide {
         width: 350px;
     }
+    .swiper-slide.events {
+        width: 90% !important;
+        margin-top: 5rem;
+        height: auto;
+    }
     .kolom-3 {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1154,6 +1193,33 @@ footer .container .contact .info li a {
     }
     .swiper {
         width: 100%;
+    }
+
+    #invoice_detail img {
+        width: 100%;
+    }
+    #invoice_detail h5 {
+        width: 100%;
+    }
+    .invoice-data-account span {
+        width: 25%;
+        margin-left: 0;
+    }
+    .invoice-data-account .data {
+        width: 75%;
+    }
+    .invoice-data-account h6 {
+        font-size: 12px;
+    }
+    .invoice-more-detail span {
+        margin-left: 0;
+        width: 25%;
+    }
+    .invoice-more-detail .data {
+        width: 75%;
+    }
+    .invoice-more-detail h6 {
+        font-size: 12px;
     }
     footer .container {
         width: 100%;

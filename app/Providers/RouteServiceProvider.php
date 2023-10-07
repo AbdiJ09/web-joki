@@ -37,4 +37,9 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
     }
+    /**
+     * Define the routes for the application.
+     *
+     * @return void
+     * */
 }

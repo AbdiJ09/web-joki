@@ -30,6 +30,7 @@ class LoginController extends Controller
             return response()->json(['error' => $e->getMessage()], 422);
         }
     }
+
     public function auth(Request $request)
     {
         $credentials = $request->validate([
@@ -38,7 +39,7 @@ class LoginController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard');
+            return redirect()->intended('/dashboard');
         }
         return back()->with('failed', 'login error');
     }

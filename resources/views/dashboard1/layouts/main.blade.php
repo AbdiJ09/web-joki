@@ -7,13 +7,14 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        Soft UI Dashboard by Creative Tim
+        Dashboard
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/dashboard.css">
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -24,7 +25,7 @@
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show  bg-gray-100">
     <x-sidebar />
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
