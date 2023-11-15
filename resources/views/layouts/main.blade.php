@@ -8,14 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="view-transition" content="same-origin">
     <title>AJ Store</title>
+    @vite('resources/css/app.css')
     <link rel="icon" href="/img/aj.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/swiper@10.0.0/swiper-bundle.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
-    {{-- <script type="module" src="/js/viewTransition.js"></script> --}}
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,9 +30,7 @@
 </head>
 
 <body>
-
     <x-navbar />
-
     <div id="root">
         @yield('container')
     </div>
@@ -48,7 +42,6 @@
         <x-preview />
     @endif
     <x-footer />
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10.0.0/swiper-bundle.min.js"></script>
@@ -71,24 +64,19 @@
                 icon: icon,
             });
         }
-
-        // Ajax request ke server untuk memproses pembayaran
-        // Ajax request ke server untuk memproses pembayaran
         $('#btn-submit').click(function(e) {
             e.preventDefault();
-            var id_pesanan = $('#id_pesanan').val();
+            const id_pesanan = $('#id_pesanan').val();
 
             // Periksa apakah gambar sudah diunggah
             if ($('#image')[0].files.length === 0) {
                 showSweetAlert('Error', 'Pilih gambar terlebih dahulu', 'error');
-                return; // Jangan kirim permintaan jika gambar belum diunggah
+                return;
             }
-
-            // Lakukan AJAX request ke server di sini
             $.ajax({
                 type: 'POST',
                 url: '/proccess/orderan/transaksi/' + id_pesanan,
-                data: new FormData($('#transaksi')[0]), // Ganti dengan ID formulir Anda
+                data: new FormData($('#transaksi')[0]),
                 processData: false,
                 contentType: false,
                 success: function(response) {

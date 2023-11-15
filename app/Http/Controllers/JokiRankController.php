@@ -12,6 +12,7 @@ use Carbon\Carbon; // Import kelas Carbon
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\Response;
 
 class JokiRankController extends Controller
 {
@@ -57,6 +58,7 @@ class JokiRankController extends Controller
                     'enable_callback' => true,                // optional
                     'callback_url' => 'someapps://callback'   // optional
                 )
+                
             );
             $auth = base64_encode(config('midtrans.server_key'));
             $response = Http::withHeaders([
@@ -71,8 +73,6 @@ class JokiRankController extends Controller
 
             $qrCodeUrl = $generateQrCodeAction ? $generateQrCodeAction->url : "default_qr_code_url";
             $deepLinkUrl = $deplinkAction ? $deplinkAction->url : "default_deep_link_url";
-
-
 
             return redirect()->route('process.orderan', ["id_pesanan" => $request->id_pesanan, "qrCode" => $qrCodeUrl, "deepLink" => $deepLinkUrl]);
         }

@@ -1,27 +1,33 @@
  <header class="{{ Request::is('/') ? '' : 'bg' }}">
      <a href="#" class="logo">AJ</a>
-     <div class="bx bx-menu" id="menu-icon"></div>
-     <ul class="nav">
-         <li>
-             @if (Request::is('/'))
-                 <a href="#home" class="nav-link">Beranda</a>
-             @else
-                 <a href="/#home" class="nav-link">Beranda</a>
-             @endif
-         </li>
-         <li>
-             @if (Request::is('/'))
-                 <a href="#order" class="nav-link">Service</a>
-         </li>
-     @else
-         <a href="/#order" class="nav-link">Service</a></li>
-         @endif
-         <li><a href="#preview" class="nav-link">Preview</a></li>
-         <li>
-             <a href="#" class="nav-link">Contact Us</a>
-         </li>
+     <div class="lg:hidden">
+         <div class="bx bx-menu " id="menu-icon"></div>
+     </div>
+     <nav class="flex">
 
-     </ul>
+         <ul class="lg:hidden absolute right-4 top-full bg-black p-2 max-w-[200px] w-full rounded-lg">
+             <li>
+                 @if (Request::is('/'))
+                     <a href="#home" class="nav-link">Beranda</a>
+                 @else
+                     <a href="/#home" class="nav-link">Beranda</a>
+                 @endif
+             </li>
+             <li>
+                 @if (Request::is('/'))
+                     <a href="#order" class="nav-link">Service</a>
+             </li>
+         @else
+             <a href="/#order" class="nav-link">Service</a></li>
+             @endif
+             <li><a href="#preview" class="nav-link">Preview</a></li>
+             <li>
+                 <a href="#" class="nav-link">Contact Us</a>
+             </li>
+
+
+         </ul>
+     </nav>
 
      <ul class="navbar-nav login">
          @auth
