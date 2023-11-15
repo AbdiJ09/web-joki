@@ -58,7 +58,7 @@
                 </div>
             @endif
             <div class="row justify-content-center align-items-start g-4">
-                <div class="col-md-4 position-relative">
+                <div class="col-md-auto col-lg-4 position-relative">
                     <div class="shadow-lg sec-left mb-4">
                         <div class="logo">
                             <img src="/img/btf.png" class="img-fluid " alt="">
@@ -129,7 +129,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-auto col-lg-8">
 
                     <form action="/order/joki-rank/payment" method="post" id="order-rank">
                         @csrf
@@ -185,10 +185,10 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="row fw-semibold">
-                                                        <div class="col">{{ $rank->rank }} / Star</div>
+                                                        <div class="col joki-star">{{ $rank->rank }} / Star</div>
                                                     </div>
                                                     <div class="row fst-italic">
-                                                        <div class="col">
+                                                        <div class="col price-joki-star">
                                                             Rp <span
                                                                 class="price-rank">{{ number_format($rank->price, 0, '.', '.') }}</span>
                                                         </div>
@@ -209,11 +209,11 @@
                                         <label class="btn text-start" for="promo{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="row fw-semibold">
+                                                    <div class="row fw-semibold promo-joki">
                                                         <div class="col">{{ $promo->promo }}</div>
                                                     </div>
                                                     <div class="row fst-italic">
-                                                        <div class="col price-rank">
+                                                        <div class="col price-rank harga-promo-joki">
                                                             Rp.{{ number_format($promo->price, 0, '.', '.') }}</div>
                                                     </div>
                                                 </div>
@@ -232,10 +232,10 @@
                                         <label class="btn text-start" for="murmer{{ $loop->iteration }}">
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="row fw-semibold">
+                                                    <div class="row fw-semibold joki-murah">
                                                         <div class="col">{{ $murmer->joki_murah }}</div>
                                                     </div>
-                                                    <div class="row fst-italic">
+                                                    <div class="row fst-italic harga-joki-murah">
                                                         <div class="col price-rank">{{ $murmer->price }}</div>
                                                     </div>
                                                 </div>

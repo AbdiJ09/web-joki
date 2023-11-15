@@ -55,10 +55,9 @@ class JokiRankController extends Controller
                 ),
                 'payment_type' => 'gopay',
                 'gopay' => array(
-                    'enable_callback' => true,                // optional
-                    'callback_url' => 'someapps://callback'   // optional
+                    'enable_callback' => false
                 )
-                
+
             );
             $auth = base64_encode(config('midtrans.server_key'));
             $response = Http::withHeaders([
@@ -67,7 +66,6 @@ class JokiRankController extends Controller
 
             ])->post('https://api.sandbox.midtrans.com/v2/charge', $params);
             $response = json_decode($response);
-
             $generateQrCodeAction = collect($response->actions)->firstWhere('name', 'generate-qr-code');
             $deplinkAction = collect($response->actions)->firstWhere('name', 'deeplink-redirect');
 

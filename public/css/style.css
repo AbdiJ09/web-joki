@@ -71,6 +71,9 @@ header.sticky {
     letter-spacing: 2px;
     font-family: "Black Ops One", cursive;
 }
+.nav {
+    display: flex;
+}
 .nav a {
     position: relative;
     color: #ffffffb6;
@@ -90,6 +93,7 @@ header.sticky {
     font-size: 50px;
     z-index: 10001;
     cursor: pointer;
+    display: none;
     animation: slidetop 1s ease forwards;
     animation-delay: 1s;
 }
@@ -1031,4 +1035,209 @@ footer .container .contact .info li a {
     text-align: center;
     color: #aaa;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 1070px) {
+    header {
+        padding: 30px 5%;
+        transition: 0.2s;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+    .logo {
+        font-size: 40px;
+    }
+    .content h1 {
+        font-size: 50px;
+    }
+    .nav {
+        width: 50%;
+        position: absolute;
+        top: 100%;
+        left: -800px;
+        border-radius: 23px;
+        display: flex;
+        background-color: #333;
+        margin: auto;
+        flex-direction: column;
+        transition: 0.5s;
+        text-align: left;
+    }
+    .nav a {
+        display: block;
+        color: #fff;
+        padding: 1rem;
+    }
+
+    .nav a::after {
+        left: 0;
+        bottom: 2px;
+    }
+    .nav a:hover::after {
+        width: 120px;
+    }
+    .nav.open {
+        left: 20px;
+    }
+}
+@media (max-width: 900px) {
+    #home .home-text {
+        margin-top: 10px;
+        font-size: 3.5rem;
+        width: 100%;
+    }
+    #home {
+        padding-left: 10px;
+        padding-top: 9rem;
+    }
+    #home p {
+        font-size: 1.5rem;
+    }
+    .popular {
+        width: 100%;
+    }
+    #home .home-text .store {
+        animation: none;
+    }
+    .services {
+        width: 100%;
+    }
+    .swiper {
+        width: 80%;
+    }
+    .swiper-slide {
+        width: 350px;
+    }
+    .swiper-slide.events {
+        width: 90% !important;
+        margin-top: 5rem;
+        height: auto;
+    }
+    .kolom-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        width: 100%;
+    }
+    .joki-star,
+    .promo-joki,
+    .joki-murah {
+        font-size: 1.2rem;
+    }
+    .price-joki-star,
+    .harga-promo-joki,
+    .harga-joki-murah {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    footer {
+        padding: 40px;
+    }
+
+    footer .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+
+    .copyrightText {
+        padding: 20px 40px 30px;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        background-color: #272626;
+    }
+    #home {
+        padding-left: 10px;
+        padding-top: 9rem;
+    }
+    #home .betrik-home {
+        animation: none; /* Menghilangkan animasi pada layar kecil */
+        margin-top: 20px; /* Menambahkan margin atas pada gambar */
+    }
+    #order {
+        padding-top: 0;
+    }
+    #home .home-text {
+        font-size: 2.7rem;
+    }
+    #home .home-text .store {
+        animation: none;
+    }
+    #home .counter,
+    .counter-fast,
+    .counter-trust {
+        font-size: 2rem;
+    }
+    .btn-submit {
+        transform: translateX(100px);
+    }
+    #home p {
+        font-size: 15px;
+    }
+    #home .btn1 {
+        width: 45%;
+        margin-bottom: 30px;
+        padding: 10px 10px;
+    }
+    .swiper-slide {
+        width: 350px;
+    }
+    .swiper-slide.events {
+        width: 90% !important;
+        margin-top: 5rem;
+        height: auto;
+    }
+    .kolom-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        width: 100%;
+    }
+    .order h1 {
+        margin-top: 10rem;
+    }
+    .swiper {
+        width: 100%;
+    }
+
+    #invoice_detail img {
+        width: 100%;
+    }
+    #invoice_detail h5 {
+        width: 100%;
+    }
+    .invoice-data-account span {
+        width: 25%;
+        margin-left: 0;
+    }
+    .invoice-data-account .data {
+        width: 75%;
+    }
+    .invoice-data-account h6 {
+        font-size: 12px;
+    }
+    .invoice-more-detail span {
+        margin-left: 0;
+        width: 25%;
+    }
+    .invoice-more-detail .data {
+        width: 75%;
+    }
+    .invoice-more-detail h6 {
+        font-size: 12px;
+    }
+    footer .container {
+        width: 100%;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

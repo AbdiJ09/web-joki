@@ -3,7 +3,7 @@
     <section id="home">
         <div class="container">
             <div class="row ">
-                <div class="col-md-5 position-relative">
+                <div class="col-md-12 col-lg-5 position-relative">
                     <h1 class="home-text text-white fw-semibold ">Welcome To, AJ <span style="color: gold"
                             class="fw-bold store">STORE</span></h1>
                     <p class="text-white-50 home-about ">Website yang menyediakan layanan Jasa Joki Mobile
@@ -16,7 +16,7 @@
                         </button></a>
                 </div>
 
-                <div class="col-md-6 mt-4">
+                <div class="col-md-12 col-lg-6 mt-4">
                     <img src="/img/betrik.png" alt="Gambar" class="img-fluid betrik-home">
                 </div>
                 <div class="col-md-1 col-4 kolom-3">

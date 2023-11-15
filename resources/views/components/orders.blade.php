@@ -1,6 +1,5 @@
 <div class="order" id="order">
     <div class="container">
-
         <h1 class="text-center">Service</h1>
         <div class="row">
             @foreach ($services as $service)

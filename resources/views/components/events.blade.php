@@ -5,9 +5,6 @@
                  <img src="/img/nana1.jpg" class="w-100" alt="">
              </div>
          @endfor
-
-
-
      </div>
      <div class="swiper-pagination"></div>
  </div>

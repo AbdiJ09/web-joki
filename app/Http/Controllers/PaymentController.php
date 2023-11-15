@@ -24,8 +24,8 @@ class PaymentController extends Controller
             ),
             'payment_type' => 'gopay',
             'gopay' => array(
-                'enable_callback' => true,                // optional
-                'callback_url' => 'someapps://callback'   // optional
+                'enable_callback' => true,
+                'callback_url' => 'someapps://callback'
             )
         );
 
