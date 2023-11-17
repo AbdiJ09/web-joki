@@ -1,5 +1,4 @@
 const container = document.querySelector(".container");
-// const LoginLink = document.
 const loginLink = document.querySelector(".singin");
 const registerLink = document.querySelector(".singup");
 

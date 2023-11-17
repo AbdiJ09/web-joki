@@ -8,14 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="view-transition" content="same-origin">
     <title>AJ Store</title>
-    <link rel="icon" href="/img/aj.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="icon" href="/img/besar-01.png" type="image/x-icon">
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     <link href="https://cdn.jsdelivr.net/npm/swiper@10.0.0/swiper-bundle.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    {{-- <script type="module" src="/js/viewTransition.js"></script> --}}
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,6 +26,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/build/assets/app-905f6a0c.css">
+    <link href="/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -61,8 +59,9 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="/build/assets/app-d065c3c4.js"></script>
     <script src="/js/script.js"></script>
-    <script>
+    {{-- <script>
         // Fungsi untuk menampilkan SweetAlert
         function showSweetAlert(title, text, icon) {
             Swal.fire({
@@ -71,24 +70,17 @@
                 icon: icon,
             });
         }
-
-        // Ajax request ke server untuk memproses pembayaran
-        // Ajax request ke server untuk memproses pembayaran
         $('#btn-submit').click(function(e) {
             e.preventDefault();
             var id_pesanan = $('#id_pesanan').val();
-
-            // Periksa apakah gambar sudah diunggah
             if ($('#image')[0].files.length === 0) {
                 showSweetAlert('Error', 'Pilih gambar terlebih dahulu', 'error');
-                return; // Jangan kirim permintaan jika gambar belum diunggah
+                return;
             }
-
-            // Lakukan AJAX request ke server di sini
             $.ajax({
                 type: 'POST',
                 url: '/proccess/orderan/transaksi/' + id_pesanan,
-                data: new FormData($('#transaksi')[0]), // Ganti dengan ID formulir Anda
+                data: new FormData($('#transaksi')[0]),
                 processData: false,
                 contentType: false,
                 success: function(response) {
@@ -105,7 +97,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
     <script>
         document.getElementById("show-error-button").addEventListener("click", function() {
 
@@ -136,8 +128,6 @@
             });
 
             $('#continueButton').click(function() {
-                // Perform further purchase actions here
-                // ...
 
                 $('#infoModal').modal('hide');
             });
@@ -146,7 +136,7 @@
 
 
     <script>
-        var swiper = new Swiper(".mySwiper", {
+        const swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,
             centeredSlides: true,

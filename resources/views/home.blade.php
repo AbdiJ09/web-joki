@@ -4,9 +4,9 @@
         <div class="container">
             <div class="row ">
                 <div class="col-md-12 col-lg-5 position-relative">
-                    <h1 class="home-text text-white fw-semibold ">Welcome To, AJ <span style="color: gold"
+                    <h1 class="display-2 text-white fw-semibold ">Welcome To AJ <span style="color: gold"
                             class="fw-bold store">STORE</span></h1>
-                    <p class="text-white-50 home-about ">Website yang menyediakan layanan Jasa Joki Mobile
+                    <p class="text-white-50 lead ">Website yang menyediakan layanan Jasa Joki Mobile
                         Legends,Rank,Classic,Dll.
                     </p>
 

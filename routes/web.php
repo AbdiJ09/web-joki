@@ -54,6 +54,6 @@ Route::get('/checkout', [PaymentController::class, 'checkout']);
 Route::post('/checkout/process', [PaymentController::class, 'processPayment']);
 
 // route detail_invoice
-Route::get('/detail_invoice', function () {
+Route::get('/detail-invoice', function () {
     return view('service.rank.detail_invoice');
-})->name('detail_invoice');
+})->name('detail.invoice');

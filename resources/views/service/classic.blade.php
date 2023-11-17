@@ -295,10 +295,11 @@
                                     <input type="text" class="form-control focus-ring" name="whatsapp" id="whatsapp"
                                         placeholder="+62******">
                                 </div>
-                                <button class="btn order-btn w-100 mt-3" id="btn-order-rank" type="button">Order Now
+                                <button class="btn order-btn w-100 mt-3" id="btn-order-classic" type="button">Order Now
                                     <i class="bi bi-cart"></i></button>
                             </div>
-
+                            <x-VerifikasiPesananClassic />
+                            {{-- 
 
                             <div class="modal fade" id="modalVerifClassic" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable">
@@ -364,10 +365,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <script src="/js/classic.js"></script>
 @endsection

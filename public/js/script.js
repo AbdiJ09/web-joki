@@ -3,7 +3,6 @@ const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
     header.classList.toggle("sticky", window.scrollY > 200);
 });
-// Panggil fungsi untuk menginisialisasi status "sticky" saat halaman dimuat
 
 const open = document.querySelector("#menu-icon");
 const nav = document.querySelector(".nav");
@@ -101,205 +100,9 @@ function warningNotif(message, icon) {
         messageSize: 20,
         titleLineHeight: "30",
         maxWidth: 400,
-        layout: 2, // Atur layout agar judul dan ikon berada di atas pesan
+        layout: 2,
     });
 }
-
-document
-    .getElementById("btn-order-rank")
-    .addEventListener("click", function () {
-        const inputNames = [
-            "email",
-            "password",
-            "NickName",
-            "LoginVia",
-            "Nominal",
-            "order",
-            "whatsapp",
-            "payment",
-            "requestHero",
-            "Note",
-            // "price",
-        ];
-
-        let isValid = true;
-
-        inputNames.forEach((inputName) => {
-            console.log(inputName);
-            const inputElement = document.querySelector(
-                `[name="${inputName}"]`
-            );
-            const inputValue = inputElement.value.trim();
-
-            if (inputElement.type === "select-one") {
-                const selectInput =
-                    inputElement.options[inputElement.selectedIndex];
-                if (selectInput.value === "-") {
-                    warningNotif(
-                        "Data login kosong,silahkan di input",
-                        "fas fa-exclamation-triangle"
-                    );
-                    isValid = false;
-                }
-            }
-            if (inputElement.type === "radio") {
-                const radio = document.querySelectorAll(
-                    `[name="${inputName}"]:checked`
-                );
-
-                if (radio.length === 0) {
-                    warningNotif(
-                        `Nominal ${inputName} kosong, silahkan di input`,
-                        "fas fa-exclamation-triangle"
-                    );
-                    isValid = false;
-                }
-            }
-            if (inputValue === "") {
-                warningNotif(
-                    `Data ${inputName} kosong, silahkan di isi `,
-                    "fas fa-exclamation-triangle"
-                );
-                isValid = false;
-            }
-        });
-        if (isValid) {
-            inputNames.forEach((inputName) => {
-                const inputElement = document.querySelector(
-                    `[name="${inputName}"]`
-                );
-                if (inputElement) {
-                    if (inputElement.type === "select-one") {
-                        const selectedOption =
-                            inputElement.options[inputElement.selectedIndex];
-                        const value = selectedOption.value;
-                        document.getElementById(
-                            `${inputName}-display`
-                        ).textContent = value;
-                    } else if (inputElement.type === "radio") {
-                        const selectedRadio = document.querySelector(
-                            `[name="${inputName}"]:checked`
-                        );
-                        const value = selectedRadio.value;
-                        document.getElementById(
-                            `${inputName}-display`
-                        ).textContent = value;
-                    } else {
-                        const value = inputElement.value;
-                        document.getElementById(
-                            `${inputName}-display`
-                        ).textContent = value;
-                    }
-                }
-                const btnSubmit = document.querySelector(".pesan");
-                btnSubmit.addEventListener("click", function () {
-                    btnSubmit.setAttribute("type", "submit");
-                });
-            });
-
-            const modal = new bootstrap.Modal(
-                document.getElementById("modalVerifClassic")
-            );
-            modal.show();
-        }
-    });
-
-document
-    .getElementById("btn-order-rank")
-    .addEventListener("click", function () {
-        const inputNames = [
-            "email",
-            "password",
-            "NickName",
-            "LoginVia",
-            "Nominal",
-            "order",
-            "whatsapp",
-            "payment",
-            // "price",
-        ];
-
-        let isValid = true;
-
-        inputNames.forEach((inputName) => {
-            console.log(inputName);
-            const inputElement = document.querySelector(
-                `[name="${inputName}"]`
-            );
-            const inputValue = inputElement.value.trim();
-
-            if (inputElement.type === "select-one") {
-                const selectInput =
-                    inputElement.options[inputElement.selectedIndex];
-                if (selectInput.value === "-") {
-                    warningNotif(
-                        "Data login kosong,silahkan di input",
-                        "fas fa-exclamation-triangle"
-                    );
-                    isValid = false;
-                }
-            }
-            if (inputElement.type === "radio") {
-                const radio = document.querySelectorAll(
-                    `[name="${inputName}"]:checked`
-                );
-
-                if (radio.length === 0) {
-                    warningNotif(
-                        `Nominal ${inputName} kosong, silahkan di input`,
-                        "fas fa-exclamation-triangle"
-                    );
-                    isValid = false;
-                }
-            }
-            if (inputValue === "") {
-                warningNotif(
-                    `Data ${inputName} kosong, silahkan di isi `,
-                    "fas fa-exclamation-triangle"
-                );
-                isValid = false;
-            }
-        });
-        if (isValid) {
-            inputNames.forEach((inputName) => {
-                const inputElement = document.querySelector(
-                    `[name="${inputName}"]`
-                );
-                if (inputElement) {
-                    if (inputElement.type === "select-one") {
-                        const selectedOption =
-                            inputElement.options[inputElement.selectedIndex];
-                        const value = selectedOption.value;
-                        document.getElementById(
-                            `${inputName}-display`
-                        ).textContent = value;
-                    } else if (inputElement.type === "radio") {
-                        const selectedRadio = document.querySelector(
-                            `[name="${inputName}"]:checked`
-                        );
-                        const value = selectedRadio.value;
-                        document.getElementById(
-                            `${inputName}-display`
-                        ).textContent = value;
-                    } else {
-                        const value = inputElement.value;
-                        document.getElementById(
-                            `${inputName}-display`
-                        ).textContent = value;
-                    }
-                }
-                const btnSubmit = document.querySelector(".pesan");
-                btnSubmit.addEventListener("click", function () {
-                    btnSubmit.setAttribute("type", "submit");
-                });
-            });
-
-            const modal = new bootstrap.Modal(
-                document.getElementById("modalVerif")
-            );
-            modal.show();
-        }
-    });
 
 const starOrderInput = document.querySelector("#star_order");
 const priceRank = document.querySelector("#price");
@@ -316,7 +119,6 @@ starOrderInput.addEventListener("input", function () {
         const price = document.querySelectorAll(".harga");
         let total = this.value * priceValue;
         priceRank.value = total;
-        console.log(total);
         price.forEach((p) => {
             p.textContent = total.toLocaleString("id-ID", {
                 style: "currency",

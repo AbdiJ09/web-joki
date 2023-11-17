@@ -10,8 +10,6 @@
                         <h1>Lakukan Pembayaran Sebelum:</h1>
                         <h1 class="text-danger fw-bold fs-5" id="paymentExpiry">{{ substr($customer->payment_expiry, 11, 8) }}
                             WIB</h1>
-
-
                     </div>
 
                     <div class="invoice-content mt-3">
@@ -73,11 +71,10 @@
                             <h6>{{ $customer->payment }}</h6>
                         </div>
                     </div>
-                    <div class="invoice-content mt-3 d-flex justify-content-center">
-
-                        <div class="col-md-4">
+                    <div class="invoice-content mt-3 d-flex justify-content-center overflow-hidden">
+                        <div class="col-md-10">
                             @if ($barcodeImage)
-                                <img src="{{ $barcodeImage }}" style="width:400px;height:400px" alt="QR Code">
+                                <img src="{{ $barcodeImage }}" class="w-50" alt="QR Code">
                             @else
                                 <h6>Qr Code not found</h6>
                             @endif
@@ -129,7 +126,8 @@
                                 <img class="img-fluid img-preview" id="img-preview" src="" alt="">
                             </div>
                         </div>
-                        <button class="btn-submit my-4 disabled btn " style="border:1px solid goldenrod" id="btn-submit">
+                        <button type="submit" class="btn-submit my-4 disabled btn " style="border:1px solid goldenrod"
+                            id="btn-submit">
                             <p>Submit</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-whatsapp" viewBox="0 0 16 16">

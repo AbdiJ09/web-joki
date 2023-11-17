@@ -332,66 +332,11 @@
                             <button class="btn order-btn w-100 mt-3" id="btn-order-rank" type="button">Order Now <i
                                     class="bi bi-cart"></i></button>
                         </div>
-
-
-                        <div class="modal fade" id="modalVerif" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable">
-                                <div class="modal-content verifikasi-content">
-                                    <div class="modal-header verifikasi-header">
-                                        <h1 class="modal-title" id="exampleModalLabel">Verifikasi Pesanan</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body fs-5 text-white verifikasi-body">
-                                        <div class="row">
-                                            <div class="col-md-6 verif-order">
-                                                <p><i class="bi bi-envelope-open"></i> Email : <span
-                                                        id="email-display"></span></p>
-                                            </div>
-                                            <div class="col-md-6 verif-order">
-                                                <p><i class="bi bi-lock"></i> Pasword : <span
-                                                        id="password-display"></span>
-                                                </p>
-                                            </div>
-                                            <div class="col-md-6 verif-order">
-                                                <p><i class="bi bi-person-check"></i> Id & Nickname : <span
-                                                        id="NickName-display"></span></p>
-
-                                            </div>
-                                            <div class="col-md-6 verif-order">
-                                                <p><i class="bi bi-box-arrow-in-right"></i> Login Via : <span
-                                                        id="LoginVia-display"></span></p>
-                                            </div>
-                                            <div class="col-md-6 verif-order">
-                                                <p><i class="bi bi-controller"></i> Jasa Joki Yang Dipilih : <span
-                                                        id="Nominal-display"></span></p>
-                                            </div>
-                                            <div class="col-md-6 verif-order">
-                                                <p><i class="bi bi-cart-plus"></i> Jumlah order : <span
-                                                        id="order-display"></span></p>
-                                            </div>
-                                            <div class="col-md-6 verif-order">
-                                                <p><i class="bi bi-whatsapp"></i> Nomor Whatsapp : <span
-                                                        id="whatsapp-display"></span></p>
-                                            </div>
-                                            <div class="col-md-6 verif-order">
-                                                <p><i class="bi bi-cash-stack"></i> Metode Pembayaran : <span
-                                                        id="payment-display"></span></p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer verifikasi-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn pesan">Pesan Sekarang</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <x-VerifikasiPesanan />
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <script src="/js/rank.js"></script>
 @endsection

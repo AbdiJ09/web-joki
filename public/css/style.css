@@ -55,21 +55,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 32px 10%;
+    padding: 0px 10%;
     transition: all ease 0.5s;
 }
 header.sticky {
-    padding: 15px 15%;
+    padding: 0px 12%;
     transition: all ease-in-out 0.4s;
     background: #333;
-}
-.logo {
-    font-size: 2.5rem;
-    font-weight: 900;
-    text-decoration: none;
-    color: gold;
-    letter-spacing: 2px;
-    font-family: "Black Ops One", cursive;
 }
 .nav {
     display: flex;
@@ -150,11 +142,8 @@ header.sticky {
     max-width: 100%;
     padding-bottom: 5rem;
 }
-#home .home-text {
-    font-size: 4rem;
-    position: relative;
-}
-#home .home-text .store {
+
+#home .store {
     animation: animate 5s linear infinite;
 }
 #home .betrik-home {
@@ -705,72 +694,36 @@ header.sticky {
     background-color: #333;
 }
 .verifikasi-content {
-    background-color: #333;
-    color: #fff;
+    background-color: transparent;
 }
-.verifikasi-header {
-    background-image: url("/img/lesti2.jpg");
-    background-position: center top;
-
-    background-size: cover;
-    border: 0;
+.verifikasi-title {
+    background-color: #dd962a;
+    border-radius: 0 15px 0 15px;
+    margin: 20px 20px;
+    height: auto;
+    padding: 1px;
 }
-.verifikasi-header h1 {
-    text-transform: uppercase;
-    text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    /* filter: blur(2px); */
-    padding: 0 10px;
-    border-radius: 10px;
-    font-weight: 800;
-    font-size: 1.35rem;
-    color: #fff;
-    /* -webkit-text-stroke: 2px yellow; */
+.verifikasi-akun {
+    position: absolute;
+    width: 75%;
 }
-.verifikasi-footer {
-    /* background-image: url("/img/lesti.jpg");
-    background-position: center bottom; */
-    background-color: #333;
-    border: 0;
-    background-size: cover;
+.display {
+    width: 250px;
+}
+#modalVerif {
+    overflow: hidden;
 }
 
-.verifikasi-body {
-    /* From https://css.glass */
-    /* background: rgba(0, 0, 0, 0.39); */
-    background-position: center;
-    background-size: cover;
-    background-image: url("/img/blur.jpg");
-    /* border-radius: 16px; */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    /* border-left: 2px solid #fff;
-    border-right: 2px solid #fff; */
-    /* backdrop-filter: blur(0px); */
-    /* backdrop-filter: blur(0px); */
-}
-
-.verifikasi-body i {
-    color: gold;
-    font-size: 1.8rem;
-}
-.verifikasi-body p {
-    background-color: #000000b0;
-    box-shadow: 0 5px 10px rgba(231, 228, 228, 0.2);
-    border-radius: 20px;
-    padding: 10px 10px;
-}
 .pesan {
     padding: 10px 15px;
     border: unset;
     border-radius: 15px;
-    color: #000;
+    color: #fff;
     z-index: 1;
-    /* background: #fff; */
+    background: #dd962a;
     position: relative;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 17px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
     overflow: hidden;
 }
@@ -1039,7 +992,7 @@ footer .container .contact .info li a {
 
 @media (max-width: 1070px) {
     header {
-        padding: 30px 5%;
+        padding: 0px 5%;
         transition: 0.2s;
     }
 
@@ -1195,6 +1148,21 @@ footer .container .contact .info li a {
         margin-top: 5rem;
         height: auto;
     }
+    #modalVerif {
+        overflow: auto;
+    }
+    .display {
+        width: 100%;
+    }
+    .verifikasi-akun {
+        position: static;
+        width: 100%;
+        z-index: 1000;
+        margin-top: -15rem;
+    }
+    .verifikasi-title {
+        margin-top: -1rem;
+    }
     .kolom-3 {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1207,7 +1175,22 @@ footer .container .contact .info li a {
     .swiper {
         width: 100%;
     }
-
+    .joki-star,
+    .promo-joki,
+    .joki-murah {
+        font-size: 0.8rem;
+    }
+    .price-joki-star,
+    .harga-promo-joki,
+    .harga-joki-murah {
+        font-size: 0.8rem;
+    }
+    .header-invoice h1 {
+        font-size: 1.2rem;
+    }
+    .invoice-content h6 {
+        font-size: 1rem;
+    }
     #invoice_detail img {
         width: 100%;
     }

@@ -21,18 +21,12 @@ class JokiRankController extends Controller
     {
         self::TIMEZONE;
         $id_pesanan = $request->id_pesanan;
-
-        // Periksa apakah id_pesanan sudah ada dalam database
         $existingOrder = JokiRank::where('invoice_code', $id_pesanan)->first();
 
         if ($existingOrder) {
-            // id_pesanan sudah ada, lakukan tindakan yang sesuai, misalnya tampilkan pesan kesalahan
             return redirect('order/joki-rank')->with("warning", "Pesanan telah dibuat");
         }
-        $payment_expiry = Carbon::now(SELF::TIMEZONE)->addMinutes(30); // Set waktu dengan zona waktu WIB
-
-
-
+        $payment_expiry = Carbon::now(SELF::TIMEZONE)->addMinutes(30);
         if ($request->payment === "GOPAY") {
             $payment = new JokiRank;
             $payment->invoice_code = $request->id_pesanan;
@@ -48,9 +42,10 @@ class JokiRankController extends Controller
             $payment->status = "pending";
             $payment->payment_expiry = $payment_expiry->toDateTimeString();
             $payment->save();
+
             $params = array(
                 'transaction_details' => array(
-                    'order_id' => $payment->id,
+                    'order_id' => $payment->invoice_code,
                     'gross_amount' => $request->price,
                 ),
                 'payment_type' => 'gopay',
@@ -68,19 +63,19 @@ class JokiRankController extends Controller
             $response = json_decode($response);
             $generateQrCodeAction = collect($response->actions)->firstWhere('name', 'generate-qr-code');
             $deplinkAction = collect($response->actions)->firstWhere('name', 'deeplink-redirect');
-
             $qrCodeUrl = $generateQrCodeAction ? $generateQrCodeAction->url : "default_qr_code_url";
             $deepLinkUrl = $deplinkAction ? $deplinkAction->url : "default_deep_link_url";
 
-            return redirect()->route('process.orderan', ["id_pesanan" => $request->id_pesanan, "qrCode" => $qrCodeUrl, "deepLink" => $deepLinkUrl]);
+            return redirect()->route('process.orderan', ["id_pesanan" => $request->id_pesanan])->with([
+                'qrCode' => $qrCodeUrl,
+                'deepLink' => $deepLinkUrl
+            ]);
         }
     }
     public function processOrderan($id_pesanan, Request $request)
     {
-
-        $callbackUrl = $request->qrCode;
-        $deepLinkUrol = $request->deepLink;
-
+        $qrCode = session('qrCode');
+        $deepLinkUrl = session('deepLink');
         $customer = JokiRank::where('invoice_code', $id_pesanan)->first();
         $paymentExpiry = Carbon::parse($customer->payment_expiry, self::TIMEZONE);
         $currentTime = Carbon::now('Asia/Jakarta');
@@ -93,8 +88,8 @@ class JokiRankController extends Controller
 
         return view('components.proccesOrder', [
             "customer" => $customer,
-            "barcodeImage" => $callbackUrl,
-            "deepLink" => $deepLinkUrol
+            "barcodeImage" => $qrCode,
+            "deepLink" => $deepLinkUrl
         ]);
     }
 
@@ -105,19 +100,15 @@ class JokiRankController extends Controller
             'image' => 'image'
         ]);
 
-        // Cari pesanan berdasarkan ID
         $pesanan = JokiRank::where('invoice_code', $id_pesanan)->firstOrFail();
 
         if ($request->file('image')->isValid()) {
-            // Simpan path gambar jika ada
             $imagePath = $request->file('image')->store('bukti-pesanan');
             $transaksi['image'] = $imagePath;
-
-            // Simpan path gambar ke dalam kolom yang sesuai di tabel JokiRank
             $pesanan->image = $imagePath;
             $pesanan->status = 'paid';
             $pesanan->update($transaksi);
-            return response()->json(['success' => true, 'message' => 'Pembayaran berhasil']);
+            return view('service.rank.detail_invoice', compact('pesanan'))->with('success', 'Pembayaran Berhasil');
         }
         return response()->json(['success' => false, 'message' => 'Pembayaran gagal']);
     }

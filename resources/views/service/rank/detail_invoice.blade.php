@@ -13,7 +13,7 @@
                         <h6>
                             <span style="display: inline-block; width: 100px; text-align: left;"
                                 class="text-warning">Email</span>
-                            : example@gmail.com
+                            : {{ $pesanan->email }}
                         </h6>
 
                     </div>
@@ -21,7 +21,7 @@
                         <h6>
                             <span
                                 style="display: inline-block; width: 100px; text-align: left;"class="text-warning">Password</span>
-                            : example123
+                            : **Protected**
                         </h6>
 
                     </div>
@@ -29,7 +29,7 @@
                         <h6>
                             <span
                                 style="display: inline-block; width: 100px; text-align: left;"class="text-warning">NickName</span>
-                            : example
+                            : {{ $pesanan->id_and_nick }}
                         </h6>
 
                     </div>
@@ -37,7 +37,7 @@
                         <h6>
                             <span style="display: inline-block; width: 100px; text-align: left;"class="text-warning">Login
                                 via</span>
-                            : Montton
+                            : {{ $pesanan->login_via }}
                         </h6>
 
                     </div>
@@ -51,7 +51,7 @@
                         <h6>
                             <span style="display: inline-block; width: 100px; text-align: left;"
                                 class="text-warning">Pesanan</span>
-                            : Master/Star
+                            : {{ $pesanan->select_joki }}
                         </h6>
 
                     </div>
@@ -59,7 +59,7 @@
                         <h6>
                             <span style="display: inline-block; width: 100px; text-align: left;" class="text-warning">Qty
                                 Order</span>
-                            : 10
+                            : {{ $pesanan->star_order }}
                         </h6>
 
                     </div>
@@ -68,7 +68,7 @@
                             <span style="display: inline-block; width: 100px; text-align: left;"
                                 class="text-warning">payment
                                 method</span>
-                            : Gopay
+                            : {{ $pesanan->payment }}
                         </h6>
 
                     </div>
@@ -76,7 +76,7 @@
                         <h6>
                             <span style="display: inline-block; width: 100px; text-align: left;"
                                 class="text-warning">Whatsapp</span>
-                            : 0897373773
+                            : {{ $pesanan->whatsapp }}
                         </h6>
 
                     </div>
@@ -84,7 +84,7 @@
                         <h6>
                             <span style="display: inline-block; width: 100px; text-align: left;"
                                 class="text-warning">Status</span>
-                            : Success
+                            : {{ $pesanan->status }}
                         </h6>
 
                     </div>

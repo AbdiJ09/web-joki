@@ -9,6 +9,7 @@
     <title>
         Dashboard
     </title>
+    <link rel="icon" href="/img/ajcolor-01.png" type="image/x-icon">
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->

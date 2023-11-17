@@ -1,5 +1,5 @@
  <header class="{{ Request::is('/') ? '' : 'bg' }}">
-     <a href="#" class="logo">AJ</a>
+     <a href="#"><img src="{{ asset('img/ajcolor-01.png') }}" class="logo" alt=""></a>
      <div class="bx bx-menu" id="menu-icon"></div>
      <ul class="nav">
          <li>
